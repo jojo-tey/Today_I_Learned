@@ -2,10 +2,7 @@
 
 > Storage for knowledge that I learn daily and Technical interview preparation  
 
-<div align=center>
-<img src="https://github.com/jojo-tey/Today_I_Learned/images/main.jpg" />
-</div>
-
+![Image](/images/main.jpg) 
 
 ---
 
