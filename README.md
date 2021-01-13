@@ -13,7 +13,7 @@
 
 
 - [Part 1. CS](#part-1-basic)
-  - [Basic](https://github.com/jojo-tey/Today_I_Learned/P1_CS/basic)
+  - [Basic](https://github.com/jojo-tey/Today_I_Learned/tree/master/P1_CS/basic)
   - [Data_Structure](https://github.com/jojo-tey/Today_I_Learned/P1_CS/data_structure)
   - [Network](https://github.com/jojo-tey/Today_I_Learned/P1_CS/network)
   - [OS](https://github.com/jojo-tey/Today_I_Learned/P1_CS//OS)
