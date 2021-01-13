@@ -13,23 +13,23 @@
 
 
 - [Part 1. CS](#part-1-basic)
-  - [Basic](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README..md)
-  - [Data_Structure](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README..md)
-  - [Network](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README..md)
-  - [OS](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README..md)
-  - [Database](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README..md)
-  - [Design_Pattern](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README..md)
-  - [Algorithm](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README..md)
+  - [Basic](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
+  - [Data_Structure](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
+  - [Network](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
+  - [OS](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
+  - [Database](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
+  - [Design_Pattern](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
+  - [Algorithm](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 - [Part 2. Language](#part-2-language)
-  - [JavaScript](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README..md)
-  - [Python](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README..md)
+  - [JavaScript](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
+  - [Python](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
  - [Part 3. Work-field](#part-3-workfield)
-   - [FrontEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README..md)
-   - [BackEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README..md)
-   - [DevOps](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README..md)
+   - [FrontEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
+   - [BackEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
+   - [DevOps](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
 
 - [Part 4. 1min-remind - Complex Technical Knowledge ](#1min-remind)
-  - [Quick question](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README..md)
+  - [Quick question](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README.md)
 
 
 
@@ -47,12 +47,12 @@
 
 # Part 1. Computer Science
 
-## :bulb: Basic [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/basic)
+## :bulb: Basic [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
 
 
 </br>
 
-## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/datastructure)
+## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/datastructure/README.md)
 
 </br>
 
