@@ -52,31 +52,31 @@
 
 </br>
 
-## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/datastructure/README.md)
+## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
 
 </br>
 
-## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/network)
-
-
-</br>
-
-## :bulb: OS [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/OS)
-
+## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
 
 
 </br>
 
-## :bulb: Database [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/database)
+## :bulb: OS [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
+
+
 
 </br>
 
-## :bulb: Design Pattern [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/designpattern)
+## :bulb: Database [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
+
+</br>
+
+## :bulb: Design Pattern [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
 
 
 </br>
 
-## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/P1_CS/algorithm)
+## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
 
 </br>
@@ -90,7 +90,7 @@
 # Part 2. Language
 
 
-## :gem: JavaScript [Link](https://github.com/jojo-tey/Today_I_Learned/P2_Language/javascript)
+## :gem: JavaScript [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
 
 
 #### Additional
@@ -99,7 +99,7 @@
   - JavaScript interview Questions
     </br>
 
-## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/P2_Language/python)
+## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
 
 
 #### Additional
@@ -113,9 +113,9 @@
 
 # Part 3. Workfield
 
-## :fire: Frontend [Link](https://github.com/jojo-tey/Today_I_Learned/P3_Workfield/frontend)
-## :fire: Backend [Link](https://github.com/jojo-tey/Today_I_Learned/P3_Workfield/backend)
-## :fire: DevOps [Link](https://github.com/jojo-tey/Today_I_Learned/P3_Workfield/devops)
+## :fire: Frontend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
+## :fire: Backend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
+## :fire: DevOps [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
 
 </br>
 
@@ -123,4 +123,4 @@
 
 # Part 4. 1min-Remind
 
-## :star2: Quick question [Link](https://github.com/jojo-tey/Today_I_Learned/P4_1min_remind/)
+## :star2: Quick question [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README.md)
