@@ -49,6 +49,10 @@
 
 ## :bulb: Basic [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
 
+- What is good code?
+- Object Oriented Programming
+
+
 
 </br>
 
