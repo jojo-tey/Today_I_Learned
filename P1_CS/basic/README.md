@@ -28,12 +28,16 @@ If code is written in OOP, the reusability of already written code is high. If f
 
 1. Single Responsibility Principle (SRP): Single Responsibility Principle
     - A class should have only one responsibility, and there should be only one reason for changing a class.
+    
 2. Open-Closed Principle (OCP): Open-closed principle
     - It must be open for extensions and closed for changes.
+    
 3. Liskov Substitution Principle (LSP): Liskov Substitution Principle
     - Even if an object of a higher type is substituted with an object of a lower type, the program using the higher type should operate normally.
+    
 4. ISP (Interface Segregation Principle): Interface segregation principle
     - Interfaces should be separated based on the client using the interface.
+    
 5. Dependency Inversion Principle (DIP): Dependency Inversion Principle
     - High-level modules should not depend on the implementation of low-level modules.
 </br>
