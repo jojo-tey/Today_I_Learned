@@ -2,6 +2,8 @@
 
 * [What is good code](#What-is-good-code)
 * [Object Oriented Programming](#Object-Oriented-Programming)
+* [RESTful API](#RESTful-API)
+* [Functional programming](#Functional-programming)
 
 
 </br>
@@ -41,3 +43,95 @@ If code is written in OOP, the reusability of already written code is high. If f
 5. Dependency Inversion Principle (DIP): Dependency Inversion Principle
     - High-level modules should not depend on the implementation of low-level modules.
 </br>
+
+
+## RESTful API
+
+REST stands for REpresentational State Transfer. Here, it is used as an API that wraps the adjective type ending of ~ful. In other words, service design that faithfully adheres to the basic principles of REST can be expressed as'RESTful'.
+
+</br>
+
+REST is a design pattern, architecture There are many stories, but it can be seen as one architecture. More precisely, REST is a Resource Oriented Architecture. It is designed to process resources through HTTP Method, where resources are used at the center of API design.
+
+</br>
+
+### REST 6 principles
+- Uniformed interface
+- Stateless
+- Caching
+- Client server
+- Hierarchical system
+- Code on demand
+
+</br>
+
+### What does it mean to design an API in a RESTful way?
+</br>
+
+1. Explicit and intuitive separation of resources and actions.
+- Resources are expressed as URIs, and what the resource points to must be expressed as a noun.
+- Actions are expressed in HTTP Method, and GET (retrieve), POST (create), PUT (complete modification of existing entity), PATCH (partial modification of existing entity), and DELETE (delete) are used for clear purposes.
+
+2. Message uses header and body clearly separated.
+- The contents of the entity are contained in the body.
+- The API version information, which is the control information that is the basis for the application server to act, and the MIME type to receive a response, are included in the header.
+- Header and body can be divided into http header and http body, or can be divided into json structure that enters the http body.
+3. Manage the API version.
+- Note that the API's signature may change because the environment is always changing.
+- When changing a specific API, you must ensure backward compatibility.
+4. Let the server and the client make requests using the same method.
+- The browser sends form-data type submit and the server sends it as json rather than separate expressions.
+- In other words, the URI must be platform neutral.
+
+</br>
+
+### What are the advantages?
+- Easy to provide Open API
+- Multiplatform support and easy linkage.
+- You can send and receive data in any type.
+- Existing web infrastructure (HTTP) can be used as it is.
+
+</br>
+
+### What are the disadvantages?
+- There are only 4 methods available.
+- Not suitable for distributed environment.
+- It supports only HTTP communication model.
+
+</br>
+
+## Functional programming
+
+### immutable vs mutable
+</br>
+First of all, you need to understand the difference between immutable and mutable. An immutable object means an object that cannot change the value of the object. When the value changes, a new object must be created and the changed value injected and returned. Unlike this, mutable objects change their values when the corresponding object values change.
+
+</br>
+
+### First-citizen
+</br>
+
+In a language that follows the functional programming paradigm, a function is considered a first class citizen. The first class object is as follows.
+
+Functions can be contained in variables or data structures, so they can be passed as parameters of functions and can be used as return values of functions.
+Unique identification is possible regardless of the name used for the assignment.
+Functions can be defined directly as literals.
+
+</br>
+
+### Reactive Programming
+
+Reactive programming, also called declarative programming, is the opposite of imperative programming. It also refers to using the functional programming paradigm. Reactive programming basically sees everything as a stream. A stream can be viewed as a set of values, and data can be managed immutable through the provided functional method.
+
+</br>
+
+### Why Functional Programming (again)?
+
+Perhaps this is because functional programming has an advantage in dealing with ‘concurrency’ as multi-core became the basis. If multi-threaded programming was a problem that should be avoided as possible until only a few years ago, it has become a basis that must be considered now. However, many common developers still find it difficult. I am less ready. But on the one hand, isn't it because the language we use makes the problem more complicated?
+In object-oriented programming based on side effect, it is not easy to effectively cope with multithreading, but functional programming that mainly deals with immutable values ​​inherently makes concurrency processing easier.
+However, I think this part can actually be thought of as another subject called 'Concurrency Oriended Programming'. This is because the method of solving concurrency in the Go language cannot be regarded as a functional programming method, and it has a different shape from OO or FP.
+</br>
+
+So, why is functional programming attracting attention again now? Personally, I think it may be because of the expressive power of functional programming'language'. Although functional programming is possible in Python or Java, it is not recommended to do this because there is little gain in expressive power due to language limitations.
+In addition to this, if we approach the homogeneity problem mentioned above, it can be seen that functional languages ​​support the concurrency problem better because it effectively abstracts and provides a library or idiom to support concurrency programming.
+In addition to this, the essential advantages of functional programming are that it is easier to maintain and understand the code compared to the code that relies on side-effects.
