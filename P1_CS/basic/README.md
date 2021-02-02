@@ -1,14 +1,17 @@
 # CS Basic
 
-* [What is good code](#What-is-good-code)
+[TOC]
+
+* [What is good code?](#What-is-good-code)
 * [Object Oriented Programming](#Object-Oriented-Programming)
 * [RESTful API](#RESTful-API)
 * [Functional programming](#Functional-programming)
+* [What is MVC pattern?](#What-is-MVC-pattern?)
 
 
 </br>
 
-## What is good code
+## What is good code?
 
 If you google it, there is many definition about good code. Here is what people mostly emphasized about "What is good code?"
 
@@ -135,3 +138,59 @@ However, I think this part can actually be thought of as another subject called 
 So, why is functional programming attracting attention again now? Personally, I think it may be because of the expressive power of functional programming'language'. Although functional programming is possible in Python or Java, it is not recommended to do this because there is little gain in expressive power due to language limitations.
 In addition to this, if we approach the homogeneity problem mentioned above, it can be seen that functional languages ​​support the concurrency problem better because it effectively abstracts and provides a library or idiom to support concurrency programming.
 In addition to this, the essential advantages of functional programming are that it is easier to maintain and understand the code compared to the code that relies on side-effects.
+
+</br>
+
+
+## What is MVC pattern?
+
+</br>
+
+### Role of each component of MVC <Who, When, What>
+
+
+
+- Model
+
+When called by the controller, it plays the role of the request. It is an area that implements business logic and is a part that processes data in an application program. Business logic can be said to be a part of an application program that processes data necessary for work. It connects to the DB and extracts, saves, deletes, updates, and converts data. When there is a state change, it notifies the controller and the view so that they can receive follow-up orders.
+
+
+
+- Controller (View in Django)
+
+It can be called a mediator. When a client's request is received, the model component that actually performs the task is called for that request. Also, if there is data sent by the client, it processes the data to make it easier to pass to the model. When the model is done, it passes the result to the view.
+
+
+
+
+
+
+- View (Template in Django)
+
+It takes the result of the model received from the controller and creates a screen to be displayed to the user. The created screen is sent to the web browser and the web browser displays it. It is an area that displays extracted data or general text data as a part displayed on the screen, or displays an input form or an interface for interaction with a user.
+
+</br>
+
+### How does MVC work?
+
+</br>
+
+When a request is made in C/S (Client-Server) structure, it is based on a structure that responds accordingly.
+
+1. The web browser requests the web server to run the web application. (You can think of the MVC structure as WAS.)
+
+2. The web server finds a servlet that can handle the incoming request and delivers the request. (Matching)
+
+3. The servlet calls the method of the model Java object.
+
+4. Create a value object by processing data, or create a value object through interaction with a database using JDBC.
+
+5. Return the result value of completing the task to the controller
+
+6. The controller delivers the result value received from the model to the View.
+
+7. JSP creates a result screen to be displayed by referring to the received value and delivers it to the controller.
+
+8. The screen received from the view is delivered to the web server.
+
+9. When the web browser receives the request result value from the web server, it displays the value on the screen.
