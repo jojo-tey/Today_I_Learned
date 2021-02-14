@@ -1,37 +1,100 @@
 # Today_I_Learned
 
-> Storage for knowledge that I learn daily and Technical interview preparation  
+> Storage for knowledge that I learn daily and Technical interview preparation
 
-![Image](/images/main.jpg) 
+![Image](/images/main.jpg)
 
 ---
 
 # Learning is never ending process :sparkles:
 
-
 ## :memo: Table of Contents
-
 
 - [Part 1. CS](#part-1-basic)
   - [Basic](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
+    - [What is good code?](#What-is-good-code)
+    - [Object Oriented Programming](#Object-Oriented-Programming)
+    - [RESTful API](#RESTful-API)
+    - [Functional programming](#Functional-programming)
+    - [What is MVC pattern?](#What-is-MVC-pattern?)
   - [Data_Structure](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
+    - [Array vs Linked List](#Array-vs-Linked-List)
+    - [Stack and Queue](#Stack-and-Queue)
+    - [Tree](#Tree)
+    - Binary Tree
+    - Perfect Binary Tree
+    - Complete Binary Tree
+    - Full Binary Tree
+    - BST(Binary Search Tree)
+    - [Binary Heap](#Binary-Heap)
+    - [Red Black Tree](#Red-Black-Tree)
+    - Definition of Red-Black Tree
+    - Characteristics of Red-Black Tree
+    - Insertion
+    - Delete
+    - [Hash Table](#hash-table)
+    - Hash Function
+    - Resolve Collision
+      - Open Addressing
+      - Separate Chaining
+    - Resize
+    - [Graph](#graph)
+    - Graph terms
+    - Graph implement
+    - Graph search
+    - Minimum Spanning Tree
+      - Kruskal algorithm
+      - Prim algorithm
   - [Network](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
   - [OS](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
   - [Database](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
+  - [Database](#Database)
+    - Why do we need to use a database?
+    - Performance of Database
+    - [Index](#index)
+    - What is Index
+    - Data structure of Index
+    - Primary index vs Secondary index
+    - Composite index
+    - What to consider for Index
+    - [About normalization](#About-normalization)
+    - In what context did normalization come about?
+    - So what is normalization?
+    - What kind of renewal anomalies are there?
+    - Advantages and disadvantages of normalization
+    - [Transaction](#transaction)
+    - What is a transaction?
+    - Transaction and Lock
+    - Transaction characteristics
+    - Points to note when using transactions
+    - [Deadlock](#Deadlock)
+    - What is deadlock?
+    - Example of deadlock(MySQL)
+    - How to reduce the frequency of deadlocks
+    - [Statement vs PreparedStatement](#statement-vs-preparedstatement)
+    - [NoSQL](#nosql)
+    - Definition
+    - CAP theory
+      - consistency
+      - Availability
+      - Network segmentation tolerance
+    - Classification by storage method
+      - Key-Value Model
+      - Document Model
+      - Column Model
   - [Design_Pattern](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
   - [Algorithm](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 - [Part 2. Language](#part-2-language)
   - [JavaScript](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
   - [Python](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
- - [Part 3. Work-field](#part-3-workfield)
-   - [FrontEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
-   - [BackEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
-   - [DevOps](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
+- [Part 3. Work-field](#part-3-workfield)
+
+  - [FrontEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
+  - [BackEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
+  - [DevOps](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
 
 - [Part 4. 1min-remind - Complex Technical Knowledge ](#1min-remind)
   - [Quick question](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README.md)
-
-
 
 </br>
 
@@ -52,8 +115,6 @@
 - What is good code?
 - Object Oriented Programming
 
-
-
 </br>
 
 ## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
@@ -62,12 +123,9 @@
 
 ## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
 
-
 </br>
 
 ## :bulb: OS [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
-
-
 
 </br>
 
@@ -77,11 +135,9 @@
 
 ## :bulb: Design Pattern [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
 
-
 </br>
 
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
-
 
 </br>
 
@@ -93,9 +149,7 @@
 
 # Part 2. Language
 
-
 ## :gem: JavaScript [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
-
 
 #### Additional
 
@@ -104,7 +158,6 @@
     </br>
 
 ## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
-
 
 #### Additional
 
@@ -118,7 +171,9 @@
 # Part 3. Workfield
 
 ## :fire: Frontend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
+
 ## :fire: Backend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
+
 ## :fire: DevOps [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
 
 </br>
