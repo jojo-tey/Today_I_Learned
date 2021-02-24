@@ -8,146 +8,192 @@
 
 # Learning is never ending process :sparkles:
 
-## :memo: Table of Contents
+## What is this repo?
 
-- [Part 1. CS](#part-1-basic)
-  - [Basic](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
-    - [What is good code?](#What-is-good-code)
-    - [Object Oriented Programming](#Object-Oriented-Programming)
-    - [RESTful API](#RESTful-API)
-    - [Functional programming](#Functional-programming)
-    - [What is MVC pattern?](#What-is-MVC-pattern?)
-  - [Data_Structure](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
-    - [Array vs Linked List](#Array-vs-Linked-List)
-    - [Stack and Queue](#Stack-and-Queue)
-    - [Tree](#Tree)
-    - Binary Tree
-    - Perfect Binary Tree
-    - Complete Binary Tree
-    - Full Binary Tree
-    - BST(Binary Search Tree)
-    - [Binary Heap](#Binary-Heap)
-    - [Red Black Tree](#Red-Black-Tree)
-    - Definition of Red-Black Tree
-    - Characteristics of Red-Black Tree
-    - Insertion
-    - Delete
-    - [Hash Table](#hash-table)
-    - Hash Function
-    - Resolve Collision
-      - Open Addressing
-      - Separate Chaining
-    - Resize
-    - [Graph](#graph)
-    - Graph terms
-    - Graph implement
-    - Graph search
-    - Minimum Spanning Tree
-      - Kruskal algorithm
-      - Prim algorithm
-  - [Network](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
-  - [OS](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
-  - [Database](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
-  - [Database](#Database)
-    - Why do we need to use a database?
-    - Performance of Database
-    - [Index](#index)
-    - What is Index
-    - Data structure of Index
-    - Primary index vs Secondary index
-    - Composite index
-    - What to consider for Index
-    - [About normalization](#About-normalization)
-    - In what context did normalization come about?
-    - So what is normalization?
-    - What kind of renewal anomalies are there?
-    - Advantages and disadvantages of normalization
-    - [Transaction](#transaction)
-    - What is a transaction?
-    - Transaction and Lock
-    - Transaction characteristics
-    - Points to note when using transactions
-    - [Deadlock](#Deadlock)
-    - What is deadlock?
-    - Example of deadlock(MySQL)
-    - How to reduce the frequency of deadlocks
-    - [Statement vs PreparedStatement](#statement-vs-preparedstatement)
-    - [NoSQL](#nosql)
-    - Definition
-    - CAP theory
-      - consistency
-      - Availability
-      - Network segmentation tolerance
-    - Classification by storage method
-      - Key-Value Model
-      - Document Model
-      - Column Model
-  - [Design_Pattern](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
-  - [Algorithm](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
-- [Part 2. Language](#part-2-language)
-  - [JavaScript](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
-  - [Python](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
-- [Part 3. Work-field](#part-3-workfield)
+> This is a daily learning repository for prospective developers or developers to prepare for technical interviews. It didn't cover all the fields of development. I would appreciate it if you just refer to it as a guideline. Also, since I personally prepared the interview while preparing for the interview, there may be errors. We would be very grateful if you participate in these areas as Pull Request or Issue. It is also possible to add good reference material related to the topic. Please post any questions you may have while studying in the Repository!
 
-  - [FrontEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
-  - [BackEnd](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
-  - [DevOps](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
-
-- [Part 4. 1min-remind - Complex Technical Knowledge ](#1min-remind)
-  - [Quick question](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README.md)
-
-</br>
-
-</br>
-
-> We can do it :thumbsup:
-
-</br>
-
-</br>
+## :pray: [How to contribute](https://github.com/jojo-tey/Today_I_Learned/blob/main/Contribute.md)
 
 ---
 
-# Part 1. Computer Science
+## :memo: Table of Contents
+
+- [Part 0. Interview Questions](#Interview_Questions)
+- [Part 1. CS](#CS)
+- [Part 2. Languages](#Languages)
+- [Part 3. Workfield](#Workfield)
+
+# Part 0. Interview Questions
+
+## :star2: Interview Questions [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Interview_Questions/README.md)
+
+> You can share the questions you actually received during the interview.
+> "Do you have any question about us?" This is a question you must have heard at least once after the interview. What questions should I ask at this time? Here's a list of Reverse Interviews with relevant questions.
+
+- Frontend
+- Backend
+- ETC
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+
+# Part 1. CS
 
 ## :bulb: Basic [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/basic/README.md)
 
 - What is good code?
 - Object Oriented Programming
+- RESTful API
+- Functional programming
+- What is MVC pattern?
 
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
 
+- Array vs Linked List
+- Stack and Queue
+- Tree
+  - Binary Tree
+  - Perfect Binary Tree
+  - Complete Binary Tree
+  - Full Binary Tree
+  - BST(Binary Search Tree)
+- Binary Heap
+- Red Black Tree
+  - Definition of Red-Black Tree
+  - Characteristics of Red-Black Tree
+- Insertion
+- Delete
+- Hash Table
+- Hash Function
+- Resolve Collision
+  - Open Addressing
+  - Separate Chaining
+- Resize
+- Graph
+  - Graph terms
+  - Graph implement
+  - Graph search
+- Minimum Spanning Tree
+  - Kruskal algorithm
+  - Prim algorithm
+
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
 
+- Comparison of HTTP's GET and POST
+- TCP 3-way-handshake
+- Comparison of TCP and UDP
+- HTTP and HTTPS
+  - Problems with HTTP
+- DNS Round Robin
+- Flow of web communication
+
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :bulb: OS [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
 
+- Difference between process and thread
+- Multi-thread
+  - strength and weakness
+  - Multi-thread vs Multi-process
+- Scheduler
+  - Long-term scheduler
+  - Short-term scheduler
+  - Mid-term scheduler
+- CPU scheduler
+  - FCFS
+  - SJF
+  - SRTF
+  - Priority scheduling
+  - RR
+- Difference between synchronous and asynchronous
+- Process Synchronization
+  - Critical Section
+  - solution
+    - Lock
+    - Semaphores
+    - monitor
+- Memory management strategy
+  - Memory management background
+  - Paging
+  - Segmentation
+- Virtual Memory
+  - background
+  - What virtual memory does
+  - Demand Paging
+  - Page replacement algorithm
+- Locality of cache
+  - Locality
+  - Caching line
+
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :bulb: Database [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
 
+- Database
+  - Why do we need to use a database?
+  - Performance of Database
+- Index
+  - What is Index
+  - Data structure of Index
+  - Primary index vs Secondary index
+  - Composite index
+  - What to consider for Index
+- About normalization
+  - In what context did normalization come about?
+  - So what is normalization?
+  - What kind of renewal anomalies are there?
+  - Advantages and disadvantages of normalization
+- Transaction
+  - What is a transaction?
+  - Transaction and Lock
+  - Transaction characteristics
+  - Points to note when using transactions
+- Deadlock
+  - What is deadlock?
+  - Example of deadlock(MySQL)
+  - How to reduce the frequency of deadlocks
+- Statement vs PreparedStatement
+- NoSQL
+  - Definition
+  - CAP theory
+    - consistency
+    - Availability
+    - Network segmentation tolerance
+  - Classification by storage method
+    - Key-Value Model
+    - Document Model
+    - Column Model
+
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :bulb: Design Pattern [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
 
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
 </br>
 
-<sup>[(Back to table)](#Today_I_Learned)</sup>
-
-</br>
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ---
 
-# Part 2. Language
+# Part 2. Languages
 
 ## :gem: JavaScript [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
 
@@ -156,6 +202,8 @@
 - [Interview Algorithm Questions in JavaScript ](https://github.com/kennymkchan/interview-questions-in-javascript)
   - JavaScript interview Questions
     </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
 
@@ -166,7 +214,7 @@
 
 </br>
 
----
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 # Part 3. Workfield
 
@@ -178,8 +226,18 @@
 
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+
 ---
 
-# Part 4. 1min-Remind
+> We can do it :thumbsup:
 
-## :star2: Quick question [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P4_1min_remind/README.md)
+</br>
+
+#### References
+
+https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference
+
+</br>
+
+---

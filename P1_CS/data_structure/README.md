@@ -1,32 +1,34 @@
 # Data Structure
 
-* [Array vs Linked List](#Array-vs-Linked-List)
-* [Stack and Queue](#Stack-and-Queue)
-* [Tree](#Tree)
-  * Binary Tree
-  * Perfect Binary Tree
-  * Complete Binary Tree
-  * Full Binary Tree
-  * BST(Binary Search Tree) 
-* [Binary Heap](#Binary-Heap)
-* [Red Black Tree](#Red-Black-Tree)
-  * Definition of Red-Black Tree
-  * Characteristics of Red-Black Tree
-  * Insertion
-  * Delete
-* [Hash Table](#hash-table)
-  * Hash Function
-  * Resolve Collision
-    * Open Addressing
-    * Separate Chaining
-  * Resize
-* [Graph](#graph)
-  * Graph terms
-  * Graph implement
-  * Graph search
-  * Minimum Spanning Tree
-    * Kruskal algorithm
-    * Prim algorithm
+- [Array vs Linked List](#Array-vs-Linked-List)
+- [Stack and Queue](#Stack-and-Queue)
+- [Tree](#Tree)
+  - Binary Tree
+  - Perfect Binary Tree
+  - Complete Binary Tree
+  - Full Binary Tree
+  - BST(Binary Search Tree)
+- [Binary Heap](#Binary-Heap)
+- [Red Black Tree](#Red-Black-Tree)
+  - Definition of Red-Black Tree
+  - Characteristics of Red-Black Tree
+  - Insertion
+  - Delete
+- [Hash Table](#hash-table)
+  - Hash Function
+  - Resolve Collision
+    - Open Addressing
+    - Separate Chaining
+  - Resize
+- [Graph](#graph)
+  - Graph terms
+  - Graph implement
+  - Graph search
+  - Minimum Spanning Tree
+    - Kruskal algorithm
+    - Prim algorithm
+
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 </br>
 
@@ -35,7 +37,7 @@
 </br>
 
 ### Array
-  
+
 </br>
 
 The most basic data structure, the Array data structure, has the same logical and physical storage order. Therefore, you can access the element by index. Therefore, if you know the index value of the element you are looking for, you can access Big-O(1) as the element. In other words, it has the advantage that random access is possible.
@@ -58,6 +60,8 @@ After all, the linked list data structure has O(n) time complexity for search an
 
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
+
 ## Stack and Queue
 
 </br>
@@ -74,8 +78,9 @@ Last In First Out (LIFO) as a type of linear data structure. In other words, the
 
 First In First Out (FIFO) as a type of linear data structure. That is, the one who entered first comes out first. Contrary to the stack, the person who entered first waits at the front, and then comes out first. For reference, in Java Collection, Queue is an interface. Priority queues that implement this can be used.
 
-[Go to Top](#Data-structure)
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 ## Tree
 
@@ -98,6 +103,7 @@ In the tree, each layer is numbered and called the level of the tree. The level 
 A binary tree full of all levels is called a saturated binary tree. A binary tree that is filled in order from top to bottom and left to right is called a complete binary tree. A binary tree in which all nodes have only 0 or 2 child nodes is called a positive binary tree. In a binary tree consisting of an array, when the number of nodes is n and the root starts at 1 instead of 0, parent(i) = i/2, left_child(i) = 2i, right_child(i) = 2i + for the i-th node. It has an index value of 1.
 
 ### BST(Binary Search Tree)
+
 For an efficient search, you shouldn't just worry about how to find it. Rather, we have to think about what is the storage method for efficient search. The binary search tree is a kind of binary tree. However, there are rules for storing data in the binary search tree. And that rule can be used to locate specific data.
 
 - Rule 1. The keys stored in nodes of the binary search tree are unique.
@@ -109,9 +115,9 @@ The search operation of a binary search tree has a time complexity of O(log n). 
 
 Although it uses more memory than an array and stores data, there is an inefficient situation where the time complexity required for search becomes the same. To solve this problem, a rebalancing technique appeared. The rebalancing of the tree structure for balancing is called rebalancing. There are several types of trees that implement this technique, and one of them is the Red-Black Tree
 
-[Go to Top](#Data-structure)
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 ## Binary Heap
 
@@ -123,8 +129,9 @@ Max Heap refers to a complete binary tree where the value of each node is greate
 
 In Max Heap, the value in the root node is the largest, so the time complexity of the operation required to find the maximum value is O(1). And because it is a complete binary tree, it can be managed efficiently using an array. (In other words, random access is possible. In Min heap, the time complexity of the operation required to find the minimum value is O(1).) However, in order to keep the structure of the heap, another node to replace the removed root node is required. . Here, the heap replaces the last node with the root node and then goes through heapify again to maintain the heap structure. In this case, the maximum or minimum value can be approached with a time complexity of O(log n).
 
-
 </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 ## Red Black Tree
 
@@ -140,8 +147,8 @@ Red-Black Tree is a BST that satisfies the following properties.
 2. The color of the root node is Black.
 3. Each leaf node is black.
 4. If a node's color is red, the color of both children is black.
-5. For each node, the simple path from node to descendant leaves all contains the same number of black nodes. This is called the Black-Height of the corresponding node.  
-> Black-Height: The number of black nodes on a simple path from node x to leaf node not including node x
+5. For each node, the simple path from node to descendant leaves all contains the same number of black nodes. This is called the Black-Height of the corresponding node.
+   > Black-Height: The number of black nodes on a simple path from node x to leaf node not including node x
 
 ### Characteristics of Red-Black Tree
 
@@ -150,19 +157,19 @@ Among all the paths from the root node to the leaf node, the size ratio of the m
 If there is no child of the node, the pointer to child stores the NIL value. These NILs are regarded as leaf nodes.
 RBT is a data structure created to solve problems that may occur in the process of inserting and deleting BST. How did you solve this?
 
-
 ### Insertion
+
 First, a node is inserted while maintaining the characteristics of BST. Then, the color of the inserted node is set to RED. The reason for designating it as red is to minimize the change of Black-Height. As a result of the insertion, if the RBT characteristic is in violation, the color of the node is adjusted. If the Black-Height is violated, the height is adjusted through rotation. Through this process, the black-height of the internal nodes existing at the same height of the RBT becomes the same, and the size ratio of the minimum path and the maximum path is maintained below 2.
 
 ### Delete
+
 Like insertion, deletion also deletes the corresponding node while maintaining the characteristics of BST. The rotation method varies depending on the number of children of the node to be deleted. And, if the color of the deleted node is Black, rotate so that 1 black node is added to the path where the Black-Height decreases by 1, and adjust the color of the node. If the color of the deleted node is red, no Violation occurs, so RBT is maintained.
 
 > ArrayList in Java Collection is also internally composed of RBT, and is also used in Separate Chaining in HashMap. It is an important data structure with good efficiency.
 
-[Go to Top](#Data-structure)
 </br>
 
----
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 ## Hash Table
 
@@ -180,8 +187,7 @@ However, the same value can be derived if key values are determined through a cl
 
 </br>
 
-> Collision: If two different keys are hashed with the same index, they cannot be stored in the same place. 
-
+> Collision: If two different keys are hashed with the same index, they cannot be stored in the same place.
 
 #### So, what conditions should a good `hash function' have?
 
@@ -206,11 +212,11 @@ When a hash collision occurs (that is, if the hash bucket to be inserted is alre
 Also called public addressing, this algorithm wanders to find a place to store data when a collision occurs. In the case of the Worst Case, an empty bucket may not be found, and the search may be returned to the starting position. There are several methods in this process as well, but let's look at the following three.
 
 1. Linear Probing
-    It searches sequentially and continues until an empty bucket is found.
+   It searches sequentially and continues until an empty bucket is found.
 2. Quadratic probing
-    Find a location to search using a quadratic function.
+   Find a location to search using a quadratic function.
 3. Double hashing probing
-    When a collision occurs in one hash function, a new address is allocated using the second hash function. Compared to the above two methods, it requires a large amount of computation.
+   When a collision occurs in one hash function, a new address is allocated using the second hash function. Compared to the above two methods, it requires a large amount of computation.
 
 </br>
 
@@ -218,12 +224,12 @@ Also called public addressing, this algorithm wanders to find a place to store d
 
 In general, Open Addressing is slower than Separate Chaining. In the case of open addressing, the higher the density of filling the hash bucket, the higher the frequency of occurrence of the worst case. On the other hand, in the case of the Separate Chaining method, if it is possible to adjust through the auxiliary hash function so that hash collisions do not occur well, the frequency of approaching the Worst Case can be reduced. Java 7 implements HashMap by using the Separate Chaining method. There are two implementation methods for the Separate Chaining method.
 
-* **Linked List**
-</br>
+- **Linked List**
+  </br>
   This is a method of making each bucket into a linked list and adding it to the list of the bucket when a collision occurs. It inherits the characteristics of the linked list and is easy to delete or insert. However, when storing small data by inheriting the disadvantages, the overhead of the linked list itself becomes a burden. Another feature is that it can slow down the table expansion compared to the Open Address method, which uses buckets continuously.
 
-* **Using Tree(Red-Black Tree)**
-</br>
+- **Using Tree(Red-Black Tree)**
+  </br>
   The basic algorithm is the same as the Separate Chaining method and uses a tree instead of a linked list. The criterion for whether to use a linked list or a tree is the number of key-value pairs assigned to one hash bucket. If the number of data is small, it is correct to use linked lists. This is because the tree basically uses a lot of memory. Looking at the Worst Case when the number of data is small, there is little difference in performance between the tree and the linked list. So, in terms of memory, when the number of data is small, a linked list is used.
 
 **How little does it mean to have less data?**
@@ -250,11 +256,7 @@ If the number of hash buckets is small, memory usage can be saved, but performan
 
 </br>
 
-[Go To Top](#Data-Structure)
-
----
-
-</br>
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
 ## Graph
 
@@ -269,7 +271,7 @@ _Tree is also a graph, of which cycles are not allowed._
 Literally, a graph that has no direction in the connection relationship between the vertex and the trunk is called Undirected Graph
 A graph that includes directions on the edge is called a directed graph.
 
-* Directed Graph (Digraph)
+- Directed Graph (Digraph)
 
 ```
 V = {1, 2, 3, 4, 5, 6}
@@ -277,7 +279,7 @@ E = {(1, 4), (2,1), (3, 4), (3, 4), (5, 6)}
 (u, v) = the edge vertex u to vertex v
 ```
 
-* Undirected Graph
+- Undirected Graph
 
 ```
 V = {1, 2, 3, 4, 5, 6}
@@ -299,11 +301,11 @@ The weight graph refers to a graph composed by placing weight information on an 
 
 ### Two ways to implement the graph
 
-#### adjacent matrix 
+#### adjacent matrix
 
 The connection relationship between vertices can be identified as O(1) through the value of the corresponding location. Regardless of the number of edges, it has a space complexity of V^2. This is an appropriate method when expressing a density graph.
 
-#### adjacent list 
+#### adjacent list
 
 Since you have to check the adjacent list of vertices, it takes a long time to check whether the vertices are connected. Space Complexity is O(E + V). It is a suitable method for expressing a sparse graph.
 
@@ -340,7 +342,6 @@ It refers to a `spanning tree` in which the sum of edge weights is the minimum a
 
 As an initialization operation, a graph is constructed with only vertices **without edges**. Then, examine the edge with the smallest weight. To do this, the Edge Set must be sorted non-decreasing. And the edge corresponding to the smallest weight is added, but only when there is no cycle in the graph when adding. When the spanning tree is completed, all vertices are connected and terminated. For a graph that cannot be completed, it is terminated when judgment is made for all edges.
 
-
 #### How to determine whether to create a cycle?
 
 An additional `set-id` is added to each vertex of the graph. And during the initialization process, each vertex is initialized with values ranging from 1 to n. Here, 0 means that no edge is connected. And each time it is connected, the `set-id` is unified into one, and the `set-id` value with the same number of `set-id` is unified.
@@ -349,7 +350,7 @@ An additional `set-id` is added to each vertex of the graph. And during the init
 
 1. Sorting based on edge weight-O(E log E)
 2. Check cycle creation and unify set-id-O(E + V log V)
-     => Total time complexity: O(E log E)
+   => Total time complexity: O(E log E)
 
 ### Prim Algorithm
 
@@ -361,5 +362,6 @@ During the initialization process, an initial graph A consisting of one vertex i
 
 </br>
 
-[Go to Top](#Data-structure)
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
 
+_Data structure.end_

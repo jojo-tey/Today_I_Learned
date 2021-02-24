@@ -1,13 +1,12 @@
 # CS Basic
 
-[TOC]
+- [What is good code?](#What-is-good-code)
+- [Object Oriented Programming](#Object-Oriented-Programming)
+- [RESTful API](#RESTful-API)
+- [Functional programming](#Functional-programming)
+- [What is MVC pattern?](#What-is-MVC-pattern?)
 
-* [What is good code?](#What-is-good-code)
-* [Object Oriented Programming](#Object-Oriented-Programming)
-* [RESTful API](#RESTful-API)
-* [Functional programming](#Functional-programming)
-* [What is MVC pattern?](#What-is-MVC-pattern?)
-
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#CS-Basic)
 
 </br>
 
@@ -20,8 +19,10 @@ If you google it, there is many definition about good code. Here is what people 
 - Consistent code(Name, Directory)
 - Consider the dependencies between code
 - Design to be appropriately scalable
-- Easy to test 
-</br>
+- Easy to test
+  </br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#CS-Basic)
 
 ## Object Oriented Programming
 
@@ -29,24 +30,21 @@ Looking at the programming paradigm before object-oriented programming, focus wa
 </br>
 If code is written in OOP, the reusability of already written code is high. If frequently used logic is made into a library, it can be used continuously and its reliability can be secured. Also, if the library is well made for various exception situations, even if a developer makes a small mistake, the error can be caught at the compile stage, therefore reducing the occurrence of bugs. In addition, the developer can use the functions provided by the library without knowing how it works internally, which increases productivity. Since the code is divided and written by object unit, debugging is easy and maintenance is easy. In addition, it is easy to map with objects when modeling data, so you can understand the requirements more clearly and program.
 </br>
+
 ### What to consider for object-oriented design
 
 1. Single Responsibility Principle (SRP): Single Responsibility Principle
-    - A class should have only one responsibility, and there should be only one reason for changing a class.
-    
+   - A class should have only one responsibility, and there should be only one reason for changing a class.
 2. Open-Closed Principle (OCP): Open-closed principle
-    - It must be open for extensions and closed for changes.
-    
+   - It must be open for extensions and closed for changes.
 3. Liskov Substitution Principle (LSP): Liskov Substitution Principle
-    - Even if an object of a higher type is substituted with an object of a lower type, the program using the higher type should operate normally.
-    
+   - Even if an object of a higher type is substituted with an object of a lower type, the program using the higher type should operate normally.
 4. ISP (Interface Segregation Principle): Interface segregation principle
-    - Interfaces should be separated based on the client using the interface.
-    
-5. Dependency Inversion Principle (DIP): Dependency Inversion Principle
-    - High-level modules should not depend on the implementation of low-level modules.
-</br>
+   - Interfaces should be separated based on the client using the interface.
+5. Dependency Inversion Principle (DIP): Dependency Inversion Principle - High-level modules should not depend on the implementation of low-level modules.
+   </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#CS-Basic)
 
 ## RESTful API
 
@@ -59,6 +57,7 @@ REST is a design pattern, architecture There are many stories, but it can be see
 </br>
 
 ### REST 6 principles
+
 - Uniformed interface
 - Stateless
 - Caching
@@ -69,26 +68,34 @@ REST is a design pattern, architecture There are many stories, but it can be see
 </br>
 
 ### What does it mean to design an API in a RESTful way?
+
 </br>
 
 1. Explicit and intuitive separation of resources and actions.
+
 - Resources are expressed as URIs, and what the resource points to must be expressed as a noun.
 - Actions are expressed in HTTP Method, and GET (retrieve), POST (create), PUT (complete modification of existing entity), PATCH (partial modification of existing entity), and DELETE (delete) are used for clear purposes.
 
 2. Message uses header and body clearly separated.
+
 - The contents of the entity are contained in the body.
 - The API version information, which is the control information that is the basis for the application server to act, and the MIME type to receive a response, are included in the header.
 - Header and body can be divided into http header and http body, or can be divided into json structure that enters the http body.
+
 3. Manage the API version.
+
 - Note that the API's signature may change because the environment is always changing.
 - When changing a specific API, you must ensure backward compatibility.
+
 4. Let the server and the client make requests using the same method.
+
 - The browser sends form-data type submit and the server sends it as json rather than separate expressions.
 - In other words, the URI must be platform neutral.
 
 </br>
 
 ### What are the advantages?
+
 - Easy to provide Open API
 - Multiplatform support and easy linkage.
 - You can send and receive data in any type.
@@ -97,21 +104,26 @@ REST is a design pattern, architecture There are many stories, but it can be see
 </br>
 
 ### What are the disadvantages?
+
 - There are only 4 methods available.
 - Not suitable for distributed environment.
 - It supports only HTTP communication model.
 
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#CS-Basic)
+
 ## Functional programming
 
 ### immutable vs mutable
+
 </br>
 First of all, you need to understand the difference between immutable and mutable. An immutable object means an object that cannot change the value of the object. When the value changes, a new object must be created and the changed value injected and returned. Unlike this, mutable objects change their values when the corresponding object values change.
 
 </br>
 
 ### First-citizen
+
 </br>
 
 In a language that follows the functional programming paradigm, a function is considered a first class citizen. The first class object is as follows.
@@ -141,6 +153,7 @@ In addition to this, the essential advantages of functional programming are that
 
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#CS-Basic)
 
 ## What is MVC pattern?
 
@@ -148,22 +161,13 @@ In addition to this, the essential advantages of functional programming are that
 
 ### Role of each component of MVC <Who, When, What>
 
-
-
 - Model
 
 When called by the controller, it plays the role of the request. It is an area that implements business logic and is a part that processes data in an application program. Business logic can be said to be a part of an application program that processes data necessary for work. It connects to the DB and extracts, saves, deletes, updates, and converts data. When there is a state change, it notifies the controller and the view so that they can receive follow-up orders.
 
-
-
 - Controller (View in Django)
 
 It can be called a mediator. When a client's request is received, the model component that actually performs the task is called for that request. Also, if there is data sent by the client, it processes the data to make it easier to pass to the model. When the model is done, it passes the result to the view.
-
-
-
-
-
 
 - View (Template in Django)
 
@@ -194,3 +198,5 @@ When a request is made in C/S (Client-Server) structure, it is based on a struct
 8. The screen received from the view is delivered to the web server.
 
 9. When the web browser receives the request result value from the web server, it displays the value on the screen.
+
+_CS-Basic.end_

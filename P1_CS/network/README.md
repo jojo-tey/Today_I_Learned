@@ -1,235 +1,229 @@
-# Part 1-3 Network
+# Network
 
-* [HTTP 의 GET 과 POST 비교](#http의-get과-post-비교)
-* [TCP 3-way-handshake](#tcp-3-way-handshake)
-* [TCP와 UDP의 비교](#tcp와-udp의-비교)
-* [HTTP 와 HTTPS](#http와-https)
-  * HTTP 의 문제점들
-* [DNS Round Robin 방식](#dns-round-robin-방식)
-* [웹 통신의 큰 흐름](#웹-통신의-큰-흐름)
+- [Comparison of HTTP's GET and POST](#Comparison-of-HTTP's-GET-and-POST)
+- [TCP 3-way-handshake](#tcp-3-way-handshake)
+- [Comparison of TCP and UDP](#Comparison-of-TCP-and-UDP)
+- [HTTP and HTTPS](#http-and-https)
+  - Problems with HTTP
+- [DNS Round Robin](#dns-round-robin)
+- [Flow of web communication](#Flow-of-web-communication)
 
-[뒤로]
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
-## HTTP의 GET과 POST 비교
+## Comparison of HTTP's GET and POST
 
-둘 다 HTTP 프로토콜을 이용해서 서버에 무엇인가를 요청할 때 사용하는 방식이다. 하지만 둘의 특징을 제대로 이해하여 기술의 목적에 맞게 알맞은 용도에 사용해야한다.
+Both are used to request something from the server using the HTTP protocol. However, the two characteristics should be well understood and used for the proper use for the purpose of the technology.
 
 ### GET
 
-우선 GET 방식은 요청하는 데이터가 `HTTP Request Message`의 Header 부분의 url 에 담겨서 전송된다. 때문에 url 상에 `?` 뒤에 데이터가 붙어 request 를 보내게 되는 것이다. 이러한 방식은 url 이라는 공간에 담겨가기 때문에 전송할 수 있는 데이터의 크기가 제한적이다. 또 보안이 필요한 데이터에 대해서는 데이터가 그대로 url 에 노출되므로 `GET`방식은 적절하지 않다. (ex. password)
+First of all, the GET method is that the requested data HTTP Request MessageIt is transmitted in url of the header part of . on the url for ? The data is attached to the back so that the request is sent. Because this approach is contained in a space called url, the amount of data that can be transferred is limited. And for data that needs to be secured, the data is exposed to url. GETThe method is not appropriate. (ex. password)
 
 ### POST
 
-POST 방식의 request 는 `HTTP Message의 Body` 부분에 데이터가 담겨서 전송된다. 때문에 바이너리 데이터를 요청하는 경우 POST 방식으로 보내야 하는 것처럼 데이터 크기가 GET 방식보다 크고 보안면에서 낫다.(하지만 보안적인 측면에서는 암호화를 하지 않는 이상 고만고만하다.)
+POST-style requests are: `HTTP Message의 Body` The data is sent in the part. Therefore, when requesting binary data, the size of the data is larger and better in terms of security than the GET method, as should be sent on POST basis (but from a security perspective, it is even as long as encryption is not done).
 
-_그렇다면 이러한 특성을 이해한 뒤에는 어디에 적용되는지를 알아봐야 그 차이를 극명하게 이해할 수 있다._
-우선 GET 은 가져오는 것이다. 서버에서 어떤 데이터를 가져와서 보여준다거나 하는 용도이지 서버의 값이나 상태 등을 변경하지 않는다. SELECT 적인 성향을 갖고 있다고 볼 수 있는 것이다. 반면에 POST 는 서버의 값이나 상태를 변경하기 위해서 또는 추가하기 위해서 사용된다.
+_Then, once you understand these characteristics, you need to find out where they apply so that you can clearly understand the difference._
 
-부수적인 차이점을 좀 더 살펴보자면 GET 방식의 요청은 브라우저에서 Caching 할 수 있다. 때문에 POST 방식으로 요청해야 할 것을 보내는 데이터의 크기가 작고 보안적인 문제가 없다는 이유로 GET 방식으로 요청한다면 기존에 caching 되었던 데이터가 응답될 가능성이 존재한다. 때문에 목적에 맞는 기술을 사용해야 하는 것이다.
+First of all, GET is to bring. It is intended to bring some data from the server and show it without changing the value or status of the server. It can be seen as having a SELECT tendency. POST, on the other hand, is used to change or add to a server's value or state.
 
-[뒤로]/[위로]
+To look further at the incidental differences, GET-style requests can be cached in the browser. Therefore, if the GET-based request is made on the grounds that the size of the data that is sent is small and that there is no security problem, there is a possibility that the previously cached data will be answered. That is why we have to use technologies that fit our purpose.
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
 ## TCP 3-way Handshake
 
-일부 그림이 포함되어야 하는 설명이므로 링크를 대신 첨부합니다.
+Attach a link instead because some pictures should be included.
 
 #### Reference
 
-* http://asfirstalways.tistory.com/356
+- https://www.mdpi.com/2076-3417/6/11/358/htm
 
-[뒤로]/[위로]
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
-## TCP와 UDP의 비교
+## Comparison of TCP and UDP
 
 ### UDP
 
-`UDP(User Datagram Protocol, 사용자 데이터그램 프로토콜)`는 **비연결형 프로토콜** 이다. IP 데이터그램을 캡슐화하여 보내는 방법과 연결 설정을 하지 않고 보내는 방법을 제공한다. `UDP`는 흐름제어, 오류제어 또는 손상된 세그먼트의 수신에 대한 재전송을 **하지 않는다.** 이 모두가 사용자 프로세스의 몫이다. `UDP`가 행하는 것은 포트들을 사용하여 IP 프로토콜에 인터페이스를 제공하는 것이다.
+`UDP(User Datagram Protocol)`is a _disconnected protocol_. It provides a method of encapsulating and sending IP datagrams and sending them without setting up connections.
 
-종종 클라이언트는 서버로 짧은 요청을 보내고, 짧은 응답을 기대한다. 만약 요청 또는 응답이 손실된다면, 클라이언트는 time out 되고 다시 시도할 수 있으면 된다. 코드가 간단할 뿐만 아니라 TCP 처럼 초기설정(initial setup)에서 요구되는 프로토콜보다 적은 메시지가 요구된다.
+`UDP` does _not_ retransmit flow control, error control, or reception of damaged segments. All this is up to the user process. What `UDP` does is use ports to provide interfaces to IP protocols.
 
-`UDP`를 사용한 것들에는 `DNS`가 있다. 어떤 호스트 네임의 IP 주소를 찾을 필요가 있는 프로그램은, DNS 서버로 호스트 네임을 포함한 UDP 패킷을 보낸다. 이 서버는 호스트의 IP 주소를 포함한 UDP 패킷으로 응답한다. 사전에 설정이 필요하지 않으며 그 후에 해제가 필요하지 않다.
+Often the client sends a short request to the server and expects a short response. If the request or response is lost, the client can time out and try again. Not only is the code simple, but it also requires fewer messages than the protocol required by the initial setup, such as TCP.
 
+`DNS` is an example for `UDP` used. A program needs to find the IP address of any host name sends UDP packets including the host name to the DNS server. This server responds with UDP packets containing the host's IP address. No setup is required in advance and no release is required after that.
 </br>
 
 ### TCP
 
-대부분의 인터넷 응용 분야들은 **신뢰성** 과 **순차적인 전달** 을 필요로 한다. UDP 로는 이를 만족시킬 수 없으므로 다른 프로토콜이 필요하여 탄생한 것이 `TCP`이다. `TCP(Transmission Control Protocol, 전송제어 프로토콜)`는 신뢰성이 없는 인터넷을 통해 종단간에 신뢰성 있는 **바이트 스트림을 전송** 하도록 특별히 설계되었다. TCP 서비스는 송신자와 수신자 모두가 소켓이라고 부르는 종단점을 생성함으로써 이루어진다. TCP 에서 연결 설정(connection establishment)는 `3-way handshake`를 통해 행해진다.
+Most Internet applications require _reliability_ and _sequential delivery_. UDP can't satisfy this, so it's created by the need for a different protocol. `TCP(Transmission Control Protocol)`is specifically designed to send _reliable byte streams_ end-to-end over unreliable Internet. TCP services are performed by creating endpoints that both senders and receivers call sockets. Connection establishment in TCP working through `3-way handshake`
 
-모든 TCP 연결은 전이중(full-duplex), 점대점(point to point)방식이다. 전이중이란 전송이 양방향으로 동시에 일어날 수 있음을 의미하며 점대점이란 각 연결이 정확히 2 개의 종단점을 가지고 있음을 의미한다. TCP 는 멀티캐스팅이나 브로드캐스팅을 지원하지 않는다.
+All TCP connections are full-duplex, point-to-point. Full duplex means that transmission can occur simultaneously in both directions, and point-to-point means that each connection has exactly two termination points. TCP does not support multicasting or broadcasting.
 
-#### Reference
-
-* http://d2.naver.com/helloworld/47667
-* http://asfirstalways.tistory.com/327
-
-[뒤로]/[위로]
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
-## HTTP와 HTTPS
+## HTTP and HTTPS
 
-### HTTP 의 문제점
+### Problems with HTTP
 
-* HTTP 는 평문 통신이기 때문에 도청이 가능하다.
-* 통신 상대를 확인하지 않기 때문에 위장이 가능하다.
-* 완전성을 증명할 수 없기 때문에 변조가 가능하다.
+- HTTP is a plain-text communication, so eavesdropping is possible.
+- Because it does not check the communication partner, camouflage is possible.
+- Modulation is possible because it cannot prove its completeness.
 
-_위 세 가지는 다른 암호화하지 않은 프로토콜에도 공통되는 문제점들이다._
+_The three above are common problems for other unencrypted protocols._
 
-### TCP/IP 는 도청 가능한 네트워크이다.
+### TCP/IP is a tapable network.
 
-TCP/IP 구조의 통신은 전부 통신 경로 상에서 엿볼 수 있다. 패킷을 수집하는 것만으로 도청할 수 있다. 평문으로 통신을 할 경우 메시지의 의미를 파악할 수 있기 때문에 암호화하여 통신해야 한다.
+Communication in the TCP/IP structure can be seen all over the communication path. You can eavesdrop just by collecting packets. When communicating by plaintext, it is necessary to communicate encrypted because it can understand the meaning of the message.
 
-#### 보안 방법
+#### security method
 
-1.  통신 자체를 암호화
-    `SSL(Secure Socket Layer)` or `TLS(Transport Layer Security)`라는 다른 프로토콜을 조합함으로써 HTTP 의 통신 내용을 암호화할 수 있다. SSL 을 조합한 HTTP 를 `HTTPS(HTTP Secure)` or `HTTP over SSL`이라고 부른다.
+1.  Encrypt communications themselves
+    HTTP communication can be encrypted by combining different protocols(`SSL(Secure Socket Layer)` or `TLS(Transport Layer Security)`). HTTP with SSL call as `HTTPS(HTTP Secure)` or `HTTP over SSL`
 
-2.  콘텐츠를 암호화
-    말 그대로 HTTP 를 사용해서 운반하는 내용인, HTTP 메시지에 포함되는 콘텐츠만 암호화하는 것이다. 암호화해서 전송하면 받은 측에서는 그 암호를 해독하여 출력하는 처리가 필요하다.
-
-</br>
-
-### 통신 상대를 확인하지 않기 때문에 위장이 가능하다.
-
-HTTP 에 의한 통신에는 상대가 누구인지 확인하는 처리는 없기 때문에 누구든지 리퀘스트를 보낼 수 있다. IP 주소나 포트 등에서 그 웹 서버에 액세스 제한이 없는 경우 리퀘스트가 오면 상대가 누구든지 무언가의 리스폰스를 반환한다. 이러한 특징은 여러 문제점을 유발한다.
-
-1.  리퀘스트를 보낸 곳의 웹 서버가 원래 의도한 리스폰스를 보내야 하는 웹 서버인지를 확인할 수 없다.
-2.  리스폰스를 반환한 곳의 클라이언트가 원래 의도한 리퀘스트를 보낸 클라이언트인지를 확인할 수 없다.
-3.  통신하고 있는 상대가 접근이 허가된 상대인지를 확인할 수 없다.
-4.  어디에서 누가 리퀘스트 했는지 확인할 수 없다.
-5.  의미없는 리퀘스트도 수신한다. —> DoS 공격을 방지할 수 없다.
-
-#### 보완 방법
-
-위 암호화 방법으로 언급된 `SSL`로 상대를 확인할 수 있다. SSL 은 상대를 확인하는 수단으로 **증명서** 를 제공하고 있다. 증명서는 신뢰할 수 있는 **제 3 자 기관에 의해** 발행되는 것이기 때문에 서버나 클라이언트가 실재하는 사실을 증명한다. 이 증명서를 이용함으로써 통신 상대가 내가 통신하고자 하는 서버임을 나타내고 이용자는 개인 정보 누설 등의 위험성이 줄어들게 된다. 한 가지 이점을 더 꼽자면 클라이언트는 이 증명서로 본인 확인을 하고 웹 사이트 인증에서도 이용할 수 있다.
+2.  Encrypting only the contents
+    Encrypt contents that are transported using HTTP. Once encrypted, the recipient needs to decrypt the password and print it out.
 
 </br>
 
-### 완전성을 증명할 수 없기 때문에 변조가 가능하다
+### Because it does not check the communication partner, camouflage is possible.
 
-여기서 완전성이란 **정보의 정확성** 을 의미한다. 서버 또는 클라이언트에서 수신한 내용이 송신측에서 보낸 내용과 일치한다라는 것을 보장할 수 없는 것이다. 리퀘스트나 리스폰스가 발신된 후에 상대가 수신하는 사이에 누군가에 의해 변조되더라도 이 사실을 알 수 없다. 이와 같이 공격자가 도중에 리퀘스트나 리스폰스를 빼앗아 변조하는 공격을 중간자 공격(Man-in-the-Middle)이라고 부른다.
+Anyone can send a request because communication by HTTP does not involve identifying who the opponent is. If there is no restriction on access to the web server, such as an IP address or port, anyone who receives a request will return a response of something. These features cause many problems.
 
-#### 보완 방법
+1.  I can't verify that the web server from where the request was sent is the one that should send the originally intended response.
+2.  It is not possible to confirm whether the client that returned the response was the client that originally sent the intended request.
+3.  It is not possible to verify that the party with whom the communication is being communicated is the one who is permitted access.
+4.  I can't see where and who made the request.
+5.  It also receives meaningless requests. —> DoS attacks cannot be prevented.
 
-`MD5`, `SHA-1` 등의 해시 값을 확인하는 방법과 파일의 디지털 서명을 확인하는 방법이 존재하지만 확실히 확인할 수 있는 것은 아니다. 확실히 방지하기에는 `HTTPS`를 사용해야 한다. SSL 에는 인증이나 암호화, 그리고 다이제스트 기능을 제공하고 있다.
+#### Complementary method
+
+You can check the other party with `SSL` mentioned in the above encryption method. SSL provides **certificate** as a means of verifying the other party. Since the certificate is issued by a trusted **third party**, it proves that the server or client exists. By using this certificate, the communication partner indicates that the server I want to communicate with, and the risk of leaking personal information to the user is reduced. One more advantage is that clients can use this certificate to verify their identity and use it for website authentication.
+
+</br>
+
+### Modulation is possible because completeness cannot be proved
+
+Here, completeness means **the accuracy of information**. There is no guarantee that the content received from the server or client matches the content sent by the sender. After a request or response is sent, even if it is altered by someone while the other party is receiving it, this is not known. In this way, an attack in which an attacker steals and modulates a request or response in the middle is called a man-in-the-middle attack.
+
+#### Complementary method
+
+There are methods for checking hash values such as `MD5` and `SHA-1` and methods for verifying the digital signature of a file, but they cannot be verified for sure. You should definitely use `HTTPS` to prevent it. SSL provides authentication, encryption, and digest functions.
 
 </br>
 
 ### HTTPS
 
-> HTTP 에 암호화와 인증, 그리고 완전성 보호를 더한 HTTPS
+> HTTP plus HTTPS with encryption, authentication, and integrity protection
 
-`HTTPS`는 SSL 의 껍질을 덮어쓴 HTTP 라고 할 수 있다. 즉, HTTPS 는 새로운 애플리케이션 계층의 프로토콜이 아니라는 것이다. HTTP 통신하는 소켓 부분을 `SSL(Secure Socket Layer)` or `TLS(Transport Layer Security)`라는 프로토콜로 대체하는 것 뿐이다. HTTP 는 원래 TCP 와 직접 통신했지만, HTTPS 에서 HTTP 는 SSL 과 통신하고 **SSL 이 TCP 와 통신** 하게 된다. SSL 을 사용한 HTTPS 는 암호화와 증명서, 안전성 보호를 이용할 수 있게 된다.
+`HTTPS` can be said to be HTTP over the SSL shell. In other words, HTTPS is not a new application layer protocol. It simply replaces the HTTP communication socket with a protocol called `SSL (Secure Socket Layer)` or `TLS (Transport Layer Security)`. HTTP originally communicated directly with TCP, but over HTTPS, HTTP communicates with SSL and **SSL communicates with TCP**. HTTPS using SSL enables encryption, authentication, and security protection.
 
-HTTPS 의 SSL 에서는 공통키 암호화 방식과 공개키 암호화 방식을 혼합한 하이브리드 암호 시스템을 사용한다. 공통키를 공개키 암호화 방식으로 교환한 다음에 다음부터의 통신은 공통키 암호를 사용하는 방식이다.
+In HTTPS SSL, a hybrid encryption system that combines the common key encryption method and the public key encryption method is used. After the common key is exchanged with the public key encryption method, subsequent communication is a method using the common key encryption.
 
-#### 모든 웹 페이지에서 HTTPS 를 사용하지 않는 이유
+#### Why not use HTTPS on all web pages
 
-평문 통신에 비해서 암호화 통신은 CPU 나 메모리 등 리소스가 많이 필요하다. 통신할 때마다 암호화를 하면 많은 리소스를 소비하기 때문에 서버 한 대당 처리할 수 있는 리퀘스트의 수가 줄어들게 된다. 그렇기 때문에 민감한 정보를 다룰 때만 HTTPS 에 의한 암호화 통신을 사용한다.
+Compared to plain text communication, encrypted communication requires a lot of resources such as CPU and memory. Encrypting each communication consumes a lot of resources, reducing the number of requests that can be processed per server. Therefore, encrypted communication by HTTPS is used only when handling sensitive information.
 
-
-
-[뒤로]/[위로]
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
-## DNS round robin 방식
+## DNS round robin
 
-### DNS Round Robin 방식의 문제점
+### Problem of DNS Round Robin
 
-1.  서버의 수 만큼 공인 IP 주소가 필요함
-    부하 분산을 위해 서버의 대수를 늘리기 위해서는 그 만큼의 공인 IP 가 필요하다.
+1. Public IP addresses are required as many as the number of servers
+   In order to increase the number of servers for load balancing, that much public IP is required.
 
-2.  균등하게 분산되지 않음
-    모바일 사이트 등에서 문제가 될 수 있는데, 스마트폰의 접속은 캐리어 게이트웨이 라고 하는 프록시 서버를 경유 한다. 프록시 서버에서는 이름변환 결과가 일정 시간 동안 캐싱되므로 같은 프록시 서버를 경유 하는 접속은 항상 같은 서버로 접속된다. 또한 PC 용 웹 브라우저도 DNS 질의 결과를 캐싱하기 때문에 균등하게 부하분산 되지 않는다. DNS 레코드의 TTL 값을 짧게 설정함으로써 어느 정도 해소가 되지만, TTL 에 따라 캐시를 해제하는 것은 아니므로 반드시 주의가 필요하다.
+2. Not evenly distributed
+   This can be a problem in mobile sites, etc., but the connection of the smartphone is through a proxy server called a carrier gateway. In the proxy server, name conversion results are cached for a certain period of time, so connections through the same proxy server are always connected to the same server. Also, because the PC web browser also caches DNS query results, it is not evenly distributed over the load. It can be resolved to some extent by setting the TTL value of the DNS record short, but care must be taken since the cache is not released according to the TTL.
 
-3.  서버가 다운되도 확인 불가
-    DNS 서버는 웹 서버의 부하나 접속 수 등의 상황에 따라 질의결과를 제어할 수 없다. 웹 서버의 부하가 높아서 응답이 느려지거나 접속수가 꽉 차서 접속을 처리할 수 없는 상황인 지를 전혀 감지할 수가 없기 때문에 어떤 원인으로 다운되더라도 이를 검출하지 못하고 유저들에게 제공한다. 이때문에 유저들은 간혹 다운된 서버로 연결이 되기도 한다. DNS 라운드 로빈은 어디까지나 부하분산 을 위한 방법이지 다중화 방법은 아니므로 다른 S/W 와 조합해서 관리할 필요가 있다.
+3. Unable to check even if the server is down
+   The DNS server cannot control the query results depending on the load of the web server or the number of connections. It is not possible to detect whether the response is slow due to the high load of the web server or the connection cannot be processed because the number of connections is full. Because of this, users sometimes connect to a server that is down. DNS round robin is a method for load balancing only, not a multiplexing method, so it needs to be managed in combination with other S/W.
 
-_Round Robin 방식을 기반으로 단점을 해소하는 DNS 스케줄링 알고리즘이 존재한다. (일부만 소개)_
+There is a DNS scheduling algorithm that solves the shortcomings based on the _Round Robin method. (Introduction only a part)_
 
 #### Weighted round robin (WRR)
 
-각각의 웹 서버에 가중치를 가미해서 분산 비율을 변경한다. 물론 가중치가 큰 서버일수록 빈번하게 선택되므로 처리능력이 높은 서버는 가중치를 높게 설정하는 것이 좋다.
+Each web server is weighted to change the distribution ratio. Of course, since servers with higher weights are selected more frequently, it is better to set higher weights for servers with higher processing power.
 
 #### Least connection
 
-접속 클라이언트 수가 가장 적은 서버를 선택한다. 로드밸런서에서 실시간으로 connection 수를 관리하거나 각 서버에서 주기적으로 알려주는 것이 필요하다.
+Select the server with the fewest number of connected clients. It is necessary to manage the number of connections in real time in the load balancer or periodically notify each server.
 
-[뒤로](https://github.com/JaeYeopHan/for_beginner)/[위로](#part-1-3-network)
-
-</br>
-
-## 웹 통신의 큰 흐름
-
-_우리가 Chrome 을 실행시켜 주소창에 특정 URL 값을 입력시키면 어떤 일이 일어나는가?_
-
-### in 브라우저
-
-1.  url 에 입력된 값을 브라우저 내부에서 결정된 규칙에 따라 그 의미를 조사한다.
-2.  조사된 의미에 따라 HTTP Request 메시지를 만든다.
-3.  만들어진 메시지를 웹 서버로 전송한다.
-
-이 때 만들어진 메시지 전송은 브라우저가 직접하는 것이 아니다. 브라우저는 메시지를 네트워크에 송출하는 기능이 없으므로 OS에 의뢰하여 메시지를 전달한다. 우리가 택배를 보낼 때 직접 보내는게 아니라, 이미 서비스가 이루어지고 있는 택배 시스템(택배 회사)을 이용하여 보내는 것과 같은 이치이다. 단, OS에 송신을 의뢰할 때는 도메인명이 아니라 ip주소로 메시지를 받을 상대를 지정해야 하는데, 이 과정에서 DNS서버를 조회해야 한다.
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 
-### in 프로토콜 스택, LAN 어댑터
+## Flow of web communication
 
-1.  프로토콜 스택(운영체제에 내장된 네트워크 제어용 소프트웨어)이 브라우저로부터 메시지를 받는다.
-2.  브라우저로부터 받은 메시지를 패킷 속에 저장한다.
-3.  그리고 수신처 주소 등의 제어정보를 덧붙인다.
-4.  그런 다음, 패킷을 LAN 어댑터에 넘긴다.
-5.  LAN 어댑터는 패킷을(?) 전기신호로 변환시킨다.
-6.  신호를 LAN 케이블에 송출시킨다.
+_What happens when we run Chrome and enter a specific URL value in the address bar?_
 
-프로토콜 스택은 통신 중 오류가 발생했을 때, 이 제어 정보를 사용하여 고쳐 보내거나, 각종 상황을 조절하는 등 다양한 역할을 하게 된다. 네트워크 세계에서는 비서가 있어서 우리가 비서에게 물건만 건네주면, 받는 사람의 주소와 각종 유의사항을 써준다! 여기서는 프로토콜 스택이 비서의 역할을 한다고 볼 수 있다.
+### in browser
 
-</br>
+1. Investigate the meaning of the value entered in url according to the rule determined inside the browser.
+2. Create an HTTP Request message according to the investigated meaning.
+3. Send the created message to the web server.
 
-### in 허브, 스위치, 라우터
-
-1.  LAN 어댑터가 송신한 패킷은 스위칭 허브를 경유하여 인터넷 접속용 라우터에 도착한다.
-2.  라우터는 패킷을 프로바이더(통신사)에게 전달한다.
-3.  인터넷으로 들어가게 된다.
+The message is not sent directly by the browser. Since the browser does not have a function to send messages to the network, it requests the OS to deliver the message. When we send a courier, we do not send it directly, but it is the same reason as sending it using a courier system (courier company) that already has a service. However, when requesting transmission to the OS, the destination to receive the message must be designated by the IP address, not the domain name. In this process, the DNS server must be searched.
 
 </br>
 
-### in 액세스 회선, 프로바이더
+### in protocol stack, LAN adapter
 
-1.  패킷은 인터넷의 입구에 있는 액세스 회선(통신 회선)에 의해 POP(Point Of Presence, 통신사용 라우터)까지 운반된다.
-2.  POP 를 거쳐 인터넷의 핵심부로 들어가게 된다.
-3.  수 많은 고속 라우터들 사이로 패킷이 목적지를 향해 흘러가게 된다.
+1. The protocol stack (network control software built into the operating system) receives messages from the browser.
+2. Save the message received from the browser in the packet.
+3. Then, control information such as destination address is added.
+4. Then, it passes the packet to the LAN adapter.
+5. The LAN adapter converts the frame with the MAC address of the next hop into an electric signal.
+6. Send the signal to the LAN cable.
 
-</br>
-
-### in 방화벽, 캐시서버
-
-1.  패킷은 인터넷 핵심부를 통과하여 웹 서버측의 LAN 에 도착한다.
-2.  기다리고 있던 방화벽이 도착한 패킷을 검사한다.
-3.  패킷이 웹 서버까지 가야하는지 가지 않아도 되는지를 판단하는 캐시서버가 존재한다.
-
-굳이 서버까지 가지 않아도 되는 경우를 골라낸다. 액세스한 페이지의 데이터가 캐시서버에 있으면 웹 서버에 의뢰하지 않고 바로 그 값을 읽을 수 있다. 페이지의 데이터 중에 다시 이용할 수 있는 것이 있으면 캐시 서버에 저장된다.
+When an error occurs during communication, the protocol stack plays a variety of roles, such as correcting it using this control information or controlling various situations. In the network world, there is a secretary, so when we hand over the item to the secretary, we write the recipient's address and other instructions! Here, it can be seen that the protocol stack acts as a secretary.
 
 </br>
 
-### in 웹 서버
+### in hubs, switches, routers
 
-1.  패킷이 물리적인 웹 서버에 도착하면 웹 서버의 프로토콜 스택은 패킷을 추출하여 메시지를 복원하고 웹 서버 애플리케이션에 넘긴다.
-2.  메시지를 받은 웹 서버 애플리케이션은 요청 메시지에 따른 데이터를 응답 메시지에 넣어 클라이언트로 회송한다.
-3.  왔던 방식대로 응답 메시지가 클라이언트에게 전달된다.
+1. The frame transmitted by the LAN adapter arrives at the router for Internet access via the switching hub.
+2. The router forwards the packet to the provider (communication company).
+3. You enter the Internet.
 
 </br>
 
+### in access line, provider
 
-[Back](https://github.com/jojo-tey/)/[Go to Top](#part-1-3-network)
+1. Packets are carried to POP (Point Of Presence) by the access line (communication line) at the entrance of the Internet.
+2. It enters the core of the Internet through POP.
+3. Packets flow to the destination between numerous high-speed routers.
+
+</br>
+
+### in firewall, cache server
+
+1. Packets pass through the core of the Internet and arrive at the LAN of the web server.
+2. The waiting firewall inspects the arriving packets.
+3. There is a cache server that determines whether packets should go to the web server or not.
+
+Pick out cases where you don't have to go to the server. If the data of the accessed page is in the cache server, the value can be read without requesting the web server. Any data on the page that can be reused is stored in the cache server.
+
+</br>
+
+### in web server
+
+1. When a packet arrives at the physical web server, the web server's protocol stack extracts the packet, restores the message, and passes it to the web server application.
+2. The web server application that received the message puts the data according to the request message in the response message and sends it back to the client.
+3. The response message is delivered to the client the way it came.
+
+</br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
 

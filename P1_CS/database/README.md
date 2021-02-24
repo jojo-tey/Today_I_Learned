@@ -317,6 +317,8 @@ When a `Commit` request comes in, the status becomes `Partial Commited`. After t
 
 It is recommended to apply transactions only to the minimum necessary code. In other words, it means to minimize the scope of the transaction. In general, the number of database connections is limited. However, if the time for each unit program to own a connection increases, the number of available free connections decreases. Then, at some point, you may have to wait for each unit program to get a connection.
 
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Database)
+
 ### Deadlock
 
 #### What is a deadlock
@@ -326,8 +328,6 @@ Deadlocks can occur when using multiple transactions. Deadlock is a state in whi
 #### Deadlock Example (MySQL)
 
 Because of the characteristics of MySQL [MVCC](https://en.wikipedia.org/wiki/Multiversion_concurrency_control), a lock is acquired when an update operation (Insert, Update, Delete) is executed in a transaction. (Default lock on row)
-
-![classic deadlock source: https://darkiri.wordpress.com/tag/sql-server/](/Database/images/deadlock.png)
 
 Suppose transaction 1 acquires a lock on the first row of table B and transaction 2 also acquires a lock on the first row of table A.
 
