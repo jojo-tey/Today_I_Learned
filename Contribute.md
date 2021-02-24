@@ -4,6 +4,8 @@ You can participate in the Repository in several ways.
 When posting PR, please refer to the labels and put the right title together!
 You can just say'Update' for the Commit Message, and just write the message you want.
 
+[Back](https://github.com/jojo-tey/Today_I_Learned)
+
 ## Process
 
 ### Contribute hrough Pull Request
@@ -23,7 +25,7 @@ $ git clone https://github.com/jojo-tey/Today_I_Learned
 ```
 $ git add .
 $ git commit -m "[your description]"
-$ git push origin master
+$ git push origin main
 ```
 
 ### 4. Register pull request for your commit
@@ -31,13 +33,13 @@ $ git push origin master
 ### Optional. Resolve Conflict
 
 ```
-$ git remote add --track master upstream https://github.com/jojo-tey/Today_I_Learned
+$ git remote add --track main upstream https://github.com/jojo-tey/Today_I_Learned
 $ git fetch upstream
-$ git rebase upstream/master
+$ git rebase upstream/main
 # (resolve conflict in your editor)
 $ git add .
 $ git rebase --continue
-$ git push -f origin master
+$ git push -f origin main
 ```
 
 ### Contribute hrough Pull Request
@@ -95,3 +97,5 @@ Edit DataStructure Link
 #### Description
 (say something...)
 ```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#HOW-TO-CONTRIBUTE)

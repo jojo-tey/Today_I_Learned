@@ -1,11 +1,121 @@
 # Algorithm
 
-- [Basic Theory](#Basic-Theory)
-- [Greedy Algorithm](#Greedy-Algorithm)
+- [Tips for Coding Interview](#Tips-for-Coding-Interview)
+- [Strategic Approach to Problem Solving](#Strategic-Approach-to-Problem-Solving)
+- [Theory](#Theory)
+  - [검색 알고리즘](#)
+  - [Greedy Algorithm](#Greedy-Algorithm)
+  - [Sorting Algorithm](#sorting-algorithm)
 
 ---
 
-## Basic Theory
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+## Tips for Coding Interview
+
+### 1. Start writing on the board.
+
+This may sound obvious, but there are dozens of candidates stuck looking at the blank wall. I find it more productive to stare at an example of a problem than to see nothing. If you can think of a picture that is relevant, draw it. If you have a medium sized example, you can work. (Medium size is better than small one.) Because sometimes solutions for small examples are not generalized. Or write down a few propositions you know. Doing something is better than doing nothing.
+
+### 2. Talk through it.
+
+Don't worry if what you said might sound silly. Many people prefer to think quietly about a problem, but if you get stuck in solving a problem, talking can be one way. Sometimes speaking clearly to the interviewer about your progress can give you an opportunity to understand what's going on in a problem right now. Your interviewer may interfere with you to pursue that idea. Whatever you do, don't try to trick the interviewer for hints. If you need a hint, ask honestly.
+
+### 3. Think of an algorithm.
+
+Sometimes it's useful to go through the details of the problem and expect a solution to come up to you (this will be a bottom-up approach). However, you can also think about other algorithms and ask if each one applies to the problem in front of you (top-down approach). Changing the reference frame in this way can often give you immediate insight. Here are some algorithmic techniques that can help you solve more than half of the problems your interview requires.
+
+- Sorting (plus searching / binary search)
+- Divide and Conquer
+- Dynamic Programming / Memoization
+- Greediness
+- Recursion
+- Algorithms associated with a specific data structure (which brings us to our fourth suggestion...)
+
+### 4. Think of the data structure.
+
+Did you know that the top 10 data structures make up 99% of all data structures used in the real world? Sometimes the optimal solution asks you the problem of requiring a bloom filter or suffix tree. However, even these problems tend to use optimal solutions that use much more routine data structures. Here are the data structures you will most often see:
+
+- Array
+- Stack / Queue
+- HashSet / HashMap / HashTable / Dictionary
+- Tree / Binary tree
+- Heap
+- Graph
+
+### 5. Think about the related problems you saw before and how to fix them.
+
+The problem I have presented to you is the one you have seen before, or at least a little similar. Think about these solutions and think about how you can adapt to the details of the problem. Do not fall in the form of raising the problem. Move on to the core task and see if it matches what you have solved in the past.
+
+### 6. Break the problem down into smaller ones and fix them.
+
+Solve a special case or a simplified version of the problem. Looking at the corner cases is a great way to limit the complexity and scope of a problem. By reducing the problem to a subset of the larger problem, you can start with small parts and work through the whole range. It can also be helpful to see the problem as a composition of small problems.
+
+### 7. Don't be afraid to come back.
+
+If you feel that certain approaches are not working, there are times when you try different approaches. Of course, you shouldn't give up too easily. But, if you've spent a few minutes on a non-promising approach without bearing fruit, then back up and try something else. I have seen a lot of applicants who have progressed far more than those with less access. This means that others (all equal) have to give up the more agile approach.
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+<br>
+
+## Strategic Approach to Problem Solving
+
+### Purpose of coding interview
+
+1. Whether to solve the problem
+2. Exception and threshold handling
+3. Code quality, including code readability and redundancy
+4. Language understanding
+5. Efficiency
+
+Ultimately, it is to measure problem-solving ability, and it can be seen as to measure'how to creatively solve this problem'.
+
+### access
+
+1. The priority is to take the problem aggressively and request additional necessary information so that you have a complete understanding of the problem.
+2. Redefine the problem in familiar terms or extract information to solve the problem. This process is called abstraction.
+3. Plan how to solve this problem based on abstracted data. Consider the algorithm and data structure to use at this time.
+4. Verify the plan you have made. It may be applicable to writing code, and you can ask the questioner for comments.
+5. Try to solve the problem with the plan you have made. If that doesn't work, review the previous process.
+
+### When you think
+
+- Think of a similar problem.
+- Start with a simple method and improve gradually.
+- Think of a small value.
+- Draw with a picture.
+- Express it with a formula.
+- Try to force the order.
+- Think from the back.
+
+</br>
+
+### Classify workarounds
+
+#### DP (Dynamic Programming)
+
+It is a method of solving a complex problem by dividing it into several simple sub-problems.
+
+There are two implementation methods in DP.
+
+- top-down: When multiple sub-problems are divided, the sub-problems are combined to finally find the optimal solution.
+  - There are cases with the same subproblem.
+    When the optimal solution is stored and used, it is useful when the number of subproblems increases exponentially.
+    This method is called memoization.
+- bottom-up: The top-down method finds the optimal solution of the upper problem with lower problems.
+
+<br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+<br>
+
+---
+
+<br>
+
+## Theory
 
 ### 검색알고리즘
 
@@ -252,3 +362,5 @@ for i in range(1, len(s)):
 print(result)
 
 ```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)

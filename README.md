@@ -237,6 +237,8 @@
 #### References
 
 https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference
+https://web.archive.org/web/20110929132042/
+http://blog.palantir.com/2011/09/26/how-to-rock- an-algorithms-interview/
 
 </br>
 
