@@ -91,20 +91,6 @@ Ultimately, it is to measure problem-solving ability, and it can be seen as to m
 
 </br>
 
-### Classify workarounds
-
-#### DP (Dynamic Programming)
-
-It is a method of solving a complex problem by dividing it into several simple sub-problems.
-
-There are two implementation methods in DP.
-
-- top-down: When multiple sub-problems are divided, the sub-problems are combined to finally find the optimal solution.
-  - There are cases with the same subproblem.
-    When the optimal solution is stored and used, it is useful when the number of subproblems increases exponentially.
-    This method is called memoization.
-- bottom-up: The top-down method finds the optimal solution of the upper problem with lower problems.
-
 <br>
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)

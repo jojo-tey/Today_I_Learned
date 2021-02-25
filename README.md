@@ -12,7 +12,7 @@
 
 > This is a daily learning repository for prospective developers or developers to prepare for technical interviews. It didn't cover all the fields of development. I would appreciate it if you just refer to it as a guideline. Also, since I personally prepared the interview while preparing for the interview, there may be errors. We would be very grateful if you participate in these areas as Pull Request or Issue. It is also possible to add good reference material related to the topic. Please post any questions you may have while studying in the Repository!
 
-## :pray: [How to contribute](https://github.com/jojo-tey/Today_I_Learned/blob/main/Contribute.md)
+## :pray: How to contribute [Click](https://github.com/jojo-tey/Today_I_Learned/blob/main/Contribute.md)
 
 ---
 
@@ -28,7 +28,6 @@
 ## :star2: Interview Questions [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Interview_Questions/README.md)
 
 > You can share the questions you actually received during the interview.
-> "Do you have any question about us?" This is a question you must have heard at least once after the interview. What questions should I ask at this time? Here's a list of Reverse Interviews with relevant questions.
 
 - Frontend
 - Backend
@@ -187,6 +186,13 @@
 
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
+- Tips for Coding Interview
+- Strategic Approach to Problem Solving
+- Theory
+  - 검색 알고리즘
+  - Greedy Algorithm
+  - Sorting Algorithm
+
 </br>
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
@@ -236,9 +242,24 @@
 
 #### References
 
-https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference
-https://web.archive.org/web/20110929132042/
-http://blog.palantir.com/2011/09/26/how-to-rock- an-algorithms-interview/
+- https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference
+- https://web.archive.org/web/20110929132042/
+- http://blog.palantir.com/2011/09/26/how-to-rock-an-algorithms-interview/
+- https://docs.python.org/
+- https://plumbr.io/handbook/
+- https://www.kylev.com/2009/11/03/finding-my-first-python-reference-cycle/
+- http://www.arctrix.com/nas/python/gc/
+- https://www.quora.com/How-does-garbage-collection-in-Python-work-What-are-the-pros-and-cons
+- https://github.com/python/cpython/
+- https://docs.celeryproject.org/en/stable/
+- https://rpython.readthedocs.io/en/latest/index.html
+- http://speed.pypy.org/
+- https://github.com/JaeYeopHan/for_beginner
+- https://en.wikipedia.org/wiki/Tracing_just-in-time_compilation
+- https://stackoverflow.com/questions/2017381/is-it-possible-to-have-an-actual-memory-leak-in-python-because-of-your-code
+- https://cs.gmu.edu/~kauffman/cs310/w04-2.pdf
+- https://en.wikipedia.org/wiki/Duck_test
+- http://www.drdobbs.com/templates-and-duck-typing/184401971
 
 </br>
 
