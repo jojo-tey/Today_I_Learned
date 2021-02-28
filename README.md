@@ -203,6 +203,14 @@
 
 ## :gem: JavaScript [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/javascript/README.md)
 
+- JavaScript Event Loop
+- Hoisting
+- Closure
+- About this
+- Promise
+- Arrow Function
+
+
 #### Additional
 
 - [Interview Algorithm Questions in JavaScript ](https://github.com/kennymkchan/interview-questions-in-javascript)
@@ -212,6 +220,18 @@
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
 
 ## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
+
+
+- Generator
+- Method execution when class is inherited
+- GIL and performance problems caused by it
+- How GC works
+- Celery
+- Why PyPy is faster than CPython
+- If memory leak may occur
+- Duck Typing
+- Timsort
+
 
 #### Additional
 
