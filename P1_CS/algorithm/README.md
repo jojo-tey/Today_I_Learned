@@ -6,6 +6,19 @@
   - [검색 알고리즘](#)
   - [Greedy Algorithm](#Greedy-Algorithm)
   - [Sorting Algorithm](#sorting-algorithm)
+  - DFS BFS
+  - 배열
+  - 트리
+  - BST (이진탐색트리)
+  - 그래프
+  - 힙
+  - 스택
+  - 큐
+  - 최단거리알고리즘
+  - 정렬
+  - 백트래킹
+  - DP
+  - 분할정복
 
 ---
 
