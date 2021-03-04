@@ -18,10 +18,10 @@
 
 ## :memo: Table of Contents
 
-- [Part 0. Interview Questions](#Interview_Questions)
-- [Part 1. CS](#CS)
-- [Part 2. Languages](#Languages)
-- [Part 3. Workfield](#Workfield)
+- [Part 0. Interview Questions](#Part-0.-Interview-Questions)
+- [Part 1. CS](#Part-1.-CS)
+- [Part 2. Languages](#Part-2.-Languages)
+- [Part 3. Workfield](#Part-3.-Workfield)
 
 # Part 0. Interview Questions
 
@@ -33,7 +33,7 @@
 - Backend
 - ETC
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 # Part 1. CS
 
@@ -47,7 +47,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
 
@@ -81,7 +81,8 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
+
 
 ## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
 
@@ -95,7 +96,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :bulb: OS [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/OS/README.md)
 
@@ -135,7 +136,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :bulb: Database [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/database/README.md)
 
@@ -176,13 +177,25 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :bulb: Design Pattern [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/designpattern/README.md)
 
+
+
+- Factory pattern
+  - Fachtory method
+  - Abstract factory
+- Builder pattern
+- Prototype pattern
+- Singleton Pattern
+- Adapter Pattern
+- Decorator Pattern
+
+
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
@@ -195,7 +208,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ---
 
@@ -217,7 +230,7 @@
   - JavaScript interview Questions
     </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ## :gem: Python [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P2_Language/python/README.md)
 
@@ -240,7 +253,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 # Part 3. Workfield
 
@@ -252,7 +265,7 @@
 
 </br>
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Today_I_Learned)
+[Go to Top](#Today_I_Learned)
 
 ---
 
@@ -280,7 +293,10 @@
 - https://cs.gmu.edu/~kauffman/cs310/w04-2.pdf
 - https://en.wikipedia.org/wiki/Duck_test
 - http://www.drdobbs.com/templates-and-duck-typing/184401971
-
+- https://velog.io/@jahoy/
 </br>
+
+
+[Go to Top](#Today_I_Learned)
 
 ---
