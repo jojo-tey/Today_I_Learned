@@ -5,9 +5,24 @@
   - Abstract factory
 - [Builder pattern](#Builder-pattern)
 - [Prototype pattern](#Prototype-pattern)
-- [Singleton Pattern](#Singleton-Pattern)
-- [Adapter Pattern](#Adapter-Pattern)
-- [Decorator Pattern](#Decorator-Pattern)
+- [Singleton pattern](#Singleton-pattern)
+- [Adapter pattern](#Adapter-pattern)
+- [Decorator pattern](#Decorator-pattern)
+- [Bridge pattern](#Bridge-pattern)
+- [Facade Pattern](#Facade-pattern)
+- [Flyweight pattern](#Flyweight-pattern)
+- [Proxy pattern](#Proxy-pattern)
+- [Observer pattern](#Observer-pattern)
+- [State pattern](#State-pattern)
+- [Strategy pattern](#Strategy-pattern)
+- [Microservices pattern](#Microservices-pattern)
+  - Retry pattern
+  - Circuit Breaker pattern
+  - Cache-Aside pattern
+  - Throttiling pattern
+
+
+<br>
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
 
@@ -679,6 +694,430 @@ if __name__ == '__main__':
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+## Bridge pattern
+
+> When it is necessary to implement various speacilzed classes, the implementation part is separated through abstraction.
+
+
+- An abstraction that applies to all the classes
+- A separate interface for the different objects involved
+
+#### Example
+
+- Resource Content abstraction, called ResourceContent. (maintain a reference to the object which represents the Implementor)
+- Define the interface for implementation classes that help fetch content, that is, the ResourceContentFetcher class. This concept is called the Implementor.
+- For using bridge pattern, you can extract content from different sources and integrate the results in the same data manipulation system or user interface.
+
+```
+py
+
+import abc
+import urllib.parse
+import urllib.request
+
+
+class ResourceContent:
+    """
+    Define the abstraction's interface.
+    Maintain a reference to an object which represents the Implementor.
+    """
+
+    def __init__(self, imp):
+        self._imp = imp
+
+    def show_content(self, path):
+        self._imp.fetch(path)
+
+
+class ResourceContentFetcher(metaclass=abc.ABCMeta):
+    """
+    Define the interface (Implementor) for implementation classes that help fetch content.
+    """
+    
+    @abc.abstractmethod
+    def fetch(path):
+        pass
+        
+
+class URLFetcher(ResourceContentFetcher):
+    """
+    Implement the Implementor interface and define its concrete
+    implementation.
+    """
+    
+    def fetch(self, path):
+        # path is an URL
+        req = urllib.request.Request(path)
+        with urllib.request.urlopen(req) as response:
+            if response.code == 200:
+                the_page = response.read()
+                print(the_page)
+                        
+                
+class LocalFileFetcher(ResourceContentFetcher):
+    """
+    Implement the Implementor interface and define its concrete
+    implementation.
+    """
+
+    def fetch(self, path):
+        # path is the filepath to a text file
+        with open(path) as f:
+            print(f.read())
+        
+       
+def main():
+    url_fetcher = URLFetcher()
+    iface = ResourceContent(url_fetcher)
+    iface.show_content('http://python.org')
+
+    print('===================')
+    
+    localfs_fetcher = LocalFileFetcher()
+    iface = ResourceContent(localfs_fetcher)
+    iface.show_content('file.txt')
+
+    
+if __name__ == "__main__":
+    main()
+```
+
+## Facade Pattern
+
+
+> Complex classes and instructions can be executed through a single function.
+
+- The facade design pattern helps us to hide the internal complexity of our systems and expose only what is necessary to the client through a simplified interface.
+- By introducing facade, the client code can use a system by simply calling a single method/function.
+
+#### Example
+
+- It does not expose the complexity to the client because it encapsulates the whole procedure when the CPU boots.
+- We need to subclass ABCMeta using the metaclass keyword.
+- We use the @abstractmethod decorator for stating which methods should be implemented (mandatory) by all subclasses of server.
+
+```
+py
+
+from enum import Enum 
+from abc import ABCMeta, abstractmethod 
+ 
+State = Enum('State', 'new running sleeping restart zombie') 
+ 
+class User: 
+    pass 
+ 
+class Process: 
+    pass 
+ 
+class File: 
+    pass 
+ 
+class Server(metaclass=ABCMeta): 
+    @abstractmethod 
+    def __init__(self): 
+        pass 
+ 
+    def __str__(self): 
+        return self.name 
+ 
+    @abstractmethod 
+    def boot(self): 
+        pass 
+ 
+    @abstractmethod  
+    def kill(self, restart=True): 
+        pass 
+ 
+class FileServer(Server): 
+    def __init__(self): 
+        '''actions required for initializing the file server''' 
+        self.name = 'FileServer' 
+        self.state = State.new 
+ 
+    def boot(self): 
+        print(f'booting the {self}') 
+        '''actions required for booting the file server''' 
+        self.state = State.running 
+ 
+    def kill(self, restart=True): 
+        print(f'Killing {self}') 
+        '''actions required for killing the file server''' 
+        self.state = State.restart if restart else State.zombie 
+ 
+    def create_file(self, user, name, permissions): 
+        '''check validity of permissions, user rights, etc.''' 
+        print(f"trying to create the file '{name}' for user '{user}' with permissions {permissions}") 
+ 
+class ProcessServer(Server): 
+    def __init__(self): 
+        '''actions required for initializing the process server''' 
+        self.name = 'ProcessServer' 
+        self.state = State.new 
+ 
+    def boot(self): 
+        print(f'booting the {self}') 
+        '''actions required for booting the process server''' 
+        self.state = State.running 
+ 
+    def kill(self, restart=True): 
+        print(f'Killing {self}') 
+        '''actions required for killing the process server''' 
+        self.state = State.restart if restart else State.zombie 
+ 
+    def create_process(self, user, name): 
+        '''check user rights, generate PID, etc.''' 
+        print(f"trying to create the process '{name}' for user '{user}'") 
+ 
+class WindowServer: 
+    pass 
+ 
+class NetworkServer: 
+    pass 
+ 
+class OperatingSystem: 
+    '''The Facade''' 
+    def __init__(self): 
+        self.fs = FileServer() 
+        self.ps = ProcessServer() 
+ 
+    def start(self): 
+        [i.boot() for i in (self.fs, self.ps)] 
+ 
+    def create_file(self, user, name, permissions): 
+        return self.fs.create_file(user, name, permissions) 
+ 
+    def create_process(self, user, name): 
+        return self.ps.create_process(user, name) 
+ 
+def main(): 
+    os = OperatingSystem() 
+    os.start()  
+    os.create_file('foo', 'hello', '-rw-r-r') 
+    os.create_process('bar', 'ls /tmp') 
+ 
+if __name__ == '__main__': 
+    main()
+```
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+
+## Flyweight pattern
+
+> It is a pattern that saves memory by managing common properties of multiple objects. In other words, it is a pattern used when you need to create a large number of objects, and a pattern that should be used when memory is consumed too much to store that many objects.
+
+- To minimize memory usage and improve performance by introducing data sharing between similar objects
+- Flyweight is an OOP-specific optimization design pattern that focuses on sharing object data.
+
+
+#### Example
+
+- In the game, all users are in the same team, there is a common action (jump, duck, etc.) and can be used at this time.
+- Caching
+- The Exaile music player uses flyweight to reuse objects (in this case, music tracks) that are identified by the same URL.
+- Choosing car model
+
+<br>
+
+* Notice that pool is a class attribute (a variable shared by all instances).
+* Using the __new__() special method, which is called before __init__(), we are converting the Car class to a metaclass that supports self-references. This means that cls references the Car class.
+
+```
+py
+
+import random 
+from enum import Enum 
+ 
+CarType = Enum('CarType', 'subcompact compact suv') 
+ 
+class Car: 
+    pool = dict() 
+ 
+    def __new__(cls, car_type): 
+        obj = cls.pool.get(car_type, None) 
+        if not obj: 
+            obj = object.__new__(cls) 
+            cls.pool[car_type] = obj 
+            obj.car_type = car_type 
+        return obj 
+ 
+    def render(self, color, x, y):
+        type = self.car_type
+        msg = f'render a car of type {type} and color {color} at ({x}, {y})'
+        print(msg)
+ 
+def main(): 
+    rnd = random.Random() 
+    #age_min, age_max = 1, 30    # in years 
+    colors = 'white black silver gray red blue brown beige yellow green'.split()
+    min_point, max_point = 0, 100 
+    car_counter = 0 
+ 
+    for _ in range(10): 
+        c1 = Car(CarType.subcompact) 
+        c1.render(random.choice(colors), 
+                  rnd.randint(min_point, max_point), 
+                  rnd.randint(min_point, max_point)) 
+        car_counter += 1 
+ 
+    for _ in range(3): 
+        c2 = Car(CarType.compact) 
+        c2.render(random.choice(colors), 
+                  rnd.randint(min_point, max_point), 
+                  rnd.randint(min_point, max_point)) 
+        car_counter += 1 
+ 
+    for _ in range(5): 
+        c3 = Car(CarType.suv) 
+        c3.render(random.choice(colors), 
+                  rnd.randint(min_point, max_point), 
+                  rnd.randint(min_point, max_point)) 
+        car_counter += 1 
+ 
+    print(f'cars rendered: {car_counter}') 
+    print(f'cars actually created: {len(Car.pool)}') 
+ 
+    c4 = Car(CarType.subcompact) 
+    c5 = Car(CarType.subcompact) 
+    c6 = Car(CarType.suv) 
+    print(f'{id(c4)} == {id(c5)}? {id(c4) == id(c5)}') 
+    print(f'{id(c5)} == {id(c6)}? {id(c5) == id(c6)}') 
+
+    
+if __name__ == '__main__': 
+    main()
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+## Proxy pattern
+
+> Control access to sensitive information
+
+#### Example
+
+- Introducing lazy initialization using a virtual proxy to create the objects only at the moment they are actually required can give us significant performance improvements(make it execute at the end).
+- When checking whether a user has a specific authority
+
+```
+py
+
+class SensitiveInfo: 
+    def __init__(self): 
+        self.users = ['nick', 'tom', 'ben', 'mike'] 
+ 
+    def read(self): 
+        nb = len(self.users)
+        print(f"There are {nb} users: {' '.join(self.users)}") 
+ 
+    def add(self, user): 
+        self.users.append(user) 
+        print(f'Added user {user}') 
+ 
+class Info:  
+    '''protection proxy to SensitiveInfo''' 
+ 
+    def __init__(self): 
+        self.protected = SensitiveInfo() 
+        self.secret = '0xdeadbeef' 
+ 
+    def read(self): 
+        self.protected.read() 
+ 
+    def add(self, user): 
+        sec = input('what is the secret? ') 
+        self.protected.add(user) if sec == self.secret else print("That's wrong!") 
+ 
+def main(): 
+    info = Info() 
+ 
+    while True: 
+        print('1. read list |==| 2. add user |==| 3. quit') 
+        key = input('choose option: ') 
+        if key == '1': 
+            info.read() 
+        elif key == '2': 
+            name = input('choose username: ') 
+            info.add(name) 
+        elif key == '3': 
+            exit() 
+        else: 
+            print(f'unknown option: {key}') 
+ 
+if __name__ == '__main__': 
+    main()
+```
+<br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+
+## Observer pattern
+
+> The key point in this case is that multiple listeners (observers) can be attached to a single event (publisher).
+
+#### Example
+
+- RabbitMQ library, Several messaging protocols are supported, such as HTTP and AMQP. RabbitMQ can be used in a Python application to implement a publish-subscribe pattern
+
+- news feed(RSS)
+
+- Event-driven systems
+<br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+
+## State pattern
+
+> patterns with two states and transitions. In an event-driven system, the transition from one state to another triggers an event/message.
+
+
+#### Example
+
+- Reject our selection because the product we requested is out of stock
+- Reject our selection because the amount of money we inserted was not sufficient
+- Deliver the product and give no change because we inserted the exact amount
+- Deliver the product and return the change
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+
+## Strategy pattern
+
+> A pattern that makes various algorithms and selects the most suitable algorithm according to the input.
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+
+
+## Microservices pattern
+
+1. Retry pattern
+  - Pattern to retry when an error occurs
+
+2. Circuit Breaker pattern
+  - When failures reach a specific threshold, the circuit is blocked to prevent propagation of failure
+
+3. Cache-Aside pattern
+  - Cache frequently used information
+
+4. Throttling pattern
+  - throttling is based on limiting the number of requests a user can send to a given web service in a given amount of time, in order to protect the resources of the service from being overused by some users.
+
+</br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Design-pattern)
+
+</br>
+
+
+_designpattern.end_
 
 
 
