@@ -191,7 +191,18 @@
 - Singleton Pattern
 - Adapter Pattern
 - Decorator Pattern
-
+- Bridge pattern
+- Facade Pattern
+- Flyweight pattern
+- Proxy pattern
+- Observer pattern
+- State pattern
+- Strategy pattern
+- Microservices pattern
+  - Retry pattern
+  - Circuit Breaker pattern
+  - Cache-Aside pattern
+  - Throttiling pattern
 
 </br>
 
