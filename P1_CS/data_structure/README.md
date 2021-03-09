@@ -1,5 +1,6 @@
 # Data Structure
 
+- [Interview Question for Data structures](#Interview-Question-for-Data-structures)
 - [Array vs Linked List](#Array-vs-Linked-List)
 - [Stack and Queue](#Stack-and-Queue)
 - [Tree](#Tree)
@@ -28,7 +29,24 @@
     - Kruskal algorithm
     - Prim algorithm
 
+
+
 [Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
+
+
+
+
+## Interview Question for Data structures
+
+* [Top 15 Data Structures and Algorithm Interview Questions for Java programmer](http://javarevisited.blogspot.com.by/2013/03/top-15-data-structures-algorithm-interview-questions-answers-java-programming.html)
+* [Top 50 Data Structure Interview Questions from Career Guru](http://career.guru99.com/top-50-data-structure-interview-questions/)
+* [What is Data Structure? | Top 40 Data Structure Interview Questions](https://www.interviewbit.com/data-structure-interview-questions/)
+
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
+
+
 
 </br>
 
@@ -363,5 +381,10 @@ During the initialization process, an initial graph A consisting of one vertex i
 </br>
 
 [Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Data-Structure)
+
+
+
+
+
 
 _Data structure.end_

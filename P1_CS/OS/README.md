@@ -33,6 +33,9 @@
 - [Locality of cache](#Locality-of-cache)
   - Locality
   - Caching line
+- [Interview Questions for OS](#Interview-Questions-for-OS)
+  - [Linux](#Linux)
+  - [Windows](#Windows)
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#OS)
 
@@ -542,8 +545,33 @@ There are three representative types.
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#OS)
 
+
+
+## Interview Questions for OS
+
+### Linux
+
+* [10 Job Interview Questions for Linux System Administrators from Linux.com](https://www.linuxfoundation.org/blog/2015/07/10-job-interview-questions-for-linux-system-administrators/)
+* [10 Useful Random Linux Interview Questions and Answers](http://www.tecmint.com/useful-random-linux-interview-questions-and-answers/)
+* [11 Basic Linux Interview Questions and Answers](http://www.tecmint.com/basic-linux-interview-questions-and-answers/)
+* [11 Essential Linux Interview Questions from Toptal](http://www.toptal.com/linux/interview-questions)
+* [Some basic Linux questions from ComputerNetworkingNotes.com](http://computernetworkingnotes.com/rhce-interview-questions/linux-interview-questions-answers.html)
+* [Top 30 Linux System Admin Interview Questions & Answers](http://www.linuxtechi.com/experience-linux-admin-interview-questions/)
+* [Top 50 Linux Interview Questions from Career Guru](http://career.guru99.com/top-50-linux-interview-questions/)
+* [Linux System Administrator/DevOps Interview Questions](https://github.com/chassing/linux-sysadmin-interview-questions)
+* [278 Test Questions and Answers for \*nix System Administrators](https://github.com/trimstray/test-your-sysadmin-skills)
+* [Linux Interview Questions - Quick Refresher](https://www.techbeamers.com/essential-linux-questions-answers/)
+
+### Windows
+
+* [Top 10 Interview Questions for Windows Administrators](http://www.brentozar.com/archive/2009/07/top-10-interview-questions-for-windows-sysadmins/)
+* [Top 22 Windows Server Interview Questions from Career Guru](http://career.guru99.com/top-22-windows-server-interview-questions/)
+* [Windows Admin Interview Questions & Answers](http://www.01world.in/p/windows.html)
+
+
 </br>
 
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#OS)
 ---
 
 </br>

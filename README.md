@@ -18,20 +18,10 @@
 
 ## :memo: Table of Contents
 
-- [Part 0. Interview Questions](#Part-0.-Interview-Questions)
 - [Part 1. CS](#Part-1.-CS)
 - [Part 2. Languages](#Part-2.-Languages)
 - [Part 3. Workfield](#Part-3.-Workfield)
 
-# Part 0. Interview Questions
-
-## :star2: Interview Questions [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Interview_Questions/README.md)
-
-> You can share the questions you actually received during the interview.
-
-- Frontend
-- Backend
-- ETC
 
 [Go to Top](#Today_I_Learned)
 
@@ -51,6 +41,7 @@
 
 ## :bulb: Data Structure [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/data_structure/README.md)
 
+- Interview Question for Data structures
 - Array vs Linked List
 - Stack and Queue
 - Tree
@@ -86,6 +77,7 @@
 
 ## :bulb: Network [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/network/README.md)
 
+- Interview Questions for Network
 - Comparison of HTTP's GET and POST
 - TCP 3-way-handshake
 - Comparison of TCP and UDP
@@ -174,6 +166,20 @@
     - Key-Value Model
     - Document Model
     - Column Model
+- Database Technology
+  - Cassandra
+  - Microsoft Access
+  - MongoDB
+  - MySQL
+  - Neo4j
+  - Oracle
+  - Postgres
+  - SQL
+  - SQL Lite
+- Caching technologies
+  - Memcached
+  - Redis
+
 
 </br>
 
@@ -211,6 +217,8 @@
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
 - Tips for Coding Interview
+- Interview Questions for Algorithms
+- Coding Exercises
 - Strategic Approach to Problem Solving
 - Theory
   - 검색 알고리즘
@@ -270,9 +278,31 @@
 
 ## :fire: Frontend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/frontend/README.md)
 
+- HTML5/CSS
+  - Interview Questions for HTML5
+  - Interview Questions for CSS
+  - Interview Questions for Sass
+- JavaScript
+  - Interview Questions for JavaScript
+  - Interview Questions for jQuery
+- React
+  - Interview Questions for ReactJS
+- Frontend build tools
+
 ## :fire: Backend [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/backend/README.md)
 
+- NodeJS
+  - Interview Questions for NodeJS
+- Django
+  - Interview Questions for Django
+
 ## :fire: DevOps [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
+
+- Docker
+  - Interview Questions for Docker
+- Jenkins
+- Terraform
+- Kubernetes
 
 </br>
 
@@ -305,6 +335,7 @@
 - https://en.wikipedia.org/wiki/Duck_test
 - http://www.drdobbs.com/templates-and-duck-typing/184401971
 - https://velog.io/@jahoy/
+- https://github.com/DopplerHQ/awesome-interview-questions
 </br>
 
 

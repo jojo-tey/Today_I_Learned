@@ -1,24 +1,43 @@
 # Algorithm
 
 - [Tips for Coding Interview](#Tips-for-Coding-Interview)
+- [Interview Questions for Algorithms](#Interview-Questions-for-Algorithms)
+- [Coding Exercises](#Coding-Exercises)
 - [Strategic Approach to Problem Solving](#Strategic-Approach-to-Problem-Solving)
 - [Theory](#Theory)
+  - 배열
+  - 스택
+  - 큐
+  - 해시테이블
+  - 정렬
+    - 선택정렬
+    - 삽입정렬
+    - 힙정렬
+    - 퀵정렬
+    - 병합정렬
+  - 트리
+    - BST (이진탐색트리)
+    - 힙
+    - 우선순위 큐
+    - 이진힙
+  - 그래프
+    - 방향그래프
+    - 무방향그래프
+    - 인접행렬
+    - 인접리스트
+    - 그래프순회
+      - 너비우선탐색(DFS)
+      - 깊이우선탐색(BFS)
+  
   - [검색 알고리즘](#)
   - [Greedy Algorithm](#Greedy-Algorithm)
   - [Sorting Algorithm](#sorting-algorithm)
-  - DFS BFS
-  - 배열
-  - 트리
-  - BST (이진탐색트리)
-  - 그래프
-  - 힙
-  - 스택
-  - 큐
   - 최단거리알고리즘
-  - 정렬
   - 백트래킹
   - DP
   - 분할정복
+
+
 
 ---
 
@@ -70,7 +89,32 @@ If you feel that certain approaches are not working, there are times when you tr
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
+
+
+## Interview Questions for Algorithms
+* [Comprehensive list of interview questions of top tech companies](https://github.com/rishabh115/Interview-Questions)
+* [A great list of Java interview questions](http://java2novice.com/java-interview-programs/)
+* [Algorithms playground for common interview questions written in Ruby](https://github.com/sagivo/algorithms)
+* [EKAlgorithms contains some well known CS algorithms & data structures](https://github.com/EvgenyKarkan/EKAlgorithms)
+* [Five programming problems every Software Engineer should be able to solve in less than 1 hour](http://www.shiftedup.com/2015/05/07/five-programming-problems-every-software-engineer-should-be-able-to-solve-in-less-than-1-hour)
+* [Top 10 Algorithms for Coding Interview](http://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/)
+* [Top 15 Data Structures and Algorithm Interview Questions for Java programmer](http://javarevisited.blogspot.com.by/2013/03/top-15-data-structures-algorithm-interview-questions-answers-java-programming.html)
+* [Top Algorithms Questions by Topics](https://github.com/yangshun/tech-interview-handbook/blob/master/algorithms/README.md)
+* [Daily Coding Interview Practice](https://www.techseries.dev/daily)
+
 <br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+<br>
+
+## Coding exercises
+
+* [Common interview questions and puzzles solved in a number of languages](https://github.com/mre/the-coding-interview)
+* [Interactive, test-driven Python coding challenges (algorithms and data structures) typically found in coding interviews or coding competitions](https://github.com/donnemartin/interactive-coding-challenges)
+* [Interview questions solved in python](https://github.com/roseperrone/interview-questions)
+* [7 Swift Coding Challenges to Practice Your Skills](https://www.makeuseof.com/tag/swift-coding-challenges/)
+
 
 ## Strategic Approach to Problem Solving
 

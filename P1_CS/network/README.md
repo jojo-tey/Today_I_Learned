@@ -1,5 +1,6 @@
 # Network
 
+- [Interview Questions for Network](#Interview-Questions-for-Network)
 - [Comparison of HTTP's GET and POST](#Comparison-of-HTTP's-GET-and-POST)
 - [TCP 3-way-handshake](#tcp-3-way-handshake)
 - [Comparison of TCP and UDP](#Comparison-of-TCP-and-UDP)
@@ -8,9 +9,16 @@
 - [DNS Round Robin](#dns-round-robin)
 - [Flow of web communication](#Flow-of-web-communication)
 
+
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Network)
 
 </br>
+
+
+* [Top 100 Networking Interview Questions & Answers from Career Guru](http://career.guru99.com/top-100-networking-interview-questions-answers/)
+
+<br>
+
 
 ## Comparison of HTTP's GET and POST
 

@@ -34,6 +34,75 @@
     - Key-Value Model
     - Document Model
     - Column Model
+- [Database Technology](#Database-Technology)
+  - [Cassandra](#cassandra)
+  - [Microsoft Access](#microsoft-access)
+  - [MongoDB](#mongodb)
+  - [MySQL](#mysql)
+  - [Neo4j](#neo4j)
+  - [Oracle](#oracle)
+  - [Postgres](#postgres)
+  - [SQL](#sql)
+  - [SQL Lite](#sql-lite)
+- [Caching technologies](#caching-technologies)
+  - [Memcached](#memcached)
+  - [Redis](#redis)
+
+
+### Cassandra
+
+* [Top 23 Cassandra Interview Questions from Career Guru](http://career.guru99.com/top-23-cassandra-interview-questions/)
+
+### Microsoft Access
+
+* [Top 16 Microsoft Access Database Interview Questions from Career Guru](http://career.guru99.com/top-16-ms-access-database-interview-questions/)
+
+### MongoDB
+
+* [28 MongoDB NoSQL Database Interview Questions and Answers](http://theprofessionalspoint.blogspot.com.by/2014/01/28-mongodb-nosql-database-interview.html)
+* [MongoDB frequently Asked Questions by expert members with experience in MongoDB These questions and answers will help you strengthen your technical skills, prepare for the new job test and quickly revise the concepts](http://www.globalguideline.com/interview_questions/Questions.php?sc=MongoDB)
+
+* [MongoDB Interview Questions from JavaTPointcom](http://www.javatpoint.com/mongodb-interview-questions)
+* [MongoDB Interview Questions that have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of MongoDB](http://www.tutorialspoint.com/mongodb/mongodb_interview_questions.htm)
+* [Top 20 MongoDB interview questions from Career Guru](http://career.guru99.com/top-20-mongodb-interview-questions/)
+
+### MySQL
+
+* [10 MySQL Database Interview Questions for Beginners and Intermediates](http://www.tecmint.com/10-mysql-database-interview-questions-for-beginners-and-intermediates/)
+* [100 MySQL interview questions](http://www.careerride.com/MySQL-Interview-Questions.aspx)
+* [15 Basic MySQL Interview Questions for Database Administrators](http://www.tecmint.com/basic-mysql-interview-questions-for-database-administrators/)
+* [28 MySQL interview questions from JavaTPoint.com](http://www.javatpoint.com/mysql-interview-questions)
+* [40 Basic MySQL Interview Questions with Answers](http://www.testingbrain.com/interview/mysql-interview-questions.html)
+* [Top 50 MySQL Interview Questions & Answers from Career Guru](http://career.guru99.com/top-50-mysql-interview-questions-answers/)
+
+### Neo4j
+
+* [Top 20 Neo4j Interview Questions from Career Guru](http://career.guru99.com/top-20-ne04j-interview-questions/)
+
+### Oracle
+
+* [General Oracle Interview Questions & Answers](http://www.coolinterview.com/type.asp?iType=57)
+
+### Postgres
+
+* [13 PostgreSQL Interview Q&A](http://www.dotnetfunda.com/interviews/cat/208/postgresql)
+* [Frequently Asked Basic PostgreSQL Interview Questions and Answers](http://nazafbtemplate.blogspot.com.by/2014/06/frequently-asked-basic-postgresql.html)
+* [PostgreSQL Interview Preparation Guide](http://www.globalguideline.com/interview_questions/Questions.php?sc=postgresqk_database_)
+* [PostgreSQL Interview Q&A from CoolInterview.com](http://www.coolinterview.com/type.asp?iType=411)
+
+### SQL
+
+* [10 Frequently asked SQL Query Interview Questions](http://java67.blogspot.com.by/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html)
+* [45 Essential SQL Interview Questions from Toptal](http://www.toptal.com/sql/interview-questions)
+* [Common Interview Questions and Answers](http://www.indiabix.com/technical/sql-server-common-questions/)
+* [General Interview Questions and Answers](http://www.indiabix.com/technical/sql-server-general-questions/)
+* [Schema, Questions & Solutions for SQL Exercising](https://github.com/XD-DENG/SQL-exercise)
+* [SQL Interview Questions that have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of SQL](http://www.tutorialspoint.com/sql/sql_interview_questions.htm)
+* [SQL Interview Questions CHEAT SHEET](https://www.interviewbit.com/sql-interview-questions/)
+
+### SQL Lite
+
+* [Top 20 SQL LITE  Interview Questions from Career Guru](http://career.guru99.com/top-20-sql-lite-interview-questions/)
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Database)
 
@@ -435,6 +504,88 @@ Google's big table is a typical example, and the subsequent column-type NoSQL wa
 Most column models, NoSQL, are more specialized for writing while reading and writing. It provides fast response speed because data is first saved in the commit log and memory and then responds. Therefore, it shows the best performance when implementing a service that requires many write operations versus read operations or a service that inputs and searches a large amount of data in a short time. It is suitable for implementing services such as saving chat contents and data storage for real-time analysis.
 
 [Back](https://github.com/jojo-tey/Today_I_Learned)/[Top](#Database)
+
+
+
+### Cassandra
+
+* [Top 23 Cassandra Interview Questions from Career Guru](http://career.guru99.com/top-23-cassandra-interview-questions/)
+
+### Microsoft Access
+
+* [Top 16 Microsoft Access Database Interview Questions from Career Guru](http://career.guru99.com/top-16-ms-access-database-interview-questions/)
+
+### MongoDB
+
+* [28 MongoDB NoSQL Database Interview Questions and Answers](http://theprofessionalspoint.blogspot.com.by/2014/01/28-mongodb-nosql-database-interview.html)
+* [MongoDB frequently Asked Questions by expert members with experience in MongoDB These questions and answers will help you strengthen your technical skills, prepare for the new job test and quickly revise the concepts](http://www.globalguideline.com/interview_questions/Questions.php?sc=MongoDB)
+
+* [MongoDB Interview Questions from JavaTPointcom](http://www.javatpoint.com/mongodb-interview-questions)
+* [MongoDB Interview Questions that have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of MongoDB](http://www.tutorialspoint.com/mongodb/mongodb_interview_questions.htm)
+* [Top 20 MongoDB interview questions from Career Guru](http://career.guru99.com/top-20-mongodb-interview-questions/)
+
+### MySQL
+
+* [10 MySQL Database Interview Questions for Beginners and Intermediates](http://www.tecmint.com/10-mysql-database-interview-questions-for-beginners-and-intermediates/)
+* [100 MySQL interview questions](http://www.careerride.com/MySQL-Interview-Questions.aspx)
+* [15 Basic MySQL Interview Questions for Database Administrators](http://www.tecmint.com/basic-mysql-interview-questions-for-database-administrators/)
+* [28 MySQL interview questions from JavaTPoint.com](http://www.javatpoint.com/mysql-interview-questions)
+* [40 Basic MySQL Interview Questions with Answers](http://www.testingbrain.com/interview/mysql-interview-questions.html)
+* [Top 50 MySQL Interview Questions & Answers from Career Guru](http://career.guru99.com/top-50-mysql-interview-questions-answers/)
+
+### Neo4j
+
+* [Top 20 Neo4j Interview Questions from Career Guru](http://career.guru99.com/top-20-ne04j-interview-questions/)
+
+### Oracle
+
+* [General Oracle Interview Questions & Answers](http://www.coolinterview.com/type.asp?iType=57)
+
+### Postgres
+
+* [13 PostgreSQL Interview Q&A](http://www.dotnetfunda.com/interviews/cat/208/postgresql)
+* [Frequently Asked Basic PostgreSQL Interview Questions and Answers](http://nazafbtemplate.blogspot.com.by/2014/06/frequently-asked-basic-postgresql.html)
+* [PostgreSQL Interview Preparation Guide](http://www.globalguideline.com/interview_questions/Questions.php?sc=postgresqk_database_)
+* [PostgreSQL Interview Q&A from CoolInterview.com](http://www.coolinterview.com/type.asp?iType=411)
+
+### SQL
+
+* [10 Frequently asked SQL Query Interview Questions](http://java67.blogspot.com.by/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html)
+* [45 Essential SQL Interview Questions from Toptal](http://www.toptal.com/sql/interview-questions)
+* [Common Interview Questions and Answers](http://www.indiabix.com/technical/sql-server-common-questions/)
+* [General Interview Questions and Answers](http://www.indiabix.com/technical/sql-server-general-questions/)
+* [Schema, Questions & Solutions for SQL Exercising](https://github.com/XD-DENG/SQL-exercise)
+* [SQL Interview Questions that have been designed specially to get you acquainted with the nature of questions you may encounter during your interview for the subject of SQL](http://www.tutorialspoint.com/sql/sql_interview_questions.htm)
+* [SQL Interview Questions CHEAT SHEET](https://www.interviewbit.com/sql-interview-questions/)
+
+### SQL Lite
+
+* [Top 20 SQL LITE  Interview Questions from Career Guru](http://career.guru99.com/top-20-sql-lite-interview-questions/)
+
+<br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Database)
+
+
+
+
+## Caching technologies
+
+### Memcached
+
+* [Memcached Interview Questions from Javapoint](https://www.javatpoint.com/memcached-interview-questions-and-answers)
+* [Memcached Interview Questions from Wisdomjobs](https://www.wisdomjobs.com/e-university/memcached-interview-questions.html)
+
+### Redis
+
+* [Redis Interview Questions from Javapoint](https://www.javatpoint.com/redis-interview-questions-and-answers)
+* [Redis Interview Questions from Wisdomjobs](https://www.wisdomjobs.com/e-university/redis-interview-questions-answers.html)
+* [Redis Interview Questions from Career Guru](https://career.guru99.com/top-10-redis-interview-questions/)
+
+<br>
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Database)
+
 
 </br>
 
