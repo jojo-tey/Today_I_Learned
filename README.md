@@ -336,6 +336,9 @@
 - http://www.drdobbs.com/templates-and-duck-typing/184401971
 - https://velog.io/@jahoy/
 - https://github.com/DopplerHQ/awesome-interview-questions
+- https://www.youtube.com/watch?v=Xw2D9aJRBY4
+- https://www.daleseo.com/
+
 </br>
 
 

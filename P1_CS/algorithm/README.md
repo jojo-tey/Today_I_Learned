@@ -5,11 +5,11 @@
 - [Coding Exercises](#Coding-Exercises)
 - [Strategic Approach to Problem Solving](#Strategic-Approach-to-Problem-Solving)
 - [Theory](#Theory)
-  - [Array](#array)
-  - 스택
-  - 큐
-  - 해시테이블
-  - 정렬
+  - [Array](#Array)
+  - [Stack](#Stack)
+  - [Queue](#Queue)
+  - [Hash Table](#Hash-Table)
+  - [Sort](#Sort)
     - 선택정렬
     - 삽입정렬
     - 힙정렬
@@ -164,30 +164,30 @@ Ultimately, it is to measure problem-solving ability, and it can be seen as to m
 
 ### Array
 
-배열을 사용하면 따로 흩어진 변수를 하나로 묶어서 사용할 수 있어 코드를 효율적으로 작성할 수 있다. 배열에는 객체가 저장되며 저장된 객체를 원소라고 한다. 또한 각 원소는 0부터 시작하는 인덱스를 가진다. 배열은 생성할 때 원소 개수를 자유롭게 지정할수 있다.
-또한 배열에는 각각의 다른 자료형을 가질 수 있다. 
+If you use an array, you can group and use separately scattered variables into one, so you can write code efficiently. An object is stored in an array, and the stored object is called an element. Also, each element has an index starting from 0. When creating an array, you can freely specify the number of elements.
+Also, arrays can have different data types.
 
 
 #### List / Tuple
 
-파이썬의 경우 배열을 리스트와 튜플로 구현할 수 있다. 리스트와 튜플은 비슷하지만 원소의 변경가능 여부에 따라 차이가 있다. 
+In Python, arrays can be implemented as lists and tuples. Lists and tuples are similar, but differ depending on whether or not the elements are mutable.
 
-> - mutable : 리스트, 딕셔너리, 집합 등 (값 변경 가능)
-> - immutable : 숫자, 문자열, 튜플 등 (값 변경 불가능)
+> mutable: list, dictionary, set, etc. (value can be changed)
+> immutable: numbers, strings, tuples, etc. (value cannot be changed)
 
 
-리스트를 사용하면 1, 3, 5, 7, 9 숫자 모음을 다음과 같이 간단하게 표현할 수 있다.
+Using lists, we can simply express a collection of numbers 1, 3, 5, 7, and 9 as follows:
 
-```
+```py
 >>> odd = [1, 3, 5, 7, 9]
 ```
 
-리스트를 만들 때는 위에서 보는 것과 같이 대괄호([ ])로 감싸 주고 각 요솟값은 쉼표(,)로 구분해 준다.
+When creating a list, wrap it in square brackets ([ ]) as shown above, and separate the minimum values with a comma (,).
 
-리스트명 = [요소1, 요소2, 요소3, ...]
-여러 가지 리스트의 생김새를 살펴보면 다음과 같다.
+List name = [Element 1, Element 2, Element 3, ...]
+Looking at the appearance of various lists are as follows.
 
-```
+```py
 >>> a = []
 >>> b = [1, 2, 3]
 >>> c = ['Life', 'is', 'too', 'short']
@@ -196,71 +196,69 @@ Ultimately, it is to measure problem-solving ability, and it can be seen as to m
 ```
 
 
-리스트는 a처럼 아무것도 포함하지 않아 비어 있는 리스트([ ])일 수도 있고 b처럼 숫자를 요솟값으로 가질 수도 있고 c처럼 문자열을 요솟값으로 가질 수도 있다. 또한 d처럼 숫자와 문자열을 함께 요솟값으로 가질 수도 있으며 e처럼 리스트 자체를 요솟값으로 가질 수도 있다. 즉 리스트 안에는 어떠한 자료형도 포함시킬 수 있다.
+A list can be an empty list ([ ]) containing nothing like a, a number as a minimum value, like b, or a string like c, as a minimum value. Also, like d, you can have both a number and a string as a minimum value, and like e, you can have a list itself as a minimum value. That is, any data type can be included in the list.
 
 
 
-- 선형리스트
+- Linear list
 
 
-선형리스트(Linear List), 순서리스트(Ordered List)라고도 하는 선형리스트는, 리스트(List)의 두가지 종류중 하나입니다.
+Linear lists, also known as ordered lists, are one of two types of lists.
 
-(리스트의) 크기가 처음부터 정적으로 정해져서, 데이터의 개수도 제한(고정)되있습니다. 
-
- 
-
-주로 (고정되어있는 크기의) 배열로 구현하는데요. 
-
-그렇기에 원소 간에 순서가 있고, 각각의 요소에 인덱스를 사용할 수 있습니다.
-
-따라서 원소 검색에서 효율적이지만, (인덱스로 바로 참조) 원소의 삽입과 삭제에서는 비효율적입니다. (하나의 삭제, 삽입에서 최악의 경우 기존의 모든 데이터를 이동해줘야 합니다)
-
-선형리스트의 삽입에서는 두가지 경우가 있습니다.
-
-삽입할 위치(인덱스)에 이미 값이 있냐 없냐인데요. 삽입할 위치가 값이없는, 빈공간이면 바로 원소를 삽입하면 되지만,
+The size of the `list` is set statically from the beginning, so the number of data is also limited `fixed`.
 
  
 
-삽입할 위치에 이미 다른값이 있으면, 원래있는 값을 유지시키면서, 새로운 값을 삽입하도록 원래있는 값을 한칸 뒤로 밀어줘야합니다. (기존 인덱스의 바로 다음 인덱스로 값을 옮기는 것이죠) 
+It is mainly implemented as an `fixed size` array.
 
-그런데 옮길 위치에도 이미 다른값이 존재한다면?  그렇기에 삽입할 위치로부터 마지막 원소까지 한칸씩 밀려쓴것처럼 해줘야 됩니다.  
+So there is an order between the elements, and you can use an index for each element.
 
+So, it's efficient for searching for elements `directly referred to as index`, but inefficient for inserting and deleting elements. `In one delete, insert, worst case, all existing data must be moved`
 
-선형리스트에서 삭제는 반대인데요,
+There are two cases in inserting a linear list.
 
-맨 끝의 원소를 삭제하는 것은 괜찮지만, 맨끝 원소가 아니라면, 삭제후에 리스트 중간에 빈공간이 생깁니다.
+The question is whether there is already a value at the insert position `index` If the location to insert is an empty space with no value, you can insert the element immediately.
 
-그렇게되면...
+ 
 
-그 빈공간을 다시 매꿀수 있게, 삭제할 인덱스 뒤의 있는 원소들을 앞으로 한칸씩 옮겨줘야 됩니다.
-흔히 선형리스트의 삽입과 삭제는 차례대로 열을 맞춰서 서있는 것을 생각하면 쉽습니다.
+If there is already another value at the insert position, you must push the original value one space back to insert the new value while keeping the original value. `It moves the value to the next index of the existing index`
 
-
-
-- 연결리스트 
-
-연결 리스트는 여러 개의 노드로 이루어져 있습니다. 각각의 노드는 데이터와 다음 노드가 뭔지 알려주는 주소를 가지고 있습니다. 또한 연결 리스트는 새로운 데이터를 추가하거나, 데이터의 위치를 찾거나, 제거하는 기능이 있어야 합니다.
-
-1->2->3->4->5 라는 연결 리스트가 있다면 1,2,3,4,5는 데이터고 ->는 주소입니다. 안타깝게도, 이미 자바스크립트에는 이것이 구현되어 있습니다. 바로 배열입니다. [1,2,3,4,5]가 있으면 1,2,3,4,5는 데이터이고, array[0], array[1] 등은 데이터가 담긴 위치를 말해주고 있죠. 또한, array.push();를 통해 데이터를 추가할 수 있고, array.splice();를 통해 데이터를 제거할 수 있습니다. 
-
-LinkedList에는 length와 head가 있습니다. length는 노드의 개수를 표현하는 부분이고, head가 바로 첫 노드의 주소를 가리키는 부분입니다. 
-
-특수한 연결 리스트도 있습니다. 기본적인 연결 리스트는 한 쪽 방향으로만 이동합니다. 그래서 다시 뒤로 가기는 불편하죠. 이걸 해결한 리스트가 이중 연결 리스트입니다. next외에 this.prev를 넣어 이전 노드를 가리키게 한 겁니다. 구현은 조금 더 복잡해지지만, 한 번 구현하면 그 뒤로는 편하게 앞과 뒤로 노드를 왔다갔다할 수 있습니다. 또 지금은 하나의 데이터씩만 연결되지만 한 노드에서 여러 노드를 연결하는 다중 연결 리스트도 있습니다.
+But what if another value already exists in the location to be moved? Therefore, it should be done as if pushing the last element one by one from the insert position.
 
 
+Deleting from the linear list is the opposite.
+
+It is okay to delete the last element, but if it is not the last element, there will be an empty space in the middle of the list after deletion.
+
+If so...
+
+The elements after the index to be deleted must be moved one space to the front so that the empty space can be filled again.
+Often, inserting and deleting a linear list is easy when you think of standing in a row.
 
 
-### 스택
+- Linked list 
+
+The linked list consists of several nodes. Each node has data and an address that tells what the next node is. Also, linked lists should have the ability to add new data, locate or remove data.
+
+If there is a linked list of 1->2->3->4->5, 1,2,3,4,5 are data and -> are addresses. Unfortunately, this is already implemented in JavaScript. It's an array. If there is [1,2,3,4,5], 1,2,3,4,5 are data, and array[0], array[1], etc. tells the location of the data. Also, data can be added through array.push(); and data can be removed through array.splice();.
+
+LinkedList has length and head. length is the part that expresses the number of nodes, and head is the part that indicates the address of the first node.
+
+There is also a special linked list. The default linked list moves in only one direction. So it's inconvenient to go back again. The list that solved this is a double linked list. In addition to next, I put this.prev to point to the previous node. The implementation gets a little more complicated, but once implemented, you can conveniently move back and forth between nodes afterwards. There are also multiple linked lists that connect only one data at a time, but connect multiple nodes from one node.
 
 
-스택은 실생활에도 많이 사용되는 자료구조 중 하나입니다. 연결 리스트인데 뒤로 넣고 뒤로만 뺄 수 있습니다. 앞으로는 넣지도, 빼지도 못합니다. 쉽게 생각하면 자바스크립트 배열인데 shift, unshift 없이 push와 pop만 있다고 생각하시면 됩니다. 사실 push와 pop이라는 메소드 이름이 스택에서 나온 겁니다. 또 한 가지의 메소드는 stackTop으로 스택의 마지막 요소를 알려주는 겁니다. 스택의 마지막 요소를 top이라고 부르기도 합니다.
 
-실생활에서는 부엌에 있는 위아래로 쌓여진 접시들을 생각하면 편할 것 같습니다. 새로운 접시는 제일 위에 올리고, 접시를 사용할 때도 제일 위에서부터 꺼내죠? 프로그래밍 상에서도 스택이 자주 사용됩니다. 여러분은 stack overflow나 stack underflow라는 것을 들어보셨나요? stack overflow는 유명한 해외 프로그래밍 질의응답 커뮤니티이기도 하죠. 각각 주어진 스택 메모리보다 데이터를 더 넣었거나, 스택이 메모리가 비어있는데 거기서 데이터를 꺼내려고 했을 때 발생하는 대표적인 에러입니다. 실수로 재귀 함수를 무한 호출했을 때 stack overflow가 발생하죠.
 
-재귀 함수를 호출하는 것과 stack overflow가 무슨 상관일까요? 바로 함수를 연이어 호출하면 스택처럼 메모리에 쌓이기(push) 때문입니다. 쌓인 역순으로 하나씩 실행됩니다(pop). 굳이 재귀 함수가 아니더라도 여러 함수가 중첩되어 호출되면 스택처럼 쌓입니다. 다만 재귀 함수를 사용했을 경우 stack overflow 에러가 자주 발생합니다.
+### Stack
 
-```
-py
+
+Stack is one of the data structures that are often used in real life. It's a linked list, but you can put it back and subtract it only. In the future, I cannot put it in or take it out. In simple terms, it's a JavaScript array, but you can think of it as push and pop without shift or unshift. In fact, the method names push and pop came from the stack. Another method is to tell stackTop the last element of the stack. The last element of the stack is sometimes called top.
+
+In real life, it would be comfortable to think of the plates stacked up and down in the kitchen. Put a new plate on top, and when using a plate, take it out from the top Stacks are also often used in programming. Have you ever heard of a stack overflow or stack underflow? Stack overflow is also a popular overseas programming question-and-answer community. This is a typical error that occurs when more data is put in each given stack memory or when the stack memory is empty and you try to retrieve data from there. When you accidentally call a recursive function infinitely, a stack overflow occurs.
+
+What does a stack overflow have to do with calling a recursive function? This is because calling a function in succession pushes it into memory like a stack. They are executed one by one (pop) in reverse stacked order. Even if it is not a recursive function, when multiple functions are called by nesting, they are stacked like a stack. However, stack overflow errors often occur when recursive functions are used.
+
+```py
 
 
 stack = [1,2,3]
@@ -276,9 +274,9 @@ top = stack.pop()
  
 # 3
 # [1, 2]
+```
 
-
-js
+```js
 
 var Stack = (function() {
   function Stack() {
@@ -325,15 +323,15 @@ stack.stackTop(); // 3
 
 <br>
 
-### 큐
+### Queue
 
-큐는 실생활에서 줄이라고 생각하시면 됩니다. 우리가 순서를 기다릴 때 줄을 서죠? 새로 온 사람은 줄 맨 뒤에 서고, 제일 앞 사람은 필요한 행동을 한 후 빠집니다. 이렇게 뒤에서 들어가고(enqueue) 앞에서 빠지는(dequeue) 구조입니다. 자바스크립트의 배열로 따지면 push(enqueue)와 shift(dequeue) 메소드만 있는 거라고 생각하시면 됩니다. 거기에 추가로 제일 앞의 데이터를 알 수 있는 front가 있습니다.
+You can think of cues as shortening in real life. Wait in line when we wait for the order, right? The newcomer stands at the end of the line, and the first person takes the necessary action and then leaves. This is a structure that enqueues from the back and dequeue from the front. In terms of JavaScript arrays, you can think of it as having only push(enqueue) and shift(dequeue) methods. In addition, there is a front where you can see the front data.
 
-스택에는 제일 위를 가리키는 top만 있었다면 큐에는 맨 처음을 가리키는 head와 맨 끝을 가리키는 rear 두 개가 있습니다.
+If the stack had only top pointing to the top, the cue has two heads pointing to the very beginning and rear pointing to the far end.
 
-특수한 큐도 있습니다. 순환 큐가 그 중 하나인데요. front와 rear가 연결되어 있습니다. 예를 들면 1, 2, 3의 데이터가 들어있는 큐가 있을 때 원래라면 3에서 끝나지만, 순환 큐는 rear인 3에서 다시 front인 1로 넘어갑니다. 코딩은 그냥 this.rear.next = this.front를 추가해주면 구현할 수 있습니다. 순환 큐가 사용되는 이유는 메모리 관리가 쉽기 때문인데 자바스크립트에서는 메모리를 알아서 정리해주기 때문에 그 효용성이 조금 떨어집니다. 
+There are also special cues. The circular queue is one of them. The front and rear are connected. For example, when there is a queue that contains data of 1, 2, and 3, it ends at 3 if it was originally, but the circular queue moves from 3 at the rear to 1 at the front. Coding can be implemented by simply adding this.rear.next = this.front. The reason the circular queue is used is because it is easy to manage memory, but it is a little less useful because JavaScript organizes the memory on its own.
 
-또 다른 큐로는 우선순위 큐가 있습니다. enqueue, dequeue는 같지만, enqueue할 때 제일 뒤에 넣는 게 아니라 우선순위 순서를 따져서 데이터를 넣습니다. 어떤 데이터가 우선순위가 높은지는 프로그래머가 직접 정해주면 됩니다. 문제는 우선순위 큐는 위와 같이 큐로 구현하면 데이터를 삽입하기 힘들다는 단점이 있습니다. 그래서 주로 힙이라는 자료구조를 사용해서 구한다.
+Another queue is the priority queue. The enqueue and dequeue are the same, but the data is put in order of priority rather than putting it at the end when enqueueing. It is up to the programmer to decide which data has the highest priority. The problem is that the priority queue has the disadvantage that it is difficult to insert data if it is implemented as a queue as above. So, it is mainly obtained by using a data structure called heap.
 
 
 
@@ -345,8 +343,8 @@ stack.stackTop(); // 3
 2. Another way is to use the queue module's Queue class. This method is mainly used in a multi-threading environment, and it supports locking internally so that multiple threads can add or delete data at the same time. Unlike deque, since there is no direction, data addition and deletion are handled in one method. So, to add data, use the put(x) method, and to delete data use the get() method.
 
 
-```
-py
+```python
+
 
 
 
@@ -393,9 +391,9 @@ deque([2, 3, 4])
 5
 >>> que.get()
 6
+```
 
-
-js
+```js
 
 var Queue = (function() {
   function Queue() {
@@ -445,23 +443,637 @@ queue.front(); // 3
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-### 해시테이블
+### Hash Table
+
+- What is Hash Table? 
+
+A hash table is one of the data structures that store data as (Key, Value), and is a data structure that allows you to quickly search for data. The reason why hash tables provide fast search speed is that data is stored internally using arrays (buckets). The hash table creates a unique index of the array by applying a hash function to each key value, and stores or retrieves the value using this index. Here, the place where the actual value is stored is called a bucket or slot.
+
+
+For example, suppose we store data with (Key, Value) of ("John Smith", "521-1234") in a hash table of size 16. Then, index = hash_function("John Smith")% 16 is calculated to calculate the index value. And it stores the phone number as array[index] = "521-1234".
+
+When data is stored in this structure, it is possible to save/delete/retrieve data very quickly because it is necessary to execute the hash function only once when searching for data by key value. The average time complexity of the hash table is O(1).
+
+<br>
+
+- Hash Function (Hash Function)
+
+The important thing in the hash function is to set a unique index value. There are three typical hash functions used in the hash table as follows.
+
+Division Method: Calculates the input value by dividing the input value by the size of the table by using division. (Address = input value% size of the table) It is known that the effect is good when the size of the table is set to a decimal number and a power of 2 and a far value are used.
+
+Digit Folding: This is a method of converting the character string of each key into ASCII code and using the summed data as an address in the table.
+
+Multiplication Method: Using the numeric key value K and the real number A between 0 and 1, and m, which is usually a power of 2, the following calculation is performed. h(k)=(kAmod1) × m
+
+Univeral Hashing: This is a technique that creates a hash value by creating a number of hash functions and putting them in set H, and randomly selecting a hash function.
 
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
-### 정렬
 
-#### 선택정렬
+
+### Sort
+
+#### Selection sort
+
+
+[Select sort Explain-Video](https://youtu.be/Ns4TPTC8whw)
+
+
+선택 정렬은 알고리즘에 대해 배워본 적이 없는 사람도 쉽게 생각해낼 수 있는 정렬 알고리즘입니다. 왜냐하면 우리가 일상에서 무언가를 크기 순으로 나열할 때 흔히 사용되는 사고 방식이기 때문입니다.
+선택 정렬은 정렬된 값을 배열의 맨 앞부터 하나씩 채워나가게 됩니다. 따라서, 뒤에 있는 index로 갈수록 비교 범위가 하나씩 점점 줄어드는 특성을 가지고 있습니다. (index 0에서는 0부터 n-1까지 비교해야 되지만, index n-1에서는 남은 숫자가 하나 밖어서 비교가 필요 없음)
+입력 배열이 이미 정렬되어 있건 말건 관계없이 동일한 연산량을 가지고 있기 때문에 최적화 여자가 적어서 다른 O(N^2) 대비해도 성능이 떨어지는 편입니다.
+이러한 성능 상의 한계 때문에 실전에서는 거의 보기 힘들지만, 가장 구현이 쉬운 정렬 알고리즘이라서, 알고리즘 수업 시간에는 한 번씩 꼭 접하게 되는 유명한 정렬 알고리즘입니다.
+
+
+`170cm, 180cm, 150cm, 160cm`
+
+예를 들어, 위와 같이 키를 알고 있는 네 친구들을 키 순으로 세우려면, 우선 4명의 키를 모두 비교하여 키가 제일 작은 150cm인 친구를 맨 앞에 세웁니다.
+
+키가 150cm인 친구는 맨 앞에 세웠으니, 이제 나머지 세 친구의 키를 비교하여 키가 제일 작은 160cm인 친구를 그 다음에 세웁니다. 이제는 키가 170cm인 친구와 180cm인 친구 둘만 남았습니다. 둘 중에 170cm 친구가 더 작기 때문에 이 친구를 먼저 세우고, 그 다음 180cm인 친구를 마지막에 세웁니다.
+
+
+
+Index | Value 
+------------ | ------------- 
+0 | 모든 값 중 가장 작은 값
+1 | 첫번째 값(Index=0)을 제외하고 남은 값 중에서 가장 작은 값
+... | ...
+i | i번째 부터 n-1 번째까지 값 중 가장 작은 값
+n-2	| n-2번째와 n-1 번째까지 값 중 가장 작은 값
+n-1	| 마지막에 남은 하나의 값 (비교 대상 없음)
+
+	
+즉, 크기 n의 배열이 주어졌을 때, index 0부터 n-1까지의 모든 index i에 대해서, i번째 부터 n-1 번째까지 값 중 가장 작은 값을 구해서 index i에 놓으면 정렬된 배열을 얻을 수가 있습니다. 모든 index에 대해서 그 index에 위치시킬 값을 “선택”하기 때문에 이 정렬 알고리즘을 “선택 정렬”또는 “Selection Sort”이라고 부릅니다.
+
+
+##### 구현
+
+두 개의 반복문이 필요합니다. 내부 반복문에서는 현재 index부터 마지막 index까지 최소값의 index를 찾아내고, 외부 반복문에서는 이 최소값의 index와 현재 index에 있는 값을 상호 교대(swap)합니다. 외부 반복문에서는 index i를 0에서 n-2(또는 n-1. 마지막 index에서는 남는 값이 하나 밖에 없기 때문에 대세에 지장 없음)까지 진행시키며, 내부 반복문에서 이미 정렬된 값들에서는 관심이 없기 때문에 index j를 i에서 n-1까지 진행시킵니다. 각 index에 대해서 최소값을 찾기 위해 대소 비교는 여러번 일어나나 상호 교대(swap)은 딱 한번만 알어납니다.
+
+
+
+```python
+def selection_sort(arr):
+    for i in range(len(arr) - 1):
+        min_idx = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+```
+
+##### 복잡도 
+
+1. 선택 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
+2. 시간 복잡도는 우선 루프문을 통해 모든 인덱스에 접근해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 하나의 루프에서는 현재 인덱스의 값과 다른 인덱스의 값들과 비교하여 최소값을 찾은 후 현재 인덱스에 있는 값과 상호 자리 교대를(swap)해야 해야하기 때문에 O(N)을 시간이 필요하게 됩니다. 따라서 선택 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
 #### 삽입정렬
-#### 힙정렬
-#### 퀵정렬
+
+
+[Insert sort Explain-Video](https://youtu.be/ROalU379l3U)
+
+
+삽입 정렬은 한마디로 표현하면 정렬 범위를 1칸씩 확장해나가면서 새롭게 정렬 범위에 들어온 값을 기존 값들과 비교하여 알맞은 자리에 꼽아주는 알고리즘입니다.
+선택/거품 정렬은 패스가 거듭될 수록 탐색 범위가 줄어드는 반면에 삽입 정렬은 오히려 점점 정렬 범위가 넚어집니다.
+큰 크림에서 보았을 때 바깥 쪽 루프는 순방향, 안 쪽 루프는 역방향으로 진행하고 있습니다.
+
+
+예를 들어, 다음과 같이 1부터 5까지 총 5개의 숫자가 들어있는 배열에 있다고 가정해보겠습니다.
+
+```
+[2, 1, 5, 4, 3]
+```
+
+맨 처음에는 첫번째 2개의 값만 정렬 범위에 포함시키고 생각해보겠습니다. 앞에 있는 값 2는 뒤에 있는 값 1보다 작기 때문에 서로 자리를 바꿔줍니다.
+
+```
+[2, 1]: 2 > 1 => swap
+ ^  ^
+[1, 2]
+ *  *
+```
+
+그 다음에는 기존의 정렬 범위에 한칸 확장하여 세번째 값을 추가시키고 생각해보겠습니다. 기존 정렬 범위에서 가장 큰 값인 2와 새롭게 추가된 5를 비교하면 자리를 바꿀 필요가 없다는 것을 알 수 있습니다. 기존에 정렬 범위에 있던 두 개의 값은 이 전 패스에서 이미 정렬이 되어 있기 때문에 굳이 1과 5를 비교할 필요는 없습니다.
+
+```
+[1, 2, 5]: 2 < 5 => OK
+    ^  ^
+[1, 2, 5]
+ *  *  *
+```
+
+다음 패스에서는 정렬 범위를 한 칸 더 확장하여 4번째 값을 추가시키고 생각해볼 차례입니다. 기존 정렬 범위에서 가장 큰 값인 5와 새롭게 추가된 4를 비교하면, 앞에 있는 값이 뒤에 있는 값보다 크기 때문에 서로 자리를 바꿔야 합니다. 이제 기존 정렬 범위에서 두 번째로 큰 값인 2와 방금 자리를 교체 당한 4를 비교해보면 더 이상 자리를 바꿀 필요가 없다는 것을 알 수 있습니다.
+
+```
+[1, 2, 5, 4]: 5 > 4 => swap
+       ^  ^
+[1, 2, 4, 5]: 2 < 4 => OK
+    ^  ^
+[1, 2, 4, 5]
+ *  *  *  *
+```
+
+마지막 패스에서는 정렬 범위를 전체로 확장하여 마지막 값까지 포함시킵니다. 여태까지 했던 방식과 동일하게 새로 추가된 값과 기존에 있던 값들을 뒤에서 부터 비교해나가면 2번의 자리 교체가 필요하다는 것을 알 수 있습니다.
+
+```
+[1, 2, 4, 5, 3]: 5 > 3 => swap
+          ^  ^
+[1, 2, 4, 3, 5]: 4 > 3 => swap
+       ^  ^
+[1, 2, 3, 4, 5]: 2 < 3 => OK
+    ^  ^
+[1, 2, 3, 4, 5]
+ *  *  *  *  *
+```
+
+##### 구현
+
+1. 두 개의 반복문이 필요합니다. 내부 반복문에서는 정렬 범위에 새롭게 추가된 값과 기존 값들을 뒤에서 부터 계속해서 비교해나가면서 앞의 값이 뒤의 값보다 클 경우 자리 교대(swap)를 합니다. 외부 반복문에서는 정렬 범위를 2에서 N으로 확대해 나갑니다.
+
+```py
+def insertion_sort(arr):
+    for end in range(1, len(arr)):
+        for i in range(end, 0, -1):
+            if arr[i - 1] > arr[i]:
+                arr[i - 1], arr[i] = arr[i], arr[i - 1]
+```
+
+2. 기존에 있던 값들은 이전 패스에서 모두 정렬되었다는 점을 활용하면 불필요한 비교 작업을 제거할 수 있습니다. 예를 들면, 아래와 같이 기존 정렬 범위 [1, 2, 3, 5]에 4가 새롭게 추가된다면, 5는 4보다 크기 때문에 swap이 필요하지만, 3은 4보다 작기 때문에 swap이 필요없습니다. 그리고 3보다 앞에 있는 숫자들은 기존 패스에서 이미 정렬을 해놓았기 때문에 당연히 3보다는 작을 것이며, 더 이상의 4와 대소 비교는 무의미합니다. 이 사실을 이용하면, 새롭게 추가된 값보다 작은 숫자를 만나는 최초의 순간까지만 내부 반복문을 수행해도 됩니다.
+
+이 최적화를 적용하면, 정렬된 배열이 들어올 경우, O(N)의 시간 복잡도를 달성할 수 있습니다. 예를 들어, 다음과 같이 5개의 숫자가 된 배열이 들어오면 각 패스 당 단 한 번 총 4번의 비교만으로 해당 배열이 완전히 정렬되었음을 알아내고 삽입 정렬을 완료할 수 있습니다.
+
+
+```py
+def insertion_sort(arr):
+    for end in range(1, len(arr)):
+        i = end
+        while i > 0 and arr[i - 1] > arr[i]:
+            arr[i - 1], arr[i] = arr[i], arr[i - 1]
+            i -= 1
+```
+
+
+
+3. swap 작업없이 단순히 값들을 shift 시키는 것만으로도 삽입 정렬의 구현이 가능합니다. 앞의 값이 정렬 범위에 추가시킨 값보다 클 경우 앞의 값을 뒤로 밀다가 최초로 작은 값을 만나는 순간 그 뒤에 추가된 값을 꼽으면 됩니다.
+
+```py
+def insertion_sort(arr):
+    for end in range(1, len(arr)):
+        to_insert = arr[end]
+        i = end
+        while i > 0 and arr[i - 1] > to_insert:
+            arr[i] = arr[i - 1]
+            i -= 1
+        arr[i] = to_insert
+
+```
+
+
+##### 복잡도
+
+1. 삽입 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
+2. 시간 복잡도는 우선 루프문을 통해 정렬 범위를 2개로 시작해서 전체로 확장해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 각 패스에서는 정렬 범위에 새롭게 추가된 값과 기존 값들의 대소 비교 및 자리 교대를 위해서 O(N)을 시간이 필요하게 됩니다. 따라서 삽입 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
+3. 아래에서 다룰 최적화를 통해서 부분적으로 정렬된 배열에 대해서 성능을 대폭 개선할 수 있으며, 특히 완전히 정렬되어 있는 배열이 들어올 경우, O(N)까지도 시간 복잡도를 향상시킬 수 있습니다.
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+#### 버블정렬
+
+
+[Bubble Sort Explain-Video](https://youtu.be/lyZQPjUT5B4)
+
+
+거품 정렬은 큰 그림에서 보았을 때 뒤에서 부터 앞으로 정렬을 해나가는 구조를 가지고 있습니다. 즉, 맨 뒷자리에 제일 큰 값을 제일 뒤로 보내고, 제일 큰 값 바로 앞에 두번째로 큰 값을 보냅니다. 이를 위해 배열 내의 값들을 앞뒤로 서로 비교해서 자리를 바꾸는 작업을 지속적으로 수행해야 합니다. 이렇게 큰 값을 계속해서 뒤로 보내는 모습이 마치 방울이 이동하는 것과 같이 보여서 거품 정렬이라는 이름이 붙어졌습니다.
+
+
+먼저 거품 정렬을 통해 어떻게 가장 큰 값을 맨 뒤로 보내는지에 대해서 알아보겠습니다. 맨 첫번째 값부터 시작해서 다음 값들과 차례로 비교하면서 앞의 값이 더 크면 뒤의 값과 자리를 바꾸면 됩니다.
+
+다음과 같이 1부터 5까지 총 5개의 숫자가 들어있는 배열에 대해서 위 로직을 적용해보겠습니다.
+
+```
+[4, 3, 5, 1, 2]
+```
+먼저, 4과 3를 비교합니다. 4가 3보다 크기 때문에 자리를 바꿉니다.
+
+```
+[4, 3, 5, 1, 2]
+ ^  ^
+4 > 3 => Swap
+[3, 4, 5, 1, 2]
+```
+그 다음과 4과 5를 비교합니다. 4가 5보다 작기 때문에 자리를 바꿀 필요가 없습니다.
+```
+[3, 4, 5, 1, 2]
+    ^  ^
+4 < 5 => No Swap
+```
+그 다음과 5과 1를 비교합니다. 5가 1보다 크기 때문에 자리를 바꿉니다.
+```
+[3, 4, 5, 1, 2]
+       ^  ^
+5 > 1 => Swap
+[3, 4, 1, 5, 2]
+```
+그 다음과 5과 2를 비교합니다. 5가 2보다 크기 때문에 자리를 바꿉니다.
+
+```
+[3, 4, 1, 5, 2]
+          ^  ^
+5 > 2 => Swap
+[3, 4, 1, 2, 5]
+             *
+```
+
+이렇게 맨 처음 값부터 시작해서 계속해서 그 다음 값과 대소를 비교하여 앞의 값이 뒤의 값보다 클 경우 자리를 바꿔주면 결국 제일 큰 값을 맨 뒤로 보낼 수가 있습니다.
+
+이 과정을 모든 값으로 확장하면 다음과 같이 두 번째로 큰 값을 제일 큰 값 바로 앞으로 보낼 수 있고, 세 번째로 큰 값을 두 번째로 큰 값 바로 앞으로 보낼 수 있습니다.
+
+
+```
+Initial: [4, 3, 5, 1, 2]
+
+ Pass 1: [3, 4, 1, 2, 5]
+                      *
+ Pass 2: [3, 1, 2, 4, 5]
+                   *  *
+ Pass 3: [1, 2, 3, 4, 5]
+                *  *  *
+ Pass 4: [1, 2, 3, 4, 5]
+             *  *  *  *
+ Pass 5: [1, 2, 3, 4, 5]
+          *  *  *  *  *
+```
+
+
+
+- 거품 정렬은 점점 큰 값들을 뒤에서 부터 앞으로 하나씩 쌓여 나가게 때문에 후반으로 갈수록 정렬 범위가 하나씩 줄어들게 됩니다.
+- 왜냐하면, 다음 패스에서는 이전 패스에서 뒤로 보내놓은 가장 큰 값이 있는 위치 전까지만 비교해도 되기 때문입니다.
+- 제일 작은 값을 찾아서 맨 앞에 위치시키는 선택 정렬과 비교했을 때 정반대의 정렬 방향을 가집니다.
+- 다른 정렬 알고리즘에 비해서 자리 교대(swap)가 빈번하게 일어나는 경향을 가지고 있습니다. 예를 들어, 선택 정렬의 경우 각 패스에서 자리 교대가 딱 한번만 일어납니다.
+- 최적화 여지가 많은 알고리즘입니다. 예를 들어, 위 그림에서 Pass 5는 생략할 수 있는 패스입니다. 왜냐하면 Pass 4에서 한 번도 자리 교대가 일어나지 않았기 때문입니다.
+
+
+
+##### 구현 
+
+선택 정렬과 마찬가지로 두 개의 반복문이 필요합니다. 내부 반복문에서는 첫번째 값부터 이전 패스에서 뒤로 보내놓은 값이 있는 위치 전까지 앞뒤 값을 계속해서 비교해나가면서 앞의 값이 뒤의 값보다 클 경우 자리 교대(swap)를 합니다. 외부 반복문에서는 뒤에서 부터 앞으로 정렬 범위를 n-1부터 1까지 줄여나갑니다.
+
+```py
+def bubble_sort(arr):
+    for i in range(len(arr) - 1, 0, -1):
+        for j in range(i):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+```
+
+
+이전 패스에서 앞뒤 자리 비교(swap)이 한 번도 일어나지 않았다면 정렬되지 않는 값이 하나도 없었다고 간주할 수 있습니다. 따라서 이럴 경우, 이후 패스를 수행하지 않아도 됩니다.
+
+
+```
+Initial: [1, 2, 3, 5, 4]
+
+ Pass 1: [1, 2, 3, 4, 5] => Swap
+                      *
+ Pass 2: [1, 2, 3, 4, 5] => No Swap
+                   *  *
+=> Since there was never any swap in the previous pass
+``` 
+
+```py
+def bubble_sort(arr):
+    for i in range(len(arr) - 1, 0, -1):
+        swapped = False
+        for j in range(i):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
+```
+
+이전 패스에서 앞뒤 자리 비교(swap)가 있었는지 여부를 체크하는 대신 마지막으로 앞뒤 자리 비교가 있었던 index를 기억해두면 다음 패스에서는 그 자리 전까지만 정렬해도 됩니다. 따라서 한 칸씩 정렬 범위를 줄여나가는 대신 한번에 여러 칸씩 정렬 범위를 줄여나갈 수 있습니다.
+
+```py
+def bubble_sort(arr):
+    end = len(arr) - 1
+    while end > 0:
+        last_swap = 0
+        for i in range(end):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                last_swap = i
+        end = last_swap
+```
+
+
+##### 복잡도
+
+거품 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
+시간 복잡도는 우선 루프문을 통해 맨 뒤부터 맨 앞까지 모든 인덱스에 접근해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 하나의 루프에서는 인접한 값들의 대소 비교 및 자리 교대를 위해서 O(N)을 시간이 필요하게 됩니다. 따라서 거품 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
+하지만, 거품 정렬은 부분적으로 정렬되어 있는 배열에 대해서는 최적화를 통해서 성능을 대폭 개선할 수 있으며, 완전히 정렬되어 있는 배열이 들어올 경우, O(N)까지도 시간 복잡도를 향상시킬 수 있습니다.
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
 #### 병합정렬
 
+[Merge sort Explain-Video](https://youtu.be/XaqR3G_NVoo)
+
+병합 정렬은 분할 정복 (Devide and Conquer) 기법과 재귀 알고리즘을 이용해서 정렬 알고리즘입니다. 즉, 주어진 배열을 원소가 하나 밖에 남지 않을 때까지 계속 둘로 쪼갠 후에 다시 크기 순으로 재배열 하면서 원래 크기의 배열로 합칩니다.
+
+예를 들어, 다음과 같이 1부터 8까지 총 8개의 숫자가 들어있는 배열에 있다고 가정해보겠습니다.
+```
+[6, 5, 3, 1, 8, 7, 2, 4]
+```
+먼저 하나의 배열을 두 개로 쪼갭니다.
+```
+[6, 5, 3, 1] [8, 7, 2, 4]
+```
+그리고 다시 두 개의 배열을 네 개로 쪼갭니다.
+```
+[6, 5] [3, 1] [8, 7] [2, 4]
+
+```
+마지막으로 디시 네 개의 배열을 여덜 개로 쪼갭니다.
+```
+[6] [5] [3] [1] [8] [7] [2] [4]
+```
+이제 더 이상 쪼갤 수가 없으니 두 개씩 합치기를 시작하겠습니다. 합칠 때는 작은 숫자가 앞에 큰 수자를 뒤에 위치시킵니다.
+```
+[5, 6] [1, 3] [7, 8] [2, 4]
+```
+이제 4개의 배열을 2개로 합칩니다. 각 배열 내에서 가장 작은 값 2개를 비교해서 더 작은 값을 먼저 선택하면 자연스럽게 크기 순으로 선택이 됩니다.
+```
+[1, 3, 5, 6] [2, 4, 7, 8]
+```
+최종적으로 2개의 배열도 마찬가지로 크기 순으로 선택하가면서 하나로 합치면 정렬된 배열을 얻을 수 있습니다.
+```
+[1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+
+##### 구현
+
+재귀를 이용해서 병합 정렬을 구현할 수 있습니다. 먼저 배열을 더 이상 나눌 수 없을 때 까지 (원소가 하나만 남을 때까지) 최대한 분할 후에, 다시 병합하면서 점점 큰 배열을 만들어 나가면 됩니다. 따라서 이 재귀 알고리즘의 기저 조건은 입력 배열의 크기가 2보다 작을 때이며, 이 조건에 해당할 때는 배열을 그대로 반환하면 됩니다.
+
+
+파이선의 리스트 slice notation(arr[start:end])을 사용하면 다음과 같이 간결한 코드를 작성할 수 있습니다. 하지만, 리스트 slice를 할 때 배열의 복제가 일어나므로 메모리 사용 효율은 좋지 않습니다.
+```py
+def merge_sort(arr):
+    if len(arr) < 2:
+        return arr
+
+    mid = len(arr) // 2
+    low_arr = merge_sort(arr[:mid])
+    high_arr = merge_sort(arr[mid:])
+
+    merged_arr = []
+    l = h = 0
+    while l < len(low_arr) and h < len(high_arr):
+        if low_arr[l] < high_arr[h]:
+            merged_arr.append(low_arr[l])
+            l += 1
+        else:
+            merged_arr.append(high_arr[h])
+            h += 1
+    merged_arr += low_arr[l:]
+    merged_arr += high_arr[h:]
+    return merged_arr
+```
+병합 결과를 담을 새로운 배열을 매번 생성해서 리턴하지 않고, 인덱스 접근을 이용해 입력 배열을 계속해서 업데이트하면 메모리 사용량을 대폭 줄일 수 있습니다. (In-place sort)
+
+```py
+def merge_sort(arr):
+    def sort(low, high):
+        if high - low < 2:
+            return
+        mid = (low + high) // 2
+        sort(low, mid)
+        sort(mid, high)
+        merge(low, mid, high)
+
+    def merge(low, mid, high):
+        temp = []
+        l, h = low, mid
+
+        while l < mid and h < high:
+            if arr[l] < arr[h]:
+                temp.append(arr[l])
+                l += 1
+            else:
+                temp.append(arr[h])
+                h += 1
+
+        while l < mid:
+            temp.append(arr[l])
+            l += 1
+        while h < high:
+            temp.append(arr[h])
+            h += 1
+
+        for i in range(low, high):
+            arr[i] = temp[i - low]
+
+    return sort(0, len(arr))
+
+```
+
+##### 복잡도
+
+
+- 알고리즘을 큰 그림에서 보면 분할(split) 단계와 방합(merge) 단계로 나눌 수 있으며, 단순히 중간 인덱스를 찾아야 하는 분할 비용보다 모든 값들을 비교해야하는 병합 비용이 큽니다.
+- 예제에서 보이는 것과 같이 8 -> 4 -> 2 -> 1 식으로 전반적인 반복의 수는 점점 절반으로 줄어들 기 때문에 O(logN) 시간이 필요하며, 각 패스에서 병합할 때 모든 값들을 비교해야 하므로 O(N) 시간이 소모됩니다. 따라서 총 시간 복잡도는 O(NlogN) 입니다.
+- 두 개의 배열을 병합할 때 병합 결과를 담아 놓을 배열이 추가로 필요합니다. 따라서 공간 복잡도는 O(N) 입니다.
+- 다른 정렬 알고리즘과 달리 인접한 값들 간에 상호 자리 교대(swap)이 일어나지 않습니다.
+
+
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-### 트리
 
+
+#### 힙정렬
+
+
+[Heap sort Explain-Video](https://youtu.be/Xw2D9aJRBY4)
+
+
+힙정렬을 알기 위해선 먼저 힙이 무엇인지 알아야 한다. 
+
+여기서 힙은 힙트리로, 여러개의 값 들 중 가장 크거나 작은 값을 빠르게 찾기 위해 만든 이진 트리이다. 짧게 힙이라고 부른다.
+
+![heapsort](/images/heapsort.gif) 
+
+힙은 항상 완전 이진 트리의 형태를 띈다. 부모의 값은 항상 자식들의 값보다 크거나 (Max Heap) 작아야 (Min Heap) 한다는 규칙이 있다. 따라서 루트(뿌리) 노드에는 항상 데이터들 중 가장 큰 값 혹은 작은 값이 저장되어 있다.
+
+힙 정렬의 방법은 아래와 같다.
+
+1. 배열의 원소들을 전부 힙에 삽입
+2. 가장 부모노드에 있는 값은 최댓값 혹은 최솟값이므로 루트를 출력하고 힙에서 제거
+3. 힙이 빌 때 까지 2의 과정을 반복
+
+힙정렬은 추가적인 메모리를 전혀 필요로하지 않는다는 점과 최악의 경우에도 항상 O(n log n) 의 성능을 발휘한다는 장점이 있다.
+
+
+##### 구현
+
+```py
+def heapify(li, idx, n):
+    l = idx * 2;
+    r = idx * 2 + 1
+    s_idx = idx
+    if (l <= n and li[s_idx] > li[l]):
+        s_idx = l
+    if (r <= n and li[s_idx] > li[r]):
+        s_idx = r
+    if s_idx != idx:
+        li[idx], li[s_idx] = li[s_idx], li[idx]
+        return heapify(li, s_idx, n)
+ 
+def heap_sort(v) :
+    n = len(v)
+    v = [0]+v
+ 
+    # min heap 
+    for i in range(n, 0, -1) :
+        heapify(v, i, n)
+ 
+    # min element extract & heap
+    for i in range(n, 0, -1) :
+        print(v[1])
+        v[i], v[1] = v[1], v[i]
+        heapify(v, 1, i-1)
+ 
+heap_sort([5,3,4,2,1])
+
+
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+
+#### 퀵정렬
+
+병합 정렬과 마찬가지로 퀵 정렬도 분할 정복 (Devide and Conquer) 기법과 재귀 알고리즘을 이용한 정렬 알고리즘입니다.
+
+[Quick sort Explain-Video](https://youtu.be/ywWBy6J5gz8)
+
+
+- 파이썬의 list.sort() 함수나 자바의 Arrays.sort()처럼 프로그래밍 언어 차원에서 기본적으로 지원되는 내장 정렬 함수는 대부분은 퀵 정렬을 기본으로 합니다.
+- 일반적으로 원소의 개수가 적어질수록 나쁜 중간값이 선택될 확률이 높아지기 때문에, 원소의 개수에 따라 퀵 정렬에 다른 정렬을 혼합해서 쓰는 경우가 많습니다.
+- 병합 정렬과 퀵 정렬은 분할 정복과 재귀 알고리즘을 사용한다는 측면에서는 유사해보이지만, 내부적으로 정렬을 하는 방식에서는 큰 차이가 있습니다.
+- 병합 정렬은 항상 정 중앙을 기준으로 단순 분할 후 병합 시점에서 값의 비교 연산이 발생하는 반면, 퀵 정렬은 분할 시점부터 비교 연산이 일어나기 때문에 그 이후 병합에 들어가는 비용이 매우 적거나 구현 방법에 따라서 아예 병합을 하지 않을 수도 있습니다.
+
+쉬운 이해를 위해서 다음과 같이 1부터 7까지 총 7개의 숫자가 들어있는 배열을 기준으로 설명하겠습니다.
+
+```
+[6, 5, 1, 4, 7, 2, 3]
+```
+항상 정 가운데를 기준으로 분할을 하는 병합 정렬과 달리, 퀵 정렬은 흔히 피봇(pivot)이라고 불리는 임의의 기준값을 사용합니다. pivot 값을 선택하는데는 여러가지 방법이 있지만 여기서는 간단한 설명을 위해 정 중앙에 위치한 4을 pivot으로 정하겠습니다. 그리고 다음과 같이 이 pivot 값을 기준으로 pivot보다 작은 값의 그룹과 pivot보다 큰 값의 그룹으로 나눕니다.
+
+```
+            p
+[3, 2, 1] < 4 < [7, 5, 6]
+```
+위와 같이 pivot 값보다 작은 값들은 모두 왼편으로 몰고, 큰 값들은 모두 오른편으로 몰면 기준값은 정확히 정렬된 위치에 놓이게 됩니다. 또한 이런 방식으로 분할을 해놓으면 앞으로 더 이상 왼편에 있는 값들과 오른편에 있는 값들 간에는 비교를 할 필요가 없습니다. 따라서 반대편은 전혀 신경쓰지 않고 왼편이든 오른편이든 같은편 내의 값들 끼리만 비교 후 정렬을 할 수 있게 됩니다.
+
+먼저 왼편을 동일한 방식으로 정렬해보도록 하겠습니다. 왼편의 정 가운데에 위치한 pivot 값인 2 보다 작은 값인 1인 왼쪽에 큰 값인 3은 오른쪽에 위치시켰습니다. 이제 양쪽 모두 값이 하나씩 밖에 없기 때문에 이로써 왼편의 정렬 작업은 완료되었습니다.
+```
+    p
+[1] < 2 < [3]
+```
+
+오른편도 동일한 방식으로 정렬해보겠습니다. 오른편의 pivot 값인 5 보다 작은 값은 없으므로 7과 6을 모두 오른편에 위치시켰습니다.
+```
+    p
+[] < 5 < [7, 6]
+```
+
+오른편의 오른편(?)에는 값이 2개가 있기 때문에 추가 정렬이 필요합니다. 왼편에는 값이 없지만 오른편에는 여전히 두 개의 값이 있기 때문에, 동일한 방식의 정렬을 적용하겠습니다.
+```
+      p
+[6] < 7 < []
+```
+마지막으로 지금까지 좌우로 분할했던 값들을 모두 합치보면 다음과 같이 정렬된 배열을 얻을 수 있습니다.
+```
+[1, 2, 3, 4, 5, 6, 7]
+```
+지금까지 살펴본 것과 같이 퀵 정렬은 배열을 pivot 값 기준으로 더 작은 값과 큰 값으로 반복적으로 분할하여 정렬해나가는 방식을 취하고 있습니다.
+
+
+##### 구현
+
+위에 설명드린 기본 컨셉을 그대로를 코드로 구현할 수 있습니다. 먼저 리스트의 정 가운데 있는 값을 pivot 값으로 선택하고, pivot 값보다 작은 값, 동일한 값 그리고 큰 값을 담아둘 3개의 리스트를 생성합니다. 그리고 반복문을 통해 각 값을 pivot과 비교 후에 해당하는 리스트에 추가시킵니다. 그 다음 작은 값과 큰 값을 담고 있는 배열을 대상으로 퀵 정렬 함수를 재귀적으로 호출합니다. 마지막으로 재귀 호출의 결과를 다시 크기 순으로 합치면 정렬된 리스트를 얻을 수 있습니다.
+
+```py
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    lesser_arr, equal_arr, greater_arr = [], [], []
+    for num in arr:
+        if num < pivot:
+            lesser_arr.append(num)
+        elif num > pivot:
+            greater_arr.append(num)
+        else:
+            equal_arr.append(num)
+    return quick_sort(lesser_arr) + equal_arr + quick_sort(greater_arr)
+```
+위의 구현은 간결하고 이해하기 쉽지만 매번 재귀 호출될 때 마다 새로운 리스트를 생성하여 리턴하기 때문에 메모리 사용 측면에서 비효율적입니다. 큰 사이즈의 입력 데이터를 다뤄야하는 상용 코드에서는 이러한 단점은 치명적으로 작용할 수 있기 때문에 추가 메모리 사용이 적은 in-place 정렬이 선호됩니다.
+
+> 처음부터 스스로 in-place 정렬을 구현하는 코드를 작성하기는 생각했던 것보다 쉽지 않을 수도 있습니다. 기존과 동일하게 값의 대소 비교를 위해서는 pivot 값을 사용하지만, 분할은 기준점은 pivot 값이 아닐 수도 있기 때문입니다. 왜냐하면, pivot 값을 기준으로 대소 비교를 했을 때 좌측과 우측에 여유 공간이 딱 맞는 경우가 드물기 때문입니다.
+
+```py
+# 메인 함수인 quick_sort()는 크게 sort()와 partition() 2개의 내부 함수로 나눠집니다. sort() 함수는 재귀 함수이며 정렬 범위를 시작 인덱스와 끝 인덱스로 인자로 받습니다. (둘다 inclusive) partition() 함수는 정렬 범위를 인자로 받으며 다음 로직을 따라서 좌우측의 값들을 정렬하고 분할 기준점의 인덱스를 리턴합니다. 이 분할 기준점(mid)는 sort()를 재귀적으로 호출할 때 우측 리스트의 시작 인덱스로 사용됩니다.
+
+def quick_sort(arr):
+    def sort(low, high):
+        if high <= low:
+            return
+
+        mid = partition(low, high)
+        sort(low, mid - 1)
+        sort(mid, high)
+
+    def partition(low, high):
+        pivot = arr[(low + high) // 2]
+        while low <= high:
+            while arr[low] < pivot:
+                low += 1
+            while arr[high] > pivot:
+                high -= 1
+            if low <= high:
+                arr[low], arr[high] = arr[high], arr[low]
+                low, high = low + 1, high - 1
+        return low
+
+    return sort(0, len(arr) - 1)
+
+```
+
+
+##### 복잡도
+
+- 퀵 정렬의 성능은 어떻게 pivot 값을 선택 선택하느냐에 크게 달라질 수 있습니다. 이상적인 경우에는 pivot 값을 기준으로 동일한 개수의 작은 값들과 큰 값들이 분할되어 병합 정렬과 마찬가지로 O(NlogN)의 시간 복잡도를 가지게 됩니다.
+- 하지만 pivot 값을 기준으로 분할했을 때 값들이 한 편으로 크게 치우치게 되면, 퀵 정렬은 성능은 저하되게 되며, 최악의 경우 한 편으로만 모든 값이 몰리게 되어 O(N^2)의 시간 복잡도를 보이게 됩니다.
+- 따라서 상용 코드에서는 중앙값(median)에 가까운 pivot 값을 선택할 수 있는 섬세한 전략이 요구되며, 배열의 첫값과 중앙값 그리고 마지막값 중에 크기가 중간인 값을 사용하는 방법이 많이 사용됩니다.
+- 퀵 정렬은 공간 복잡도는 구현 방법에 따라 달라질 수 있는데, 입력 배열이 차지하는 메모리만을 사용하는 in-place sorting 방식으로 구현을 사용할 경우, O(1)의 공간 복잡도를 가진 코드의 구현이 가능합니다.
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+
+
+### 트리
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 #### BST (이진탐색트리)
 #### 힙
 #### 우선순위 큐
@@ -481,24 +1093,6 @@ queue.front(); // 3
 #### 그래프순회
 ##### 너비우선탐색(DFS)
 ##### 깊이우선탐색(BFS)
-
-
-
-
-```
-py
-
-
-
-
-
-```
-
-
-
-
-
-
 
 
 
