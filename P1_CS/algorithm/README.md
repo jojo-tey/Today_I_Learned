@@ -1073,29 +1073,410 @@ def quick_sort(arr):
 
 
 ### 트리
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
 #### BST (이진탐색트리)
-#### 힙
-#### 우선순위 큐
-#### 이진힙
+
+이진 탐색 트리에 들어가기에 앞서 먼저 이진 트리에 대해 간단하게 알아보자. 이진 트리란, 트리의 종류로 각 노드가 최대 2개의 자식 노드를 갖는 트리를 말한다. 즉, 이진 트리의 각 노드는 자식 노드를 갖고 있지 않을수도 있으며, 1개를 가질 수도, 2개를 가질 수도 있다.
+
+이진 탐색 트리는 이진 트리에서 어떠한 규칙에 따라 나열한 트리이다. 이 규칙은 모든 노드에 대해서 왼쪽 노드보다 오른쪽 노드가 더 크게 나열하는 것이다. 아래 그림을 보자. 
+
+
+![Binarysearch](/images/binarysearch.gif)
+
+21이 루트 노드이고, 다음으로 28을 트리에 삽입을 할 때 21보다 큰 값이므로 오른쪽으로 간다. 그 다음 값인 14는 21보다 작으므로 왼쪽으로 간다. 그리고 아래 그림이 이진 탐색 트리에서 값을 찾는 것을 애니메이션으로 나타낸 것이다. 이진 탐색 트리는 평균 O(logN)의 시간복잡도를 가지며 트리가 한쪽으로만 치우친 최악의 경우 O(N)의 시간복잡도를 가진다. 
+
+![Binarysearch2](/images/binarysearch2.gif)
+
+
+##### 구현
+
+```py
+# Create Node and insert
+class Node:
+    def __init__(self,data):
+        self.left = None
+        self.right = None
+        self.data = data
+        
+class BinarySearchTree(Node):
+    def insert(self, data):
+        self.root = self._insert_value(self.root, data)
+        return self.root is not None
+
+    def _insert_value(self, node, data):
+        if node is None:
+            node = Node(data)
+        else:
+            if data <= node.data:
+                node.left = self._insert_value(node.left, data)
+            else:
+                node.right = self._insert_value(node.right, data)
+        return node
+
+# Search node
+    def find(self, key):
+        return self._find_value(self.root, key)
+
+    def _find_value(self, root, key):
+        if root is None or root.data == key:
+            return root is not None
+        elif key < root.data:
+            return self._find_value(root.left, key)
+        else:
+            return self._find_value(root.right, key)
+
+        def delete(self, key):
+        self.root, deleted = self._delete_value(self.root, key)
+        return deleted
+
+    def _delete_value(self, node, key):
+        if node is None:
+            return node, False
+
+        deleted = False
+        # If node is delete node
+        if key == node.data:
+            deleted = True
+            # If deleting node has 2 children
+            if node.left and node.right:
+                # Find and replace the leftmost node in the right subtree
+                parent, child = node, node.right
+                while child.left is not None:
+                    parent, child = child, child.left
+                child.left = node.left
+                if parent != node:
+                    parent.left = child.right
+                    child.right = node.right
+                node = child
+            # If there is only one child node, replace it with that node
+            elif node.left or node.right:
+                node = node.left or node.right
+            # If there are no child nodes, just delete
+            else:
+                node = None
+        elif key < node.data:
+            node.left, deleted = self._delete_value(node.left, key)
+        else:
+            node.right, deleted = self._delete_value(node.right, key)
+        return node, deleted
+
+```
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+#### 트리순회 알고리즘
+
+트리에 있는 노드들을 다 살펴보고 확인하고 싶을 때 사용한다. 순회 알고리즘에는 전위 순회(pre-order traversal), 후위 순회(post-order traversal), 정위 순회(in-order traversal), 레벨 순회(level-order traversal) 등이 있다. 이 중 정위 순회를 통해 이진 트리에서 정렬된 데이터를 얻을 수 있다. 
+
+
+![Pre-order traversal](/images/preorder.gif)
+
+전위 순회는 뿌리 노드 -> 왼쪽 서브 트리 -> 오른쪽 서브 트리 순으로 순회한다.
+
+```py
+def pre_order_traversal(self):
+        def _pre_order_traversal(root):
+            if root is None:
+                pass
+            else:
+                print(root.data)
+                _pre_order_traversal(root.left)
+                _pre_order_traversal(root.right)
+        _pre_order_traversal(self.root)
+```
+
+![Post-order traversal](/images/postorder.gif)
+
+후위 순회는 왼쪽 서브 트리 -> 뿌리 노드 -> 오른쪽 서브 트리 순으로 순회한다.
+
+```py
+def post_order_traversal(self):
+        def _post_order_traversal(root):
+            if root is None:
+                pass
+            else:
+                _post_order_traversal(root.left)
+                _post_order_traversal(root.right)
+                print(root.data)
+        _post_order_traversal(self.root)
+```
+
+![In-order traversal](/images/inorder.gif)
+
+정위 순회는 왼쪽 서브 트리 -> 뿌리 노드 -> 오른쪽 서브 트리 순으로 순회한다.
+
+```py
+  def in_order_traversal(self):
+        def _in_order_traversal(root):
+            if root is None:
+                pass
+            else:
+                _in_order_traversal(root.left)
+                print(root.data)
+                _in_order_traversal(root.right)
+        _in_order_traversal(self.root)
+```
+![Level-order traversal](/images/levelorder.gif)
+
+레벨 순회는 너비 우선 순회방식으로 구현한다.
+
+```py
+ def level_order_traversal(self):
+        def _level_order_traversal(root):
+            queue = [root]
+            while queue:
+                root = queue.pop(0)
+                if root is not None:
+                    print(root.data)
+                    if root.left:
+                        queue.append(root.left)
+                    if root.right:
+                        queue.append(root.right)
+        _level_order_traversal(self.root)
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+#### 힙
+
+각 노드의 key값이 해당 노드의 자식노드의 key값보다 작지 않거나 크지 않은 완전 이진트리
+
+- 키 값의 대소관계는 부모-자식 노드 사이 간에만 성립하며 형제 노드 사이에는 영향을 미치지 않음
+- 자식노드의 최대 개수는 힙의 종류에 따라 다르지만 이진트리에서는 최대 2개 (완전이진트리를 사용한다고 가정하자.)
+- i번째 노드의 자식노드가 2개인데 왼쪽 자식노드는 2i, 오른쪽 자식노드는 2i+1이고, 부모노드는 i/2가 된다.
+
+* 최대 힙 (max heap)
+: 각 노드의 키 값이 그 자식노드의 키 값보다 작지 않은 힙
+
+```py
+key(T.parent(v)) > key(v)
+```
+
+* 최소 힙 (min heap)
+: 각 노드의 키 값이 그 자식노드의 키 값보다 크지 않은 힙
+
+```py
+key(T.parent(v)) < key(v)
+```
+
+* 시간복잡도
+: O(log n)
+
+
+* 삽입 연산 (insertion)
+삽입하고자 하는 값을 트리의 가장 마지막 원소에 추가한다.
+부모노드와의 대소관계를 비교하면서 만족할 때까지 자리 교환을 반복한다.
+
+* 삭제 연산 (deletion)
+힙에서는 루트 노드만 삭제가 가능하므로 루트 노드를 제거한다.
+가장 마지막 노드를 루트로 이동시킨다.
+자식노드와 비교하여 조건이 만족할 때까지 이동시킨다.
+heapq module
+: 파이썬에서 제공하는 힙큐 모듈, 일반적인 리스트를 min heap처럼 다룰 수 있게 해줌
+
+##### 구현
+
+```py
+import heapq
+
+# add node : use heappush method
+
+heap = [] 
+heapq.heappush(heap, 1)
+
+# delete node : use heappop method
+# Take out the smallest element and return, automatically the next smallest element becomes the root note
+
+return heapq.heappop(heap)
+
+# Accessing the index to just return without fetching the minimum value
+
+print(heap[0])
+
+# Note: There is no guarantee that index 1 is the 2nd smallest, so if you want to get the nth smallest element, you have to subtract n-1 elements.
+
+# Converting previously used list to heap: use heapify method
+
+
+tmp = [7, 5, 8, 3]
+heapq.heapify(tmp)
+
+
+# Making the largest heap: using tuples containing priorities
+
+import heapq
+
+nums = [4, 1, 7, 3, 8, 5]
+heap = []
+
+for num in nums:
+  heapq.heappush(heap, (-num, num))  # (priority, value)
+
+while heap:
+  print(heapq.heappop(heap)[1])  # index 1
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+
+#### 우선순위 큐
+
+우선순위 큐는 우선 순위가 가장 높은 자료(data)를 가장 먼저 꺼낼 수 있는 자료 구조이다. 배열을 사용하면 직접 구현하기는 어렵지 않지만, 파이썬에서는 heapq라는 내장(built-in) 모듈로 제공이 되기 때문에, 추가적인 연산이 필요 없다면 내장 모듈을 사용하는게 좋다.
+
+1. 우선 순위 큐의 생성 및 원소 삽입
+
+heapq.heappush를 사용해 우선 순위 큐 또는 힙을 쉽게 생성할 수 있다. 첫번째 인자는 heap 자체인 list이고, 두번째 인자는 튜플인데 튜플의 첫번째 요소는 우선순위 값, 두번째 요소는 데이터를 넣어주면 된다. 함수의 두번째 인자로 튜플이 아닌 일반 값을 넣어주면, 값을 기준으로 heap을 만들어준다. 파이썬이 제공하는 힙은 최소힙(min-heap)이므로 주의하자. 삽입 별 시간 복잡도는 O(log n) 이다.
+
+```py
+import heapq
+h = []
+heapq.heappush(h, (3, "Go to home"))
+heapq.heappush(h, (10, "Do not study"))
+heapq.heappush(h, (1, "Enjoy!"))
+heapq.heappush(h, (4, "Eat!"))
+heapq.heappush(h, (7, "Pray!"))
+print(h)
+
+# The result shows the heap implemented as an array
+[(1, 'Enjoy!'), (4, 'Eat!'), (3, 'Go to home'), (10, 'Do not study'), (7, 'Pray!')]
+```
+
+2. Take out elements
+Element extraction can be implemented with heapq.heappop. The time complexity for each pull is O(log n).
+
+```py
+import heapq
+h = []
+heapq.heappush(h, (3, "Go to home"))
+heapq.heappush(h, (10, "Do not study"))
+heapq.heappush(h, (1, "Enjoy!"))
+heapq.heappush(h, (4, "Eat!"))
+heapq.heappush(h, (7, "Pray!"))
+first = heapq.heappop(h)
+second = heapq.heappop(h)
+third = heapq.heappop(h)
+print("first:", first)
+print("second:", second)
+print("third:", third)
+
+# result
+first: (1, 'Enjoy!')
+second: (3, 'Go to home')
+third: (4, 'Eat!')
+```
+
+3. 배열로 부터 힙 정렬 만들기
+
+1번의 방법으로 배열을 힙으로 만들면 시간 복잡도는 O(n log n)이다. 그러나 배열로 부터 힙을 만드는 최적의 알고리즘의 시간 복잡도는 O(n) 으로 알려져 있다. 파이썬에서는 O(n)의 시간으로 배열을 힙으로 만들 수 있는 heapq.heapfy 함수를 제공한다. 주의할 점은 배열 자체가 힙으로 바뀐다는 점이다.
+
+```py
+import heapq
+h = [(3, "Go to home"), (10, "Do not study"), (1, "Enjoy!"), (4, "Eat!"), (7, "Pray!")]
+heapq.heapify(h)
+print(h)
+
+# result
+[(1, 'Enjoy!'), (4, 'Eat!'), (3, 'Go to home'), (10, 'Do not study'), (7, 'Pray!')]
+```
+
+4. 최대 힙 (max-heap)
+
+heapq 는 기본적으로 최소 힙 밖에 지원을 안한다. 최대 힙을 쓸 수 있는 방법은 없을까?  heapq._heapfy_max 나 heapq._heappop_max 를 사용해서 하는 방법도 있지만, push를 지원해주지 않기 때문에, 반쪽짜리 기능이다. 유일한 방법은 키 값을 변환해서 넣는 수 밖에 없다. 모든 요소의 키를 바꾸는데 드는 시간은 O(n) 이고, 모든 힙 요소를 얻는데 드는 시간 복잡도는 O(n log n) 이므로, 요소를 모두 돌면서 키를 바꾼다 해도 전체 시간 복잡도에 문제가 되지 않는다. 앞의 예에서는 키 값이 정수 이므로 -를 붙여주면 된다.
+
+```py
+import heapq
+h = [(3, "Go to home"), (10, "Do not study"), (1, "Enjoy!"), (4, "Eat!"), (7, "Pray!")]
+max_h = [(-ele[0], ele[1]) for ele in h]
+heapq.heapify(max_h)
+print(max_h)
+```
+
+그러나 이 방법은 개별적으로 push를 사용할 때, 매번 데이터를 변경해 줘야 하는 번거로움이 있다. 이러한 번거로움을 피하고 싶으면, 결국 heapq 모듈의 기능을 래핑해 max 힙을 만드는 클래스를 정의하는 수 밖에 없다. __lt__ 내장 메소드를 활용하면, 비교는 반대로 할 수 있으므로, 어렵지 않게 구현할 수 있다.
+주의할 점은 위 두가지 방법 다 원본 데이터를 유지할 수 있는 방법을 제공해 주어야 한다는 점이다. 이를 위해서 데이터의 래핑와 언래핑을 하도록 구현을 해야 한다.
+다음 코드는 __lt__ 내장 메서드를 활용해 max_heapq 모듈을 간단히 구현해본 것이다. 요소를 push 하거나 pop 할때, 요소를 래핑하고 언래핑해 주고 있음에 유의하자.
+
+```py
+import heapq
+
+class ReverseLessThan(object):
+    def __init__(self, value):
+        self.value = value
+
+    def __lt__(self, other):
+        return self.value > other.value
+
+    def __repr__(self):
+        return str(self.value)
+
+
+def heappush(heap, item):
+    reverse_item = ReverseLessThan(item)
+    heapq.heappush(heap, reverse_item)
+
+
+def heappop(heap):
+    reverse_item = heapq.heappop(heap)
+    return reverse_item.value
+
+
+def heapify(lst):
+    for i, ele in enumerate(lst):
+        lst[i] = ReverseLessThan(ele)
+    heapq.heapify(lst)
+
+
+if __name__ == "__main__":
+    h = []
+    heappush(h, (3, "Go to home"))
+    heappush(h, (10, "Do not study"))
+    heappush(h, (1, "Enjoy!"))
+    heappush(h, (4, "Eat!"))
+    heappush(h, (7, "Pray!"))
+    heappush(h, (4, "Dup Eat!"))
+
+    print(h)
+
+    count = 1
+    while h:
+        print("%dth : %s" % (count, heappop(h)))
+        count += 1
+
+    lst = ["ab", "dh", "hihi", "kk1", "power"]
+    heapify(lst)
+    print(lst)
+    count = 1
+    while lst:
+        print("%dth : %s" % (count, heappop(lst)))
+        count += 1
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+
+
+
+
 
 ### 그래프
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
 #### 방향그래프
 #### 무방향그래프
 #### 인접행렬
 #### 인접리스트
 
 
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
 
 #### 그래프순회
 ##### 너비우선탐색(DFS)
 ##### 깊이우선탐색(BFS)
 
 
-
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
 ### 검색알고리즘
