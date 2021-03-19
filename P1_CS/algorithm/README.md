@@ -15,12 +15,12 @@
     - 힙정렬
     - 퀵정렬
     - 병합정렬
-  - 트리
+  - [Tree](#Tree)
     - BST (이진탐색트리)
     - 힙
     - 우선순위 큐
     - 이진힙
-  - 그래프
+  - [Graph](#Graph)
     - 방향그래프
     - 무방향그래프
     - 인접행렬
@@ -1072,7 +1072,7 @@ def quick_sort(arr):
 
 
 
-### 트리
+### Tree
 
 #### BST (이진탐색트리)
 
@@ -1459,25 +1459,172 @@ if __name__ == "__main__":
 
 
 
-### 그래프
+### Graph
+
+- 그래프란 무엇인가?
+
+그래프는 정점과 간선으로 이루어진 자료구조입니다. 정확히는 정점(Vertex)간의 관계를 표현하는 조직도라고 볼수도 있겠습니다. 그런면에서 트리는 그래프의 일종인 셈입니다. 다만 트리와는 달리 그래프는 정점마다 간선이 없을수도 있고 있을수도 있으며 루트 노드, 부모와 자식이라는 개념이 존재하지 않습니다. 또한 그래프는 네트워크 모델 즉, 객체와 이에 대한 관계를 나타내는 유연한 방식으로 이해할 수 있습니다. 실생활에서 다양한 예를 그래프로 표현할 수 있습니다. 대표적으로 지하철 노선도, 도심의 도로등이 있습니다. 이런식으로 활용할 수 있는 방법이 많기에 문제도 다양하게 출제를 할 수 있습니다. 그래프는 알고리즘에서 굉장히 많이 사용됩니다. 특히 그래프를 순회하는 방식인 DFS와 BFS를 잘 알아두어야 합니다. 
+
+- 그래프 용어
+
+![Graph](/images/graph.png)
+
+- 정점(vertice) : 노드(node)라고도 하며 정점에는 데이터가 저장됩니다. (0, 1, 2, 3)
+- 간선(edge): 링크(arcs)라고도 하며 노드간의 관계를 나타냅니다.
+- 인접 정점(adjacent vertex) : 간선에 의해 연결된 정점으로 위에서 (정점0과 정점1은 인접 정점)
+- 단순 경로(simple-path): 경로 중 반복되는 정점이 없는것, 같은 간선을 자나가지 않는 경로
+- 차수(degree): 무방향 그래프에서 하나의 정점에 인접한 정점의 수 (정점 0의 차수는 3)
+- 진출 차수(out-degree) : 방향그래프에서 사용되는 용어로 한 노드에서 외부로 향하는 간선의 수를 뜻합니다.
+- 진입차수(in-degree) : 방향그래프에서 사용되는 용어로 외부 노드에서 들어오는 간선의 수를 뜻합니다.
+
+- 그래프 구현방법
+
+ 
+그래프를 구현하는 방법에는 인접행렬(Adjacency Materix)와 인접리스트(Adjacency List)방식이 있습니다. 두개의 구현 방식은 각각의 상반된 장단점을 가지고 있는데 대부분 인접리스트 형식을 많이들 사용합니다.
+
+
+
+
+#### Direction graph
+
+![Direction_graph](/images/direction_graph.png)
+
+방향 그래프는 두 정점을 연결하는 간선에 방향이 존재하는 그래프입니다. 간선의 방향으로만 이동할 수 있습니다. 
+
+
+
+#### Non-Direction graph
+
+![Non-Direction_graph](/images/non_direction_graph.png)
+
+무방향 그래프는 두 정점을 연결하는 간선에 방향이 없는 그래프입니다.
+
+
+
+#### Adjacency matrix
+
+![Adjacency_matrix](/images/adjacency_matrix.png)
+
+인접행렬은 그래프의 노드를 2차원 배열로 만든 것입니다. 완성된 배열의 모양은 1, 2, 3, 4, 5, 6의 정점을 연결하는 노드에 다른 노드들이 인접 정점이라면 1, 아니면 0을 넣어줍니다.
+
+- 장점
+  1. 2차원 배열 안에 모든 정점들의 간선 정보를 담기 때문에 배열의 위치를 확인하면 두 점에 대한 연결 정보를 조회할 때 O(1) 의 시간 복잡도면 가능합니다. 
+  2. 구현이 비교적 간편합니다.
+
+- 단점
+  1. 모든 정점에 대해 간선 정보를 대입해야 하므로 O(n²) 의 시간복잡도가 소요됩니다.
+  2. 무조건 2차원 배열이 필요하기에 필요 이상의 공간이 낭비됩니다.
+
+
+#### Adjacency list
+
+![Adjacency_list](/images/adjacency_list.png)
+
+인접리스트란 그래프의 노드들을 리스트로 표현한것입니다. 주로 정점의 리스트 배열을 만들어 관계를 설정해줌으로써 구현합니다. 
+
+- 장점
+  1. 정점들의 연결 정보를 탐색할 때 O(n) 의 시간이면 가능합니다. (n: 간선의 갯수)
+  2. 필요한 만큼의 공간만 사용하기때문에 공간의 낭비가 적습니다.
+
+ 
+
+- 단점
+  1. 특정 두 점이 연결되었는지 확인하려면 인접행렬에 비해 시간이 오래 걸립니다. (배열보다 search 속도느림)
+  2. 구현이 비교적 어렵습니다.
+
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
-
-#### 방향그래프
-#### 무방향그래프
-#### 인접행렬
-#### 인접리스트
-
-
-
 
 #### 그래프순회
-##### 너비우선탐색(DFS)
-##### 깊이우선탐색(BFS)
+
+그래프에의 임의의 한 정점에서 시작하여 모든 정점들을 한 번씩 방문하는 작업
+
+- Search vs Traversal
+
+  - 탐색(Search) : index나 해싱 등의 방법으로 원하는 데이터를 빠르게 찾는 방법
+  - 순회(Traversal) : 특정 순회 알고리즘을 사용하여 모든 노드를 방문하는 방법
+
+  - 탐색(search)의 관심 대상은 그래프 안의 특정 값(노드)이다. 그 관심 대상을 빠르게 찾는 검이 탐색의 목적이다.
+
+  - 반면, 순회(traversal)는 특정 노드 뿐만이 아니라 모든 노드가 관심 대상이다. 즉, 그래프 자체가 순회의 관심 대상이다. 순회를 통해 특정 값을 찾는 것도 가능하고 그래프를 가공하는 것이 가능해진다. 
+
+- 그래프 탐색(순회)은 왜 중요할까?
+
+  - 그래프 탐색은 모든 정점을 방문하기 때문에 탐색을 통해 그래프 특징을 알 수 있다. 
+  - 또한, 방문하면서 checking, update 등과 같은 처리가 가능하기 때문에 그래프를 가공할 수 있다. BFS, DFS와 같은 그래프 탐색 기법을 사용하면 스패닝 트리(Spanning Tree)를 구할 수 있다.
+  - 즉, 탐색을 통해 (그래프 -> Spanning Tree 또는 MST - Minimu Spanning Tree)로 만들수 있다. 
+
+##### 깊이우선탐색
+
+- 자식 노드를 우선적으로 탐색하는 탐색 기법
+
+- 아직 방문되지 않은 인접 노드(자식 노드)를 우선적으로 탐색
+
+- 깊이 우선 탐색은 한쪽방향만 파다가 더이상 팔 곳이 없으면 다시 돌아와서 다른 한쪽을 죽어라 파는 형식이다.
+
+- 깊이 우선 탐색은 Stack을 통해 구현된다.
+
+- 그렇기 때문에 DFS를 구현할 떄 stack이나 재귀 함수를 사용할 수 있다.
+
+- 재귀 함수를 사용하면 call stack을 사용하기 때문에 stack overflow를 조심해야 한다
+
+- Spanning Tree, Connected Component, Strongly Connected Component 등에 활용
+
+```py
+# Example Code
+
+def dfs(graph, start_node):
+    visit = list()
+    stack = list()
+    stack.append(start_node)
+    while stack:
+        node = stack.pop()
+        if node not in visit:
+            visit.append(node)
+            stack.extend(graph[node])
+    return visit
+
+```
+
+##### 너비우선탐색
+
+- 형제 노드를 우선적으로 탐색하는 탐색 기법. (레벨 순회(level-order traversal)라고도 한다)
+
+-  아직 방문되지 않은 이전 노드(부모 노드)의 인접 노드(현재 노드의 형제 노드)를 우선적으로 탐색
+
+- BFS를 사용하면 매 탐색마다 휴리스틱 값을 찾아서 가장 최선의 휴리스틱 값의 노드로 확장이 가능하기 때문에 DFS대신 BFS가 최단 경로 탐색에 사용된다.
+
+- 보통 너비 우선 탐색은 Queue를 통해 구현된다.
+
+- 최단 경로 탐색, Spanning Tree, Connected Component, Strongly Connected Component 등에 활용
+
+```py
+
+# Example Code
+
+from queue import Queue
+
+def bfs(graph, start_node):
+    visit = set()
+    q = Queue()
+
+    q.put(start_node)
+
+    while q.qsize() > 0:
+        node = q.get()
+        if node not in visit:
+            visit.add(node)
+            for nextNode in graph[node]:
+                q.put(nextNode)
+    return visit
+
+```
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
 
 ### 검색알고리즘
 
