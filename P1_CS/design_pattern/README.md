@@ -38,8 +38,7 @@
 
 1. It inherits forms and creates objects of various fields.
 
-```
-py
+```py
 
 from django import forms
 
@@ -54,8 +53,7 @@ class PersonForm(forms.Form):
 
 4. Parsing various input XML and JSON files and centralizes the client's connection
 
-```
-py
+```py
 
 import json
 import xml.etree.ElementTree as etree
@@ -153,7 +151,7 @@ if __name__ == '__main__':
 - The 'WizardWorld' class is an abstract factory.
 - The 'GameEnvironment' class is the main entry point of our game. It accepts the factory as an input and uses it to create the world of the game.
 
-```
+```py
 # Frog game
 
 class Frog:
@@ -289,8 +287,7 @@ if __name__ == '__main__':
   - prepare_dough() is just a wrapper to the prepare_dough() method of the Pizza class.
   - The director in this example is the waiter, which accepts a builder as a parameter and executes all the pizza-preparation steps in the right order.
 
-```
-py
+```py
 
 from enum import Enum
 import time
@@ -451,7 +448,7 @@ if __name__ == '__main__':
 
 1. Used to create multiple websites with the same format but by changing only the name, domain, and creation date.
 
-```
+```py
 import copy
 
 class Website: 
@@ -541,8 +538,7 @@ if __name__ == '__main__':
 3. The class at the core of the logging system or utility
 4. URL fetcher
   - define the SingletonType class, with its special `__call__()` method
-```
-py
+```py
 
 import urllib.parse
 import urllib.request
@@ -637,8 +633,7 @@ if __name__ == '__main__':
 
 5. Caching and memoization
 
-```
-py
+```py
 
 import functools 
  
@@ -709,8 +704,7 @@ if __name__ == '__main__':
 - Define the interface for implementation classes that help fetch content, that is, the ResourceContentFetcher class. This concept is called the Implementor.
 - For using bridge pattern, you can extract content from different sources and integrate the results in the same data manipulation system or user interface.
 
-```
-py
+```py
 
 import abc
 import urllib.parse
@@ -797,8 +791,7 @@ if __name__ == "__main__":
 - We need to subclass ABCMeta using the metaclass keyword.
 - We use the @abstractmethod decorator for stating which methods should be implemented (mandatory) by all subclasses of server.
 
-```
-py
+```py
 
 from enum import Enum 
 from abc import ABCMeta, abstractmethod 
@@ -925,8 +918,7 @@ if __name__ == '__main__':
 * Notice that pool is a class attribute (a variable shared by all instances).
 * Using the __new__() special method, which is called before __init__(), we are converting the Car class to a metaclass that supports self-references. This means that cls references the Car class.
 
-```
-py
+```py
 
 import random 
 from enum import Enum 
@@ -1002,8 +994,7 @@ if __name__ == '__main__':
 - Introducing lazy initialization using a virtual proxy to create the objects only at the moment they are actually required can give us significant performance improvements(make it execute at the end).
 - When checking whether a user has a specific authority
 
-```
-py
+```py
 
 class SensitiveInfo: 
     def __init__(self): 

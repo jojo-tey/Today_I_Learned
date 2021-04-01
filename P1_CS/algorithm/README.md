@@ -522,6 +522,18 @@ def selection_sort(arr):
             if arr[j] < arr[min_idx]:
                 min_idx = j
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+# Other Example
+
+input = [5, 10, 66, 77, 54, 32, 11, 13]
+sorted_list = []
+
+while input:
+  sorted_list.append(min(input))
+  input.pop(input.index(min(input)))
+
+print(sorted_list)
+
 ```
 
 ##### 복잡도 
@@ -883,15 +895,17 @@ def merge_sort(arr):
 
     return sort(0, len(arr))
 
+
 ```
 
 ##### 복잡도
 
 
-- 알고리즘을 큰 그림에서 보면 분할(split) 단계와 방합(merge) 단계로 나눌 수 있으며, 단순히 중간 인덱스를 찾아야 하는 분할 비용보다 모든 값들을 비교해야하는 병합 비용이 큽니다.
+- 알고리즘을 큰 그림에서 보면 분할(split) 단계와 병합(merge) 단계로 나눌 수 있으며, 단순히 중간 인덱스를 찾아야 하는 분할 비용보다 모든 값들을 비교해야하는 병합 비용이 큽니다.
 - 예제에서 보이는 것과 같이 8 -> 4 -> 2 -> 1 식으로 전반적인 반복의 수는 점점 절반으로 줄어들 기 때문에 O(logN) 시간이 필요하며, 각 패스에서 병합할 때 모든 값들을 비교해야 하므로 O(N) 시간이 소모됩니다. 따라서 총 시간 복잡도는 O(NlogN) 입니다.
 - 두 개의 배열을 병합할 때 병합 결과를 담아 놓을 배열이 추가로 필요합니다. 따라서 공간 복잡도는 O(N) 입니다.
 - 다른 정렬 알고리즘과 달리 인접한 값들 간에 상호 자리 교대(swap)이 일어나지 않습니다.
+
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
