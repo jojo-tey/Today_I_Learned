@@ -10,11 +10,12 @@
   - [Queue](#Queue)
   - [Hash Table](#Hash-Table)
   - [Sort](#Sort)
-    - 선택정렬
-    - 삽입정렬
-    - 힙정렬
-    - 퀵정렬
-    - 병합정렬
+    - [Selection sort](#Selection-sort)
+    - [Insertion sort](#Insertion-sort)
+    - [Bubble sort](#Bubble-sort)
+    - [Merge sort](#Merge-sort)
+    - [Heap sort](#Heap-sort)
+    - [Quick sort](#Quick-sort)
   - [Tree](#Tree)
     - BST (이진탐색트리)
     - 힙
@@ -481,36 +482,38 @@ Univeral Hashing: This is a technique that creates a hash value by creating a nu
 [Select sort Explain-Video](https://youtu.be/Ns4TPTC8whw)
 
 
-선택 정렬은 알고리즘에 대해 배워본 적이 없는 사람도 쉽게 생각해낼 수 있는 정렬 알고리즘입니다. 왜냐하면 우리가 일상에서 무언가를 크기 순으로 나열할 때 흔히 사용되는 사고 방식이기 때문입니다.
-선택 정렬은 정렬된 값을 배열의 맨 앞부터 하나씩 채워나가게 됩니다. 따라서, 뒤에 있는 index로 갈수록 비교 범위가 하나씩 점점 줄어드는 특성을 가지고 있습니다. (index 0에서는 0부터 n-1까지 비교해야 되지만, index n-1에서는 남은 숫자가 하나 밖어서 비교가 필요 없음)
-입력 배열이 이미 정렬되어 있건 말건 관계없이 동일한 연산량을 가지고 있기 때문에 최적화 여자가 적어서 다른 O(N^2) 대비해도 성능이 떨어지는 편입니다.
-이러한 성능 상의 한계 때문에 실전에서는 거의 보기 힘들지만, 가장 구현이 쉬운 정렬 알고리즘이라서, 알고리즘 수업 시간에는 한 번씩 꼭 접하게 되는 유명한 정렬 알고리즘입니다.
+Selective sorting is a sorting algorithm that can be easily conceived by anyone who has never learned about it. That's because it's a common way of thinking in our daily lives when we list things in order of size.<br>
+Selection sort fills the sorted values ​​one by one from the beginning of the array. Therefore, it has the characteristic that the comparison range gradually decreases one by one as it goes to the back index. (At index 0, you need to compare from 0 to n-1, but at index n-1, there is only one remaining number, so no comparison is necessary.)<br>
+Regardless of whether the input array is already sorted or not, it has the same amount of computation, so the optimization excitation is small, so performance tends to be poor even compared to other O(N^2).
+
+> Because of these performance limitations, it is hardly seen in practice, but it is the easiest sorting algorithm to implement, so it is a popular sorting algorithm that you come across once in class.
 
 
 `170cm, 180cm, 150cm, 160cm`
 
-예를 들어, 위와 같이 키를 알고 있는 네 친구들을 키 순으로 세우려면, 우선 4명의 키를 모두 비교하여 키가 제일 작은 150cm인 친구를 맨 앞에 세웁니다.
+For example, as shown above, to set up four friends who know their height in order of height, first compare the heights of all four and place the friend whose height is the smallest 150cm in front.<br>
 
-키가 150cm인 친구는 맨 앞에 세웠으니, 이제 나머지 세 친구의 키를 비교하여 키가 제일 작은 160cm인 친구를 그 다음에 세웁니다. 이제는 키가 170cm인 친구와 180cm인 친구 둘만 남았습니다. 둘 중에 170cm 친구가 더 작기 때문에 이 친구를 먼저 세우고, 그 다음 180cm인 친구를 마지막에 세웁니다.
+The friend, who is 150cm tall, was placed first. Now, compare the height of the other three friends and put the friend whose height is the smallest 160cm next. Now there are only two friends left, one 170cm tall and one 180cm tall. Of the two, the 170cm friend is smaller, so this friend is established first, and then the 180cm friend last.
 
 
 
 Index | Value 
 ------------ | ------------- 
-0 | 모든 값 중 가장 작은 값
-1 | 첫번째 값(Index=0)을 제외하고 남은 값 중에서 가장 작은 값
+0 | Smallest of all values
+1 | The smallest value among the remaining values excluding the first value (Index=0)
 ... | ...
-i | i번째 부터 n-1 번째까지 값 중 가장 작은 값
-n-2	| n-2번째와 n-1 번째까지 값 중 가장 작은 값
-n-1	| 마지막에 남은 하나의 값 (비교 대상 없음)
+i | The smallest of the values from i to n-1
+n-2	| The smallest of the n-2th and n-1th values
+n-1	| One last value (no comparison)
 
-	
-즉, 크기 n의 배열이 주어졌을 때, index 0부터 n-1까지의 모든 index i에 대해서, i번째 부터 n-1 번째까지 값 중 가장 작은 값을 구해서 index i에 놓으면 정렬된 배열을 얻을 수가 있습니다. 모든 index에 대해서 그 index에 위치시킬 값을 “선택”하기 때문에 이 정렬 알고리즘을 “선택 정렬”또는 “Selection Sort”이라고 부릅니다.
+<br>
+
+That is, given an array of size n, for all index i from index 0 to n-1, if you find the smallest value among the values from i to n-1 and place it at index i, you can get a sorted array. There is. This sorting algorithm is called "Selection Sort" or "Selection Sort" because it "selects" the value to be placed at that index for all indexes.
 
 
-##### 구현
+##### Implement
 
-두 개의 반복문이 필요합니다. 내부 반복문에서는 현재 index부터 마지막 index까지 최소값의 index를 찾아내고, 외부 반복문에서는 이 최소값의 index와 현재 index에 있는 값을 상호 교대(swap)합니다. 외부 반복문에서는 index i를 0에서 n-2(또는 n-1. 마지막 index에서는 남는 값이 하나 밖에 없기 때문에 대세에 지장 없음)까지 진행시키며, 내부 반복문에서 이미 정렬된 값들에서는 관심이 없기 때문에 index j를 i에서 n-1까지 진행시킵니다. 각 index에 대해서 최소값을 찾기 위해 대소 비교는 여러번 일어나나 상호 교대(swap)은 딱 한번만 알어납니다.
+You need two loops. In the inner loop, the index of the minimum value from the current index to the last index is found, and in the outer loop, the index of this minimum value and the value at the current index are swapped. In the outer loop, index i is progressed from 0 to n-2 (or n-1. Since there is only one remaining value in the last index, there is no problem with the trend), and index j is not interested in the values already sorted in the inner loop. Progresses from i to n-1. To find the minimum value for each index, case comparisons occur multiple times, but the swap is known only once.
 
 
 
@@ -536,31 +539,31 @@ print(sorted_list)
 
 ```
 
-##### 복잡도 
+##### Complexity
 
-1. 선택 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
-2. 시간 복잡도는 우선 루프문을 통해 모든 인덱스에 접근해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 하나의 루프에서는 현재 인덱스의 값과 다른 인덱스의 값들과 비교하여 최소값을 찾은 후 현재 인덱스에 있는 값과 상호 자리 교대를(swap)해야 해야하기 때문에 O(N)을 시간이 필요하게 됩니다. 따라서 선택 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
+1. Selection sort has a spatial complexity of O(1) because it only changes the position of values within the space occupied by a given array without using extra space.
+2. Time complexity basically consumes O(N) time because all indexes must be accessed through a loop statement. In one loop, the current index value is compared with the values of other indexes to find the minimum value. O(N) time is required because we have to swap the values in the index. Therefore, selective sorting is a sorting algorithm with a total time complexity of O(N^2).
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-#### 삽입정렬
+#### Insertion sort
 
 
 [Insert sort Explain-Video](https://youtu.be/ROalU379l3U)
 
 
-삽입 정렬은 한마디로 표현하면 정렬 범위를 1칸씩 확장해나가면서 새롭게 정렬 범위에 들어온 값을 기존 값들과 비교하여 알맞은 자리에 꼽아주는 알고리즘입니다.
-선택/거품 정렬은 패스가 거듭될 수록 탐색 범위가 줄어드는 반면에 삽입 정렬은 오히려 점점 정렬 범위가 넚어집니다.
-큰 크림에서 보았을 때 바깥 쪽 루프는 순방향, 안 쪽 루프는 역방향으로 진행하고 있습니다.
+Insertion sort, expressed in a word, is an algorithm that expands the sort range by one space and compares the newly entered values with the existing values and selects them in the proper place.
+The selection/bubble alignment decreases the search range as the passes pass, while the insertion alignment gradually increases the alignment range.
+Looking at the big cream, the outer loop is going forward and the inner loop is going backwards. <br>
 
 
-예를 들어, 다음과 같이 1부터 5까지 총 5개의 숫자가 들어있는 배열에 있다고 가정해보겠습니다.
+For example, let's say you have an array containing a total of 5 numbers from 1 to 5.
 
 ```
 [2, 1, 5, 4, 3]
 ```
 
-맨 처음에는 첫번째 2개의 값만 정렬 범위에 포함시키고 생각해보겠습니다. 앞에 있는 값 2는 뒤에 있는 값 1보다 작기 때문에 서로 자리를 바꿔줍니다.
+At first, let's just consider the first two values to be included in the sort range. The leading value 2 is less than the trailing value 1, so they swap places.
 
 ```
 [2, 1]: 2 > 1 => swap
@@ -569,7 +572,7 @@ print(sorted_list)
  *  *
 ```
 
-그 다음에는 기존의 정렬 범위에 한칸 확장하여 세번째 값을 추가시키고 생각해보겠습니다. 기존 정렬 범위에서 가장 큰 값인 2와 새롭게 추가된 5를 비교하면 자리를 바꿀 필요가 없다는 것을 알 수 있습니다. 기존에 정렬 범위에 있던 두 개의 값은 이 전 패스에서 이미 정렬이 되어 있기 때문에 굳이 1과 5를 비교할 필요는 없습니다.
+Next, consider adding a third value by expanding the existing sort range by one space. If you compare the new 5 with the largest value of 2 in the existing sort range, you can see that there is no need to change places. There is no need to compare 1 and 5 because the two values that were in the sorting range were already sorted in the previous pass.
 
 ```
 [1, 2, 5]: 2 < 5 => OK
@@ -578,7 +581,7 @@ print(sorted_list)
  *  *  *
 ```
 
-다음 패스에서는 정렬 범위를 한 칸 더 확장하여 4번째 값을 추가시키고 생각해볼 차례입니다. 기존 정렬 범위에서 가장 큰 값인 5와 새롭게 추가된 4를 비교하면, 앞에 있는 값이 뒤에 있는 값보다 크기 때문에 서로 자리를 바꿔야 합니다. 이제 기존 정렬 범위에서 두 번째로 큰 값인 2와 방금 자리를 교체 당한 4를 비교해보면 더 이상 자리를 바꿀 필요가 없다는 것을 알 수 있습니다.
+In the next pass, it's time to expand the sort range by one more space, add a fourth value, and think about it. If you compare the largest value of 5 in the existing sorting range with the newly added 4, the values in front must be swapped because the values in front are larger than values in the rear. Now, if you compare the 2nd largest value in the existing sorting range, 2, and 4, which has just been replaced, you can see that there is no need to change any more.
 
 ```
 [1, 2, 5, 4]: 5 > 4 => swap
@@ -589,7 +592,7 @@ print(sorted_list)
  *  *  *  *
 ```
 
-마지막 패스에서는 정렬 범위를 전체로 확장하여 마지막 값까지 포함시킵니다. 여태까지 했던 방식과 동일하게 새로 추가된 값과 기존에 있던 값들을 뒤에서 부터 비교해나가면 2번의 자리 교체가 필요하다는 것을 알 수 있습니다.
+In the last pass, the sorting range is expanded all over to include the last value. If you compare the newly added value and the existing values from the back in the same way as you have done so far, you can see that two digit replacements are required.
 
 ```
 [1, 2, 4, 5, 3]: 5 > 3 => swap
@@ -602,9 +605,9 @@ print(sorted_list)
  *  *  *  *  *
 ```
 
-##### 구현
+##### Implement
 
-1. 두 개의 반복문이 필요합니다. 내부 반복문에서는 정렬 범위에 새롭게 추가된 값과 기존 값들을 뒤에서 부터 계속해서 비교해나가면서 앞의 값이 뒤의 값보다 클 경우 자리 교대(swap)를 합니다. 외부 반복문에서는 정렬 범위를 2에서 N으로 확대해 나갑니다.
+1. You need two loops. In the inner loop, the values newly added to the sort range and the existing values are compared from the back, and if the previous value is larger than the next value, a swap is performed. In the outer loop, the sort range is expanded from 2 to N.
 
 ```py
 def insertion_sort(arr):
@@ -614,9 +617,9 @@ def insertion_sort(arr):
                 arr[i - 1], arr[i] = arr[i], arr[i - 1]
 ```
 
-2. 기존에 있던 값들은 이전 패스에서 모두 정렬되었다는 점을 활용하면 불필요한 비교 작업을 제거할 수 있습니다. 예를 들면, 아래와 같이 기존 정렬 범위 [1, 2, 3, 5]에 4가 새롭게 추가된다면, 5는 4보다 크기 때문에 swap이 필요하지만, 3은 4보다 작기 때문에 swap이 필요없습니다. 그리고 3보다 앞에 있는 숫자들은 기존 패스에서 이미 정렬을 해놓았기 때문에 당연히 3보다는 작을 것이며, 더 이상의 4와 대소 비교는 무의미합니다. 이 사실을 이용하면, 새롭게 추가된 값보다 작은 숫자를 만나는 최초의 순간까지만 내부 반복문을 수행해도 됩니다.
+2. By taking advantage of the fact that all existing values were sorted in the previous pass, unnecessary comparisons can be eliminated. For example, if 4 is newly added to the existing sort range [1, 2, 3, 5] as shown below, swap is required because 5 is greater than 4, but swap is not required because 3 is less than 4. And since the numbers before 3 are already sorted in the previous pass, they will of course be less than 3, and any further 4 and case comparisons are meaningless. Using this fact, you only have to run the inner loop until the first moment you encounter a number less than the newly added value. <br>
 
-이 최적화를 적용하면, 정렬된 배열이 들어올 경우, O(N)의 시간 복잡도를 달성할 수 있습니다. 예를 들어, 다음과 같이 5개의 숫자가 된 배열이 들어오면 각 패스 당 단 한 번 총 4번의 비교만으로 해당 배열이 완전히 정렬되었음을 알아내고 삽입 정렬을 완료할 수 있습니다.
+Applying this optimization, you can achieve a time complexity of O(N) when an ordered array comes in. For example, if you come in an array of 5 numbers like this, you can find out that the array is fully aligned and complete the insertion sort with only 4 comparisons, once per pass.
 
 
 ```py
@@ -630,7 +633,7 @@ def insertion_sort(arr):
 
 
 
-3. swap 작업없이 단순히 값들을 shift 시키는 것만으로도 삽입 정렬의 구현이 가능합니다. 앞의 값이 정렬 범위에 추가시킨 값보다 클 경우 앞의 값을 뒤로 밀다가 최초로 작은 값을 만나는 순간 그 뒤에 추가된 값을 꼽으면 됩니다.
+3. Insertion sort can be implemented simply by shifting the values without the swap operation. If the previous value is greater than the value added to the sort range, you can push the previous value back and insert the added value the moment it first encounters the smaller value.
 
 ```py
 def insertion_sort(arr):
@@ -645,32 +648,31 @@ def insertion_sort(arr):
 ```
 
 
-##### 복잡도
+##### Complexity
 
-1. 삽입 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
-2. 시간 복잡도는 우선 루프문을 통해 정렬 범위를 2개로 시작해서 전체로 확장해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 각 패스에서는 정렬 범위에 새롭게 추가된 값과 기존 값들의 대소 비교 및 자리 교대를 위해서 O(N)을 시간이 필요하게 됩니다. 따라서 삽입 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
-3. 아래에서 다룰 최적화를 통해서 부분적으로 정렬된 배열에 대해서 성능을 대폭 개선할 수 있으며, 특히 완전히 정렬되어 있는 배열이 들어올 경우, O(N)까지도 시간 복잡도를 향상시킬 수 있습니다.
+1. Insertion sort has a spatial complexity of O(1) because it only changes the position of values within the space occupied by a given array without using extra space.
+2. As for time complexity, it is necessary to start with two sorting ranges through a loop statement and expand them to the whole, so basically O(N) is time consuming. You will need O(N) time to change seats. So, insert sort is a sorting algorithm with a total time complexity of O(N^2).
+3. The optimizations covered below can significantly improve performance for partially ordered arrays, and can improve time complexity even up to O(N), especially when fully ordered arrays come in.
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
 
-#### 버블정렬
+#### Bubble sort
 
 
 [Bubble Sort Explain-Video](https://youtu.be/lyZQPjUT5B4)
 
 
-거품 정렬은 큰 그림에서 보았을 때 뒤에서 부터 앞으로 정렬을 해나가는 구조를 가지고 있습니다. 즉, 맨 뒷자리에 제일 큰 값을 제일 뒤로 보내고, 제일 큰 값 바로 앞에 두번째로 큰 값을 보냅니다. 이를 위해 배열 내의 값들을 앞뒤로 서로 비교해서 자리를 바꾸는 작업을 지속적으로 수행해야 합니다. 이렇게 큰 값을 계속해서 뒤로 보내는 모습이 마치 방울이 이동하는 것과 같이 보여서 거품 정렬이라는 이름이 붙어졌습니다.
+Bubble alignment has a structure that aligns from the back to the front when viewed in the big picture. In other words, the largest value is sent to the back in the last digit, and the second largest value is sent immediately before the largest value. To do this, we need to constantly perform the task of comparing the values in the array back and forth and swapping places. Sending such a large value back and forth continuously looks like a bubble moving, so it has the name Bubble Alignment.<br>
 
+First, let's look at how to send the largest value to the back through bubble sort. Start from the first value and compare them with the next values in order, and if the previous value is larger, you can change the position with the latter value.<br>
 
-먼저 거품 정렬을 통해 어떻게 가장 큰 값을 맨 뒤로 보내는지에 대해서 알아보겠습니다. 맨 첫번째 값부터 시작해서 다음 값들과 차례로 비교하면서 앞의 값이 더 크면 뒤의 값과 자리를 바꾸면 됩니다.
-
-다음과 같이 1부터 5까지 총 5개의 숫자가 들어있는 배열에 대해서 위 로직을 적용해보겠습니다.
+Let's apply the above logic to an array containing a total of 5 numbers from 1 to 5.
 
 ```
 [4, 3, 5, 1, 2]
 ```
-먼저, 4과 3를 비교합니다. 4가 3보다 크기 때문에 자리를 바꿉니다.
+First, compare 4 and 3. Because 4 is greater than 3, we swap places.
 
 ```
 [4, 3, 5, 1, 2]
@@ -678,20 +680,20 @@ def insertion_sort(arr):
 4 > 3 => Swap
 [3, 4, 5, 1, 2]
 ```
-그 다음과 4과 5를 비교합니다. 4가 5보다 작기 때문에 자리를 바꿀 필요가 없습니다.
+Then compare 4 and 5. Since 4 is less than 5, there is no need to change places
 ```
 [3, 4, 5, 1, 2]
     ^  ^
 4 < 5 => No Swap
 ```
-그 다음과 5과 1를 비교합니다. 5가 1보다 크기 때문에 자리를 바꿉니다.
+Then compare 5 and 1. Because 5 is greater than 1, we swap places.
 ```
 [3, 4, 5, 1, 2]
        ^  ^
 5 > 1 => Swap
 [3, 4, 1, 5, 2]
 ```
-그 다음과 5과 2를 비교합니다. 5가 2보다 크기 때문에 자리를 바꿉니다.
+Then compare 5 and 2. Because 5 is greater than 2, we swap places.
 
 ```
 [3, 4, 1, 5, 2]
@@ -701,9 +703,9 @@ def insertion_sort(arr):
              *
 ```
 
-이렇게 맨 처음 값부터 시작해서 계속해서 그 다음 값과 대소를 비교하여 앞의 값이 뒤의 값보다 클 경우 자리를 바꿔주면 결국 제일 큰 값을 맨 뒤로 보낼 수가 있습니다.
+In this way, it starts from the first value and continuously compares the case with the next value, and if the previous value is greater than the latter value, change the place, and eventually the largest value can be sent to the back.<br>
 
-이 과정을 모든 값으로 확장하면 다음과 같이 두 번째로 큰 값을 제일 큰 값 바로 앞으로 보낼 수 있고, 세 번째로 큰 값을 두 번째로 큰 값 바로 앞으로 보낼 수 있습니다.
+If you extend this process to all values, you can send the second largest value right before the largest value, and the third largest value before the second largest value like this:
 
 
 ```
@@ -723,17 +725,17 @@ Initial: [4, 3, 5, 1, 2]
 
 
 
-- 거품 정렬은 점점 큰 값들을 뒤에서 부터 앞으로 하나씩 쌓여 나가게 때문에 후반으로 갈수록 정렬 범위가 하나씩 줄어들게 됩니다.
-- 왜냐하면, 다음 패스에서는 이전 패스에서 뒤로 보내놓은 가장 큰 값이 있는 위치 전까지만 비교해도 되기 때문입니다.
-- 제일 작은 값을 찾아서 맨 앞에 위치시키는 선택 정렬과 비교했을 때 정반대의 정렬 방향을 가집니다.
-- 다른 정렬 알고리즘에 비해서 자리 교대(swap)가 빈번하게 일어나는 경향을 가지고 있습니다. 예를 들어, 선택 정렬의 경우 각 패스에서 자리 교대가 딱 한번만 일어납니다.
-- 최적화 여지가 많은 알고리즘입니다. 예를 들어, 위 그림에서 Pass 5는 생략할 수 있는 패스입니다. 왜냐하면 Pass 4에서 한 번도 자리 교대가 일어나지 않았기 때문입니다.
+-Bubble sorting accumulates larger values one by one from the back to the front, so the sorting range decreases one by one as you go to the second half.
+-Because in the next pass, you can only compare until the position with the largest value sent back from the previous pass.
+-It has the opposite sorting direction compared to the selection sort which finds the smallest value and places it at the front.
+-Compared to other sorting algorithms, swaps tend to occur more frequently. For example, in the case of selection sort, the shift occurs only once in each pass.
+-Algorithm with a lot of room for optimization For example, in the picture above, Pass 5 is a pass that can be omitted. This is because there has never been a seat shift in Pass 4.
 
 
 
-##### 구현 
+##### Implement
 
-선택 정렬과 마찬가지로 두 개의 반복문이 필요합니다. 내부 반복문에서는 첫번째 값부터 이전 패스에서 뒤로 보내놓은 값이 있는 위치 전까지 앞뒤 값을 계속해서 비교해나가면서 앞의 값이 뒤의 값보다 클 경우 자리 교대(swap)를 합니다. 외부 반복문에서는 뒤에서 부터 앞으로 정렬 범위를 n-1부터 1까지 줄여나갑니다.
+As with the selection sort, it requires two loops. In the inner loop, the previous value is compared continuously from the first value to the position of the value sent back from the previous pass, and if the previous value is greater than the last value, a swap is performed. In the outer loop, the sorting range from back to front is reduced from n-1 to 1.
 
 ```py
 def bubble_sort(arr):
@@ -744,7 +746,7 @@ def bubble_sort(arr):
 ```
 
 
-이전 패스에서 앞뒤 자리 비교(swap)이 한 번도 일어나지 않았다면 정렬되지 않는 값이 하나도 없었다고 간주할 수 있습니다. 따라서 이럴 경우, 이후 패스를 수행하지 않아도 됩니다.
+If no swap has occurred in the previous pass, you can assume that none of the misaligned values have occurred. So in this case, you do not need to perform a subsequent pass.
 
 
 ```
@@ -769,7 +771,7 @@ def bubble_sort(arr):
             break
 ```
 
-이전 패스에서 앞뒤 자리 비교(swap)가 있었는지 여부를 체크하는 대신 마지막으로 앞뒤 자리 비교가 있었던 index를 기억해두면 다음 패스에서는 그 자리 전까지만 정렬해도 됩니다. 따라서 한 칸씩 정렬 범위를 줄여나가는 대신 한번에 여러 칸씩 정렬 범위를 줄여나갈 수 있습니다.
+Instead of checking whether there was a swap in the previous pass, you can remember the index where the last comparison was made, so you can sort only before that place in the next pass. Therefore, instead of reducing the sorting range by one space, you can reduce the sorting range by several spaces at a time.
 
 ```py
 def bubble_sort(arr):
@@ -784,59 +786,60 @@ def bubble_sort(arr):
 ```
 
 
-##### 복잡도
+##### Complexity
 
-거품 정렬은 별도의 추가 공간을 사용하지 않고 주어진 배열이 차지하고 있는 공간 내에서 값들의 위치만 바꾸기 때문에 O(1)의 공간 복잡도를 가집니다.
-시간 복잡도는 우선 루프문을 통해 맨 뒤부터 맨 앞까지 모든 인덱스에 접근해야 하기 때문에 기본적으로 O(N)을 시간을 소모하며, 하나의 루프에서는 인접한 값들의 대소 비교 및 자리 교대를 위해서 O(N)을 시간이 필요하게 됩니다. 따라서 거품 정렬은 총 O(N^2)의 시간 복잡도를 가지는 정렬 알고리즘입니다.
-하지만, 거품 정렬은 부분적으로 정렬되어 있는 배열에 대해서는 최적화를 통해서 성능을 대폭 개선할 수 있으며, 완전히 정렬되어 있는 배열이 들어올 경우, O(N)까지도 시간 복잡도를 향상시킬 수 있습니다.
+- Bubble sort has a spatial complexity of O(1) because it does not use extra space and only changes the position of values within the space occupied by a given array.
+- Time complexity basically consumes O(N) time because all indices must be accessed through a loop statement from the back to the top. In one loop, O(N) is used for size comparison and shift of adjacent values. ) You will need time. Thus, bubble sort is a sorting algorithm with a total time complexity of O(N^2).
+- However, bubble sorting can significantly improve performance by optimizing for partially ordered arrays, and when fully ordered arrays come in, even O(N) can increase time complexity.
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
 
-#### 병합정렬
+#### Merge sort
 
 [Merge sort Explain-Video](https://youtu.be/XaqR3G_NVoo)
 
-병합 정렬은 분할 정복 (Devide and Conquer) 기법과 재귀 알고리즘을 이용해서 정렬 알고리즘입니다. 즉, 주어진 배열을 원소가 하나 밖에 남지 않을 때까지 계속 둘로 쪼갠 후에 다시 크기 순으로 재배열 하면서 원래 크기의 배열로 합칩니다.
+Merge sort is a sorting algorithm using the Devide and Conquer technique and a recursive algorithm. In other words, the given array is split in two until there is only one element left, and then re-arranged in order of size, concatenating it into an array of the original size.<br>
 
-예를 들어, 다음과 같이 1부터 8까지 총 8개의 숫자가 들어있는 배열에 있다고 가정해보겠습니다.
+For example, let's say you have an array containing 8 total numbers from 1 to 8.
 ```
 [6, 5, 3, 1, 8, 7, 2, 4]
 ```
-먼저 하나의 배열을 두 개로 쪼갭니다.
+First, split an array into two.
 ```
 [6, 5, 3, 1] [8, 7, 2, 4]
 ```
-그리고 다시 두 개의 배열을 네 개로 쪼갭니다.
+And again, split the two arrays into four.
 ```
 [6, 5] [3, 1] [8, 7] [2, 4]
 
 ```
-마지막으로 디시 네 개의 배열을 여덜 개로 쪼갭니다.
+Finally, split the array of four dishes into eighty pieces.
 ```
 [6] [5] [3] [1] [8] [7] [2] [4]
 ```
-이제 더 이상 쪼갤 수가 없으니 두 개씩 합치기를 시작하겠습니다. 합칠 때는 작은 숫자가 앞에 큰 수자를 뒤에 위치시킵니다.
+Now that I can't split it any more, I'm going to start combining them two by one. When concatenating, smaller numbers place the larger numbers in front and the back.
 ```
 [5, 6] [1, 3] [7, 8] [2, 4]
 ```
-이제 4개의 배열을 2개로 합칩니다. 각 배열 내에서 가장 작은 값 2개를 비교해서 더 작은 값을 먼저 선택하면 자연스럽게 크기 순으로 선택이 됩니다.
+Now combine the four arrays into two. If you compare the two smallest values in each array and select the smaller value first, the selection is naturally ordered by size.
 ```
 [1, 3, 5, 6] [2, 4, 7, 8]
 ```
-최종적으로 2개의 배열도 마찬가지로 크기 순으로 선택하가면서 하나로 합치면 정렬된 배열을 얻을 수 있습니다.
+Finally, the two arrays can be sorted by selecting them in order of size and combining them into one.
 ```
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
 
-##### 구현
+##### Implement
 
-재귀를 이용해서 병합 정렬을 구현할 수 있습니다. 먼저 배열을 더 이상 나눌 수 없을 때 까지 (원소가 하나만 남을 때까지) 최대한 분할 후에, 다시 병합하면서 점점 큰 배열을 만들어 나가면 됩니다. 따라서 이 재귀 알고리즘의 기저 조건은 입력 배열의 크기가 2보다 작을 때이며, 이 조건에 해당할 때는 배열을 그대로 반환하면 됩니다.
+Merge sort can be implemented using recursion. First, divide the array as much as possible until it can no longer be divided (until there is only one element left), then merge again to create a larger array. Therefore, the basis condition of this recursive algorithm is when the size of the input array is less than 2, and when this condition is met, the array can be returned as it is. <br>
 
 
-파이선의 리스트 slice notation(arr[start:end])을 사용하면 다음과 같이 간결한 코드를 작성할 수 있습니다. 하지만, 리스트 slice를 할 때 배열의 복제가 일어나므로 메모리 사용 효율은 좋지 않습니다.
+Using Python's list slice notation(arr[start:end]), you can write concise code like this: However, when the list is sliced, the memory usage efficiency is not good because the array is duplicated.
+
 ```py
 def merge_sort(arr):
     if len(arr) < 2:
@@ -859,7 +862,8 @@ def merge_sort(arr):
     merged_arr += high_arr[h:]
     return merged_arr
 ```
-병합 결과를 담을 새로운 배열을 매번 생성해서 리턴하지 않고, 인덱스 접근을 이용해 입력 배열을 계속해서 업데이트하면 메모리 사용량을 대폭 줄일 수 있습니다. (In-place sort)
+
+> Instead of creating and returning a new array to hold the merge result each time, memory usage can be drastically reduced by continuously updating the input array using index access. (In-place sort)
 
 ```py
 def merge_sort(arr):
@@ -898,13 +902,13 @@ def merge_sort(arr):
 
 ```
 
-##### 복잡도
+##### Complexity
 
 
-- 알고리즘을 큰 그림에서 보면 분할(split) 단계와 병합(merge) 단계로 나눌 수 있으며, 단순히 중간 인덱스를 찾아야 하는 분할 비용보다 모든 값들을 비교해야하는 병합 비용이 큽니다.
-- 예제에서 보이는 것과 같이 8 -> 4 -> 2 -> 1 식으로 전반적인 반복의 수는 점점 절반으로 줄어들 기 때문에 O(logN) 시간이 필요하며, 각 패스에서 병합할 때 모든 값들을 비교해야 하므로 O(N) 시간이 소모됩니다. 따라서 총 시간 복잡도는 O(NlogN) 입니다.
-- 두 개의 배열을 병합할 때 병합 결과를 담아 놓을 배열이 추가로 필요합니다. 따라서 공간 복잡도는 O(N) 입니다.
-- 다른 정렬 알고리즘과 달리 인접한 값들 간에 상호 자리 교대(swap)이 일어나지 않습니다.
+- Looking at the algorithm in the big picture, it can be divided into a split step and a merge step, and the merge cost of comparing all values is higher than the split cost of simply finding an intermediate index.
+- As shown in the example, O(logN) time is required because the total number of iterations gradually decreases in half with the equation 8 -> 4 -> 2 -> 1, and all values must be compared when merging in each pass. O(N) time is consumed. So the total time complexity is O(NlogN).
+- When merging two arrays, an additional array is required to hold the merge result. So the spatial complexity is O(N).
+- Unlike other sorting algorithms, no swap occurs between adjacent values.
 
 
 
@@ -912,30 +916,32 @@ def merge_sort(arr):
 
 
 
-#### 힙정렬
+#### Heap sort
 
 
 [Heap sort Explain-Video](https://youtu.be/Xw2D9aJRBY4)
 
 
-힙정렬을 알기 위해선 먼저 힙이 무엇인지 알아야 한다. 
+To know heap sorting, you first need to know what heap is.
 
-여기서 힙은 힙트리로, 여러개의 값 들 중 가장 크거나 작은 값을 빠르게 찾기 위해 만든 이진 트리이다. 짧게 힙이라고 부른다.
+The heap is a heap tree, which is a binary tree created to quickly find the largest or smallest value among multiple values. 
 
 ![heapsort](/images/heapsort.gif) 
 
-힙은 항상 완전 이진 트리의 형태를 띈다. 부모의 값은 항상 자식들의 값보다 크거나 (Max Heap) 작아야 (Min Heap) 한다는 규칙이 있다. 따라서 루트(뿌리) 노드에는 항상 데이터들 중 가장 큰 값 혹은 작은 값이 저장되어 있다.
+The heap always takes the form of a full binary tree. There is a rule that the parent's value must always be greater (Max Heap) or less (Min Heap) than the child's value. Therefore, the largest or smallest value among data is always stored in the root node.<br>
 
-힙 정렬의 방법은 아래와 같다.
+The heap sort method is as follows.<br>
 
-1. 배열의 원소들을 전부 힙에 삽입
-2. 가장 부모노드에 있는 값은 최댓값 혹은 최솟값이므로 루트를 출력하고 힙에서 제거
-3. 힙이 빌 때 까지 2의 과정을 반복
+1. Insert all the elements of the array into the heap
+2. Since the value in the most parent node is the maximum or minimum value, print the root and remove it from the heap.
+3. Repeat step 2 until the heap is empty.
 
-힙정렬은 추가적인 메모리를 전혀 필요로하지 않는다는 점과 최악의 경우에도 항상 O(n log n) 의 성능을 발휘한다는 장점이 있다.
+<br>
+
+> Heap sorting has the advantage that it does not require any additional memory and always shows O(n log n) performance even in the worst case.
 
 
-##### 구현
+##### Implement
 
 ```py
 def heapify(li, idx, n):
@@ -973,58 +979,58 @@ heap_sort([5,3,4,2,1])
 
 
 
-#### 퀵정렬
+#### Quick sort
 
-병합 정렬과 마찬가지로 퀵 정렬도 분할 정복 (Devide and Conquer) 기법과 재귀 알고리즘을 이용한 정렬 알고리즘입니다.
+Like merge sort, quick sort is a sorting algorithm using the Divide and Conquer technique and a recursive algorithm.
 
 [Quick sort Explain-Video](https://youtu.be/ywWBy6J5gz8)
 
+-Most of the built-in sorting functions that are basically supported at the programming language level, such as Python's list.sort() function and Java's Arrays.sort(), are based on quicksort.
+-In general, as the number of elements decreases, the probability of selecting a bad intermediate value increases, so there are many cases where different sorts are mixed for quicksort depending on the number of elements.
+-Merge sort and quick sort look similar in terms of using split-conquer and recursive algorithms, but there is a big difference in the way that sorting is done internally.
+-Merge sort always performs a simple split based on the center and then compares values ​​at the time of merging, whereas in quick sort, the comparison operation takes place from the time of split, so the cost of subsequent merges is very low or depending on the implementation You may not merge them at all. <br>
 
-- 파이썬의 list.sort() 함수나 자바의 Arrays.sort()처럼 프로그래밍 언어 차원에서 기본적으로 지원되는 내장 정렬 함수는 대부분은 퀵 정렬을 기본으로 합니다.
-- 일반적으로 원소의 개수가 적어질수록 나쁜 중간값이 선택될 확률이 높아지기 때문에, 원소의 개수에 따라 퀵 정렬에 다른 정렬을 혼합해서 쓰는 경우가 많습니다.
-- 병합 정렬과 퀵 정렬은 분할 정복과 재귀 알고리즘을 사용한다는 측면에서는 유사해보이지만, 내부적으로 정렬을 하는 방식에서는 큰 차이가 있습니다.
-- 병합 정렬은 항상 정 중앙을 기준으로 단순 분할 후 병합 시점에서 값의 비교 연산이 발생하는 반면, 퀵 정렬은 분할 시점부터 비교 연산이 일어나기 때문에 그 이후 병합에 들어가는 비용이 매우 적거나 구현 방법에 따라서 아예 병합을 하지 않을 수도 있습니다.
-
-쉬운 이해를 위해서 다음과 같이 1부터 7까지 총 7개의 숫자가 들어있는 배열을 기준으로 설명하겠습니다.
+For example, here is an array containing a total of 7 numbers from 1 to 7.
 
 ```
 [6, 5, 1, 4, 7, 2, 3]
 ```
-항상 정 가운데를 기준으로 분할을 하는 병합 정렬과 달리, 퀵 정렬은 흔히 피봇(pivot)이라고 불리는 임의의 기준값을 사용합니다. pivot 값을 선택하는데는 여러가지 방법이 있지만 여기서는 간단한 설명을 위해 정 중앙에 위치한 4을 pivot으로 정하겠습니다. 그리고 다음과 같이 이 pivot 값을 기준으로 pivot보다 작은 값의 그룹과 pivot보다 큰 값의 그룹으로 나눕니다.
+Unlike merge sort, which always splits around the center, quick sort uses an arbitrary reference value, often called a pivot. There are several ways to select a pivot value, but for simplicity, I will set the center 4 as the pivot for simplicity. And based on this pivot value, it is divided into groups with values less than pivot and groups with values greater than pivot, as follows:
 
 ```
             p
 [3, 2, 1] < 4 < [7, 5, 6]
 ```
-위와 같이 pivot 값보다 작은 값들은 모두 왼편으로 몰고, 큰 값들은 모두 오른편으로 몰면 기준값은 정확히 정렬된 위치에 놓이게 됩니다. 또한 이런 방식으로 분할을 해놓으면 앞으로 더 이상 왼편에 있는 값들과 오른편에 있는 값들 간에는 비교를 할 필요가 없습니다. 따라서 반대편은 전혀 신경쓰지 않고 왼편이든 오른편이든 같은편 내의 값들 끼리만 비교 후 정렬을 할 수 있게 됩니다.
+As above, if all values smaller than the pivot value are driven to the left, and all larger values are driven to the right, the reference value is placed in an exact aligned position. Also, if you divide it this way, you will no longer need to compare the values on the left and the values on the right in the future. Therefore, it is possible to sort the values after comparing only the values within the same side, whether on the left or the right, without paying attention to the opposite side at all.
 
-먼저 왼편을 동일한 방식으로 정렬해보도록 하겠습니다. 왼편의 정 가운데에 위치한 pivot 값인 2 보다 작은 값인 1인 왼쪽에 큰 값인 3은 오른쪽에 위치시켰습니다. 이제 양쪽 모두 값이 하나씩 밖에 없기 때문에 이로써 왼편의 정렬 작업은 완료되었습니다.
+First, let's align the left side in the same way. The pivot value located in the middle of the left is 1, which is less than 2, and the larger value of 3 is on the right. Now that both sides only have one value, this completes the left-hand alignment.
 ```
-    p
+      p
 [1] < 2 < [3]
 ```
 
-오른편도 동일한 방식으로 정렬해보겠습니다. 오른편의 pivot 값인 5 보다 작은 값은 없으므로 7과 6을 모두 오른편에 위치시켰습니다.
+Let's align the right side in the same way. There is no value less than 5, which is the pivot value on the right, so I placed both 7 and 6 on the right.
 ```
     p
 [] < 5 < [7, 6]
 ```
 
-오른편의 오른편(?)에는 값이 2개가 있기 때문에 추가 정렬이 필요합니다. 왼편에는 값이 없지만 오른편에는 여전히 두 개의 값이 있기 때문에, 동일한 방식의 정렬을 적용하겠습니다.
+There are 2 values on the right (?) on the right, so additional alignment is required. Since there are no values on the left, but there are still two values on the right, we will apply the same sorting.
+
 ```
       p
 [6] < 7 < []
 ```
-마지막으로 지금까지 좌우로 분할했던 값들을 모두 합치보면 다음과 같이 정렬된 배열을 얻을 수 있습니다.
+Finally, if you combine all the values that have been split left and right so far, you can get the sorted array as follows.
 ```
 [1, 2, 3, 4, 5, 6, 7]
 ```
-지금까지 살펴본 것과 같이 퀵 정렬은 배열을 pivot 값 기준으로 더 작은 값과 큰 값으로 반복적으로 분할하여 정렬해나가는 방식을 취하고 있습니다.
+As we have seen so far, quicksort takes a method of sorting by repetitively dividing the array into smaller and larger values based on the pivot value.
 
 
 ##### 구현
 
-위에 설명드린 기본 컨셉을 그대로를 코드로 구현할 수 있습니다. 먼저 리스트의 정 가운데 있는 값을 pivot 값으로 선택하고, pivot 값보다 작은 값, 동일한 값 그리고 큰 값을 담아둘 3개의 리스트를 생성합니다. 그리고 반복문을 통해 각 값을 pivot과 비교 후에 해당하는 리스트에 추가시킵니다. 그 다음 작은 값과 큰 값을 담고 있는 배열을 대상으로 퀵 정렬 함수를 재귀적으로 호출합니다. 마지막으로 재귀 호출의 결과를 다시 크기 순으로 합치면 정렬된 리스트를 얻을 수 있습니다.
+The basic concept described above can be implemented as it is in code. First, we select the value in the middle of the list as the pivot value, and we create three lists to hold the value less than the pivot value, the same value, and the larger value. Then, each value is added to the corresponding list after comparison with the pivot through a loop. Then we call the quicksort function recursively on an array containing small and large values. Finally, sum the results of the recursive call back in order of size to get a sorted list.
 
 ```py
 def quick_sort(arr):
@@ -1041,12 +1047,12 @@ def quick_sort(arr):
             equal_arr.append(num)
     return quick_sort(lesser_arr) + equal_arr + quick_sort(greater_arr)
 ```
-위의 구현은 간결하고 이해하기 쉽지만 매번 재귀 호출될 때 마다 새로운 리스트를 생성하여 리턴하기 때문에 메모리 사용 측면에서 비효율적입니다. 큰 사이즈의 입력 데이터를 다뤄야하는 상용 코드에서는 이러한 단점은 치명적으로 작용할 수 있기 때문에 추가 메모리 사용이 적은 in-place 정렬이 선호됩니다.
+The above implementation is concise and easy to understand, but it is inefficient in terms of memory usage because it creates and returns a new list each time it is called recursively. In commercial code that has to deal with large input data, this drawback can be fatal, so in-place sorting with less extra memory is preferred.
 
-> 처음부터 스스로 in-place 정렬을 구현하는 코드를 작성하기는 생각했던 것보다 쉽지 않을 수도 있습니다. 기존과 동일하게 값의 대소 비교를 위해서는 pivot 값을 사용하지만, 분할은 기준점은 pivot 값이 아닐 수도 있기 때문입니다. 왜냐하면, pivot 값을 기준으로 대소 비교를 했을 때 좌측과 우측에 여유 공간이 딱 맞는 경우가 드물기 때문입니다.
+> Writing code that implements in-place sorting yourself from scratch may not be as easy as you might think. This is because the pivot value is used for the comparison of the values as before, but the reference point for partitioning may not be a pivot value. This is because, when comparing the size based on the pivot value, it is rare that the free space on the left and right is just right.
 
 ```py
-# 메인 함수인 quick_sort()는 크게 sort()와 partition() 2개의 내부 함수로 나눠집니다. sort() 함수는 재귀 함수이며 정렬 범위를 시작 인덱스와 끝 인덱스로 인자로 받습니다. (둘다 inclusive) partition() 함수는 정렬 범위를 인자로 받으며 다음 로직을 따라서 좌우측의 값들을 정렬하고 분할 기준점의 인덱스를 리턴합니다. 이 분할 기준점(mid)는 sort()를 재귀적으로 호출할 때 우측 리스트의 시작 인덱스로 사용됩니다.
+# The main function quick_sort() is largely divided into two internal functions, sort() and partition(). The sort() function is a recursive function and takes a sort range as arguments as a starting index and an ending index. (Both inclusive) The partition() function takes a sort range as an argument, sorts the left and right values according to the following logic and returns the index of the partition base point. This splitting point (mid) is used as the starting index of the list on the right when sort() is called recursively.
 
 def quick_sort(arr):
     def sort(low, high):
@@ -1074,12 +1080,12 @@ def quick_sort(arr):
 ```
 
 
-##### 복잡도
+##### Complexity
 
-- 퀵 정렬의 성능은 어떻게 pivot 값을 선택 선택하느냐에 크게 달라질 수 있습니다. 이상적인 경우에는 pivot 값을 기준으로 동일한 개수의 작은 값들과 큰 값들이 분할되어 병합 정렬과 마찬가지로 O(NlogN)의 시간 복잡도를 가지게 됩니다.
-- 하지만 pivot 값을 기준으로 분할했을 때 값들이 한 편으로 크게 치우치게 되면, 퀵 정렬은 성능은 저하되게 되며, 최악의 경우 한 편으로만 모든 값이 몰리게 되어 O(N^2)의 시간 복잡도를 보이게 됩니다.
-- 따라서 상용 코드에서는 중앙값(median)에 가까운 pivot 값을 선택할 수 있는 섬세한 전략이 요구되며, 배열의 첫값과 중앙값 그리고 마지막값 중에 크기가 중간인 값을 사용하는 방법이 많이 사용됩니다.
-- 퀵 정렬은 공간 복잡도는 구현 방법에 따라 달라질 수 있는데, 입력 배열이 차지하는 메모리만을 사용하는 in-place sorting 방식으로 구현을 사용할 경우, O(1)의 공간 복잡도를 가진 코드의 구현이 가능합니다.
+- The performance of quicksort can vary greatly depending on how you choose the pivot value. In the ideal case, the same number of small values ​​and large values ​​are divided based on the pivot value, resulting in a time complexity of O (NlogN) like merge sort.
+- However, if the values ​​are largely skewed to one side when dividing based on the pivot value, the performance of the quicksort will deteriorate, and in the worst case, all values ​​will be concentrated on only one side, thus reducing the time complexity of O(N^2). Will be visible.
+- Therefore, in commercial code, a delicate strategy to select a pivot value that is close to the median is required, and the method of using the medium sized value among the first, median, and last values ​​of the array is often used.
+- The space complexity of quick sort can vary depending on the implementation method. If the implementation is used in an in-place sorting method that uses only the memory occupied by the input array, it is possible to implement a code with a space complexity of O(1).
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
