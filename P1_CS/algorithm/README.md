@@ -1,6 +1,23 @@
 # Algorithm
 
 - [Algorithm](#algorithm)
+  - [Tips for Coding Interview](#tips-for-coding-interview)
+    - [1. Start writing on the board.](#1-start-writing-on-the-board)
+    - [2. Talk through it.](#2-talk-through-it)
+    - [3. Think of an algorithm.](#3-think-of-an-algorithm)
+    - [4. Think of the data structure.](#4-think-of-the-data-structure)
+    - [5. Think about the related problems you saw before and how to fix them.](#5-think-about-the-related-problems-you-saw-before-and-how-to-fix-them)
+    - [6. Break the problem down into smaller ones and fix them.](#6-break-the-problem-down-into-smaller-ones-and-fix-them)
+    - [7. Don't be afraid to come back.](#7-dont-be-afraid-to-come-back)
+  - [Interview Questions for Algorithms](#interview-questions-for-algorithms)
+  - [Coding exercises](#coding-exercises)
+  - [Strategic Approach to Problem Solving](#strategic-approach-to-problem-solving)
+    - [Purpose of coding interview](#purpose-of-coding-interview)
+    - [access](#access)
+    - [When you think](#when-you-think)
+  - [Theory](#theory)
+    - [Array](#array)
+      - [List / Tuple](#list--tuple)
     - [Stack](#stack)
     - [Queue](#queue)
     - [Hash Table](#hash-table)
@@ -49,7 +66,7 @@
   - Backtracking
   - Dynamic Programming
   - Division and conquest
-```
+
 
 
 ---
