@@ -34,7 +34,7 @@
 > [Backend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Backend-roadmap.md)
 <br>
 
-> [DevOps Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/DevOps-roadmap.md)
+> [DevOps Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Devops-roadmap.md)
 <br>
 
 [Go to Top](#Today_I_Learned)
