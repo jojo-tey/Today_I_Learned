@@ -29,9 +29,13 @@
 # Part 0. Developer Roadmap
 
 > [Frontend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Frontend-roadmap.md)
-> [Backend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Backend-roadmap.md)
-> [DevOps Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Devopsend-roadmap.md)
+<br>
 
+> [Backend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Backend-roadmap.md)
+<br>
+
+> [DevOps Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Devopsend-roadmap.md)
+<br>
 
 [Go to Top](#Today_I_Learned)
 
