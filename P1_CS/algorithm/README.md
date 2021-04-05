@@ -1,43 +1,55 @@
 # Algorithm
 
-- [Tips for Coding Interview](#Tips-for-Coding-Interview)
-- [Interview Questions for Algorithms](#Interview-Questions-for-Algorithms)
-- [Coding Exercises](#Coding-Exercises)
-- [Strategic Approach to Problem Solving](#Strategic-Approach-to-Problem-Solving)
-- [Theory](#Theory)
-  - [Array](#Array)
-  - [Stack](#Stack)
-  - [Queue](#Queue)
-  - [Hash Table](#Hash-Table)
-  - [Sort](#Sort)
-    - [Selection sort](#Selection-sort)
-    - [Insertion sort](#Insertion-sort)
-    - [Bubble sort](#Bubble-sort)
-    - [Merge sort](#Merge-sort)
-    - [Heap sort](#Heap-sort)
-    - [Quick sort](#Quick-sort)
-  - [Tree](#Tree)
-    - BST (이진탐색트리)
-    - 힙
-    - 우선순위 큐
-    - 이진힙
-  - [Graph](#Graph)
-    - 방향그래프
-    - 무방향그래프
-    - 인접행렬
-    - 인접리스트
-    - 그래프순회
-      - 너비우선탐색(DFS)
-      - 깊이우선탐색(BFS)
+- [Algorithm](#algorithm)
+    - [Stack](#stack)
+    - [Queue](#queue)
+    - [Hash Table](#hash-table)
+    - [Sort](#sort)
+      - [Selection sort](#selection-sort)
+        - [Implement](#implement)
+        - [Complexity](#complexity)
+      - [Insertion sort](#insertion-sort)
+        - [Implement](#implement-1)
+        - [Complexity](#complexity-1)
+      - [Bubble sort](#bubble-sort)
+        - [Implement](#implement-2)
+        - [Complexity](#complexity-2)
+      - [Merge sort](#merge-sort)
+        - [Implement](#implement-3)
+        - [Complexity](#complexity-3)
+      - [Heap sort](#heap-sort)
+        - [Implement](#implement-4)
+      - [Quick sort](#quick-sort)
+        - [Implement](#implement-5)
+        - [Complexity](#complexity-4)
+    - [Tree](#tree)
+      - [BST (Binary Search Tree)](#bst-binary-search-tree)
+        - [Implement](#implement-6)
+      - [Tree traversal algorithm](#tree-traversal-algorithm)
+      - [Heap](#heap)
+        - [Implement](#implement-7)
+      - [Priority queue](#priority-queue)
+    - [Graph](#graph)
+      - [Direction graph](#direction-graph)
+      - [Non-Direction graph](#non-direction-graph)
+      - [Adjacency matrix](#adjacency-matrix)
+      - [Adjacency list](#adjacency-list)
+      - [Graph traversal](#graph-traversal)
+        - [Depth-first search(DFS)](#depth-first-searchdfs)
+        - [Breadth-first search(BFS)](#breadth-first-searchbfs)
+  - [Search algorithm](#search-algorithm)
+  - [Greedy Algorithm](#greedy-algorithm)
+    - [Example 1](#example-1)
+    - [Example 2](#example-2)
+    - [Example 3](#example-3)
+  - [Recursive algorithm](#recursive-algorithm)
   
-  - [검색 알고리즘](#)
-  - [Greedy Algorithm](#Greedy-Algorithm)
-  - [Sorting Algorithm](#sorting-algorithm)
-  - 최단거리알고리즘
-  - 백트래킹
-  - DP
-  - 분할정복
-
+  - String search
+  - Shortest distance algorithm
+  - Backtracking
+  - Dynamic Programming
+  - Division and conquest
+```
 
 
 ---
@@ -1028,7 +1040,7 @@ Finally, if you combine all the values that have been split left and right so fa
 As we have seen so far, quicksort takes a method of sorting by repetitively dividing the array into smaller and larger values based on the pivot value.
 
 
-##### 구현
+##### Implement
 
 The basic concept described above can be implemented as it is in code. First, we select the value in the middle of the list as the pivot value, and we create three lists to hold the value less than the pivot value, the same value, and the larger value. Then, each value is added to the corresponding list after comparison with the pivot through a loop. Then we call the quicksort function recursively on an array containing small and large values. Finally, sum the results of the recursive call back in order of size to get a sorted list.
 
@@ -1094,21 +1106,21 @@ def quick_sort(arr):
 
 ### Tree
 
-#### BST (이진탐색트리)
+#### BST (Binary Search Tree)
 
-이진 탐색 트리에 들어가기에 앞서 먼저 이진 트리에 대해 간단하게 알아보자. 이진 트리란, 트리의 종류로 각 노드가 최대 2개의 자식 노드를 갖는 트리를 말한다. 즉, 이진 트리의 각 노드는 자식 노드를 갖고 있지 않을수도 있으며, 1개를 가질 수도, 2개를 가질 수도 있다.
+Before we get into the binary search tree, let's take a quick look at the binary tree. A binary tree is a tree type and refers to a tree in which each node has at most two child nodes. That is, each node of the binary tree may not have child nodes, and may have one or two.<br>
 
-이진 탐색 트리는 이진 트리에서 어떠한 규칙에 따라 나열한 트리이다. 이 규칙은 모든 노드에 대해서 왼쪽 노드보다 오른쪽 노드가 더 크게 나열하는 것이다. 아래 그림을 보자. 
+A binary search tree is a tree arranged according to some rules in a binary tree. The rule is that for all nodes, the right node is larger than the left node. Take a look at the picture below.
 
 
 ![Binarysearch](/images/binarysearch.gif)
 
-21이 루트 노드이고, 다음으로 28을 트리에 삽입을 할 때 21보다 큰 값이므로 오른쪽으로 간다. 그 다음 값인 14는 21보다 작으므로 왼쪽으로 간다. 그리고 아래 그림이 이진 탐색 트리에서 값을 찾는 것을 애니메이션으로 나타낸 것이다. 이진 탐색 트리는 평균 O(logN)의 시간복잡도를 가지며 트리가 한쪽으로만 치우친 최악의 경우 O(N)의 시간복잡도를 가진다. 
+21 is the root node, and next time 28 is inserted into the tree, the value is greater than 21, so it goes to the right. The next value, 14, is less than 21, so it goes to the left. And the figure below is an animation of finding a value in a binary search tree. The binary search tree has an average time complexity of O(logN), and in the worst case the tree is skewed to one side, it has a time complexity of O(N).
 
 ![Binarysearch2](/images/binarysearch2.gif)
 
 
-##### 구현
+##### Implement
 
 ```py
 # Create Node and insert
@@ -1184,14 +1196,14 @@ class BinarySearchTree(Node):
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-#### 트리순회 알고리즘
+#### Tree traversal algorithm
 
-트리에 있는 노드들을 다 살펴보고 확인하고 싶을 때 사용한다. 순회 알고리즘에는 전위 순회(pre-order traversal), 후위 순회(post-order traversal), 정위 순회(in-order traversal), 레벨 순회(level-order traversal) 등이 있다. 이 중 정위 순회를 통해 이진 트리에서 정렬된 데이터를 얻을 수 있다. 
+It is used when you want to check and check all the nodes in the tree. Traversal algorithms include `pre-order traversal`, `post-order traversal`, `in-order traversal`, and `level-order traversal`. Of these, sorted data in a binary tree can be obtained through `in-order traversal`.
 
 
 ![Pre-order traversal](/images/preorder.gif)
 
-전위 순회는 뿌리 노드 -> 왼쪽 서브 트리 -> 오른쪽 서브 트리 순으로 순회한다.
+Pre-order traversal goes in the order of root node -> left subtree -> right subtree.
 
 ```py
 def pre_order_traversal(self):
@@ -1207,7 +1219,7 @@ def pre_order_traversal(self):
 
 ![Post-order traversal](/images/postorder.gif)
 
-후위 순회는 왼쪽 서브 트리 -> 뿌리 노드 -> 오른쪽 서브 트리 순으로 순회한다.
+Post-order traversal goes in the order of left subtree -> root node -> right subtree.
 
 ```py
 def post_order_traversal(self):
@@ -1223,7 +1235,7 @@ def post_order_traversal(self):
 
 ![In-order traversal](/images/inorder.gif)
 
-정위 순회는 왼쪽 서브 트리 -> 뿌리 노드 -> 오른쪽 서브 트리 순으로 순회한다.
+In-order traversal is traversed in the order of left subtree -> root node -> right subtree.
 
 ```py
   def in_order_traversal(self):
@@ -1238,7 +1250,7 @@ def post_order_traversal(self):
 ```
 ![Level-order traversal](/images/levelorder.gif)
 
-레벨 순회는 너비 우선 순회방식으로 구현한다.
+Level-order traversal is implemented in a width-first traversal method.
 
 ```py
  def level_order_traversal(self):
@@ -1257,44 +1269,45 @@ def post_order_traversal(self):
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-#### 힙
+#### Heap
 
-각 노드의 key값이 해당 노드의 자식노드의 key값보다 작지 않거나 크지 않은 완전 이진트리
+A complete binary tree in which the key value of each node is not smaller or larger than the key value of the child node of the corresponding node.<br>
 
-- 키 값의 대소관계는 부모-자식 노드 사이 간에만 성립하며 형제 노드 사이에는 영향을 미치지 않음
-- 자식노드의 최대 개수는 힙의 종류에 따라 다르지만 이진트리에서는 최대 2개 (완전이진트리를 사용한다고 가정하자.)
-- i번째 노드의 자식노드가 2개인데 왼쪽 자식노드는 2i, 오른쪽 자식노드는 2i+1이고, 부모노드는 i/2가 된다.
+- Key value relationship is established only between parent-child nodes and does not affect sibling nodes.
+- The maximum number of child nodes depends on the type of heap, but up to 2 in a binary tree (assuming a complete binary tree is used).
+- The i-th node has 2 child nodes, the left child node is 2i, the right child node is 2i+1, and the parent node is i/2.
 
-* 최대 힙 (max heap)
-: 각 노드의 키 값이 그 자식노드의 키 값보다 작지 않은 힙
+* Max heap
+: Heap where the key value of each node is not smaller than the key value of its child node
 
 ```py
 key(T.parent(v)) > key(v)
 ```
 
-* 최소 힙 (min heap)
-: 각 노드의 키 값이 그 자식노드의 키 값보다 크지 않은 힙
+* Min heap
+: Heap where the key value of each node is not greater than the key value of its child node
 
 ```py
 key(T.parent(v)) < key(v)
 ```
 
-* 시간복잡도
+* Time complexity
 : O(log n)
 
 
-* 삽입 연산 (insertion)
-삽입하고자 하는 값을 트리의 가장 마지막 원소에 추가한다.
-부모노드와의 대소관계를 비교하면서 만족할 때까지 자리 교환을 반복한다.
+* Insertion
+- Add the value you want to insert to the last element of the tree.
+- The exchange of seats is repeated until they are satisfied while comparing the relationship with the parent node.
 
-* 삭제 연산 (deletion)
-힙에서는 루트 노드만 삭제가 가능하므로 루트 노드를 제거한다.
-가장 마지막 노드를 루트로 이동시킨다.
-자식노드와 비교하여 조건이 만족할 때까지 이동시킨다.
+* Deletion
+- Since only the root node can be deleted from the heap, remove the root node.
+- Move the last node to the root.
+- Compared with the child node, it moves until the condition is satisfied.
 heapq module
-: 파이썬에서 제공하는 힙큐 모듈, 일반적인 리스트를 min heap처럼 다룰 수 있게 해줌
+: The heap queue module provided by Python, allowing you to treat general lists like min heap
 
-##### 구현
+
+##### Implement
 
 ```py
 import heapq
@@ -1340,13 +1353,13 @@ while heap:
 
 
 
-#### 우선순위 큐
+#### Priority queue
 
-우선순위 큐는 우선 순위가 가장 높은 자료(data)를 가장 먼저 꺼낼 수 있는 자료 구조이다. 배열을 사용하면 직접 구현하기는 어렵지 않지만, 파이썬에서는 heapq라는 내장(built-in) 모듈로 제공이 되기 때문에, 추가적인 연산이 필요 없다면 내장 모듈을 사용하는게 좋다.
+The priority queue is a data structure in which data with the highest priority can be retrieved first. It is not difficult to implement directly using arrays, but Python provides a built-in module called heapq, so if you do not need additional operations, it is better to use the built-in module.
 
-1. 우선 순위 큐의 생성 및 원소 삽입
+1. Creation of priority queues and element insertion
 
-heapq.heappush를 사용해 우선 순위 큐 또는 힙을 쉽게 생성할 수 있다. 첫번째 인자는 heap 자체인 list이고, 두번째 인자는 튜플인데 튜플의 첫번째 요소는 우선순위 값, 두번째 요소는 데이터를 넣어주면 된다. 함수의 두번째 인자로 튜플이 아닌 일반 값을 넣어주면, 값을 기준으로 heap을 만들어준다. 파이썬이 제공하는 힙은 최소힙(min-heap)이므로 주의하자. 삽입 별 시간 복잡도는 O(log n) 이다.
+You can easily create a priority queue or heap using heapq.heappush. The first argument is a list, which is the heap itself, and the second argument is a tuple. The first element of the tuple is the priority value, and the second element is the data. If a general value other than a tuple is entered as the second argument of the function, a heap is created based on the value. Note that the heap provided by Python is a min-heap. The time complexity per insertion is O(log n).
 
 ```py
 import heapq
@@ -1386,9 +1399,9 @@ second: (3, 'Go to home')
 third: (4, 'Eat!')
 ```
 
-3. 배열로 부터 힙 정렬 만들기
+3. Creating a heap sort from an array
 
-1번의 방법으로 배열을 힙으로 만들면 시간 복잡도는 O(n log n)이다. 그러나 배열로 부터 힙을 만드는 최적의 알고리즘의 시간 복잡도는 O(n) 으로 알려져 있다. 파이썬에서는 O(n)의 시간으로 배열을 힙으로 만들 수 있는 heapq.heapfy 함수를 제공한다. 주의할 점은 배열 자체가 힙으로 바뀐다는 점이다.
+If the array is made into a heap using method 1, the time complexity is O(n log n). However, the time complexity of the optimal algorithm for building a heap from an array is known as O(n). Python provides a heapq.heapfy function that can make an array heap in O(n) time. Note that the array itself turns into a heap.
 
 ```py
 import heapq
@@ -1400,9 +1413,9 @@ print(h)
 [(1, 'Enjoy!'), (4, 'Eat!'), (3, 'Go to home'), (10, 'Do not study'), (7, 'Pray!')]
 ```
 
-4. 최대 힙 (max-heap)
+4. Max-heap
 
-heapq 는 기본적으로 최소 힙 밖에 지원을 안한다. 최대 힙을 쓸 수 있는 방법은 없을까?  heapq._heapfy_max 나 heapq._heappop_max 를 사용해서 하는 방법도 있지만, push를 지원해주지 않기 때문에, 반쪽짜리 기능이다. 유일한 방법은 키 값을 변환해서 넣는 수 밖에 없다. 모든 요소의 키를 바꾸는데 드는 시간은 O(n) 이고, 모든 힙 요소를 얻는데 드는 시간 복잡도는 O(n log n) 이므로, 요소를 모두 돌면서 키를 바꾼다 해도 전체 시간 복잡도에 문제가 되지 않는다. 앞의 예에서는 키 값이 정수 이므로 -를 붙여주면 된다.
+heapq basically only supports Min-heap. Is there any way to use the maximum heap? There is a way to do it using heapq._heapfy_max or heapq._heappop_max, but it is a half function because push is not supported. The only way is to convert the key value and put it in. The time required to change the key of all elements is O(n), and the time complexity of obtaining all the heap elements is O(n log n), so even if you change keys while rotating all elements, it does not matter to the total time complexity. In the previous example, the key value is an integer, so you can add -.
 
 ```py
 import heapq
@@ -1412,9 +1425,9 @@ heapq.heapify(max_h)
 print(max_h)
 ```
 
-그러나 이 방법은 개별적으로 push를 사용할 때, 매번 데이터를 변경해 줘야 하는 번거로움이 있다. 이러한 번거로움을 피하고 싶으면, 결국 heapq 모듈의 기능을 래핑해 max 힙을 만드는 클래스를 정의하는 수 밖에 없다. __lt__ 내장 메소드를 활용하면, 비교는 반대로 할 수 있으므로, 어렵지 않게 구현할 수 있다.
-주의할 점은 위 두가지 방법 다 원본 데이터를 유지할 수 있는 방법을 제공해 주어야 한다는 점이다. 이를 위해서 데이터의 래핑와 언래핑을 하도록 구현을 해야 한다.
-다음 코드는 __lt__ 내장 메서드를 활용해 max_heapq 모듈을 간단히 구현해본 것이다. 요소를 push 하거나 pop 할때, 요소를 래핑하고 언래핑해 주고 있음에 유의하자.
+However, this method has the hassle of having to change the data each time when using push individually. To avoid this hassle, you have to define a class that wraps the functions of the heapq module and creates a max heap. By using the __lt__ built-in method, the comparison can be reversed, so it is not difficult to implement.
+> Note : that both of the above methods must provide a way to keep the original data. To do this, we need to implement the wrapping and unwrapping of the data.
+The following code is a simple implementation of the max_heapq module using the __lt__ built-in method. Note that when pushing or popping an element, it wraps and unwraps the element.
 
 ```py
 import heapq
@@ -1481,26 +1494,26 @@ if __name__ == "__main__":
 
 ### Graph
 
-- 그래프란 무엇인가?
+- What is a graph?
 
-그래프는 정점과 간선으로 이루어진 자료구조입니다. 정확히는 정점(Vertex)간의 관계를 표현하는 조직도라고 볼수도 있겠습니다. 그런면에서 트리는 그래프의 일종인 셈입니다. 다만 트리와는 달리 그래프는 정점마다 간선이 없을수도 있고 있을수도 있으며 루트 노드, 부모와 자식이라는 개념이 존재하지 않습니다. 또한 그래프는 네트워크 모델 즉, 객체와 이에 대한 관계를 나타내는 유연한 방식으로 이해할 수 있습니다. 실생활에서 다양한 예를 그래프로 표현할 수 있습니다. 대표적으로 지하철 노선도, 도심의 도로등이 있습니다. 이런식으로 활용할 수 있는 방법이 많기에 문제도 다양하게 출제를 할 수 있습니다. 그래프는 알고리즘에서 굉장히 많이 사용됩니다. 특히 그래프를 순회하는 방식인 DFS와 BFS를 잘 알아두어야 합니다. 
+A graph is a data structure made up of vertices and edges. It can be viewed as an organization chart that expresses the relationship between vertices. In that sense, a tree is a kind of graph. However, unlike trees, graphs may or may not have edges per vertex, and the concept of root node, parent and child does not exist. In addition, graphs can be understood in a flexible way to represent network models, that is, objects and their relationships to them. Various examples can be expressed in graphs in real life. Representatively, there are subway maps and urban roads. Since there are many methods that can be used in this way, various questions can be made. Graphs are used a lot in algorithms. In particular, you should be familiar with `DFS` and `BFS`, which are ways of traversing graphs.
 
-- 그래프 용어
+- Graph term
 
 ![Graph](/images/graph.png)
 
-- 정점(vertice) : 노드(node)라고도 하며 정점에는 데이터가 저장됩니다. (0, 1, 2, 3)
-- 간선(edge): 링크(arcs)라고도 하며 노드간의 관계를 나타냅니다.
-- 인접 정점(adjacent vertex) : 간선에 의해 연결된 정점으로 위에서 (정점0과 정점1은 인접 정점)
-- 단순 경로(simple-path): 경로 중 반복되는 정점이 없는것, 같은 간선을 자나가지 않는 경로
-- 차수(degree): 무방향 그래프에서 하나의 정점에 인접한 정점의 수 (정점 0의 차수는 3)
-- 진출 차수(out-degree) : 방향그래프에서 사용되는 용어로 한 노드에서 외부로 향하는 간선의 수를 뜻합니다.
-- 진입차수(in-degree) : 방향그래프에서 사용되는 용어로 외부 노드에서 들어오는 간선의 수를 뜻합니다.
+- Vertice : Also known as nodes, vertices store data. (0, 1, 2, 3)
+- Edge : Also known as links (arcs), they represent the relationship between nodes.
+- Adjacent vertex : Vertices connected by edges from above `vertex 0 and vertex 1 are adjacent vertices`
+- Simple-path : No repeated vertices in the path, paths that do not cut the same edge
+- Degree : The number of vertices adjacent to one vertex in an undirected graph (the degree of vertex 0 is 3)
+- Out-degree : A term used in direction graphs, which refers to the number of edges going out from a node.
+- In-degree : This term is used in direction graphs and refers to the number of edges coming from an external node.
 
-- 그래프 구현방법
+- How to implement the graph
 
  
-그래프를 구현하는 방법에는 인접행렬(Adjacency Materix)와 인접리스트(Adjacency List)방식이 있습니다. 두개의 구현 방식은 각각의 상반된 장단점을 가지고 있는데 대부분 인접리스트 형식을 많이들 사용합니다.
+There are two ways to implement a graph: `Adjacency Materix` and `Adjacency List`. The two implementations each have opposite pros and cons, and most of them use the `Adjacency list` format a lot.
 
 
 
@@ -1509,7 +1522,7 @@ if __name__ == "__main__":
 
 ![Direction_graph](/images/direction_graph.png)
 
-방향 그래프는 두 정점을 연결하는 간선에 방향이 존재하는 그래프입니다. 간선의 방향으로만 이동할 수 있습니다. 
+A direction graph is a graph in which a direction exists on an edge connecting two vertices. You can only move in the direction of the edge.
 
 
 
@@ -1517,7 +1530,7 @@ if __name__ == "__main__":
 
 ![Non-Direction_graph](/images/non_direction_graph.png)
 
-무방향 그래프는 두 정점을 연결하는 간선에 방향이 없는 그래프입니다.
+An undirected graph is a graph with no direction on the edges connecting two vertices.
 
 
 
@@ -1525,70 +1538,68 @@ if __name__ == "__main__":
 
 ![Adjacency_matrix](/images/adjacency_matrix.png)
 
-인접행렬은 그래프의 노드를 2차원 배열로 만든 것입니다. 완성된 배열의 모양은 1, 2, 3, 4, 5, 6의 정점을 연결하는 노드에 다른 노드들이 인접 정점이라면 1, 아니면 0을 넣어줍니다.
+Adjacency matrix is a two-dimensional array of nodes in a graph. In the shape of the completed array, 1, 2, 3, 4, 5, 6 is inserted into the node connecting the vertices, and 1 if other nodes are adjacent vertices, or 0 otherwise.
 
-- 장점
-  1. 2차원 배열 안에 모든 정점들의 간선 정보를 담기 때문에 배열의 위치를 확인하면 두 점에 대한 연결 정보를 조회할 때 O(1) 의 시간 복잡도면 가능합니다. 
-  2. 구현이 비교적 간편합니다.
+- Advantages
+  1. Since the edge information of all vertices is contained in a two-dimensional array, checking the position of the array is possible with a time complexity of O(1) when retrieving connection information for two points.
+  2. It is relatively simple to implement.
 
-- 단점
-  1. 모든 정점에 대해 간선 정보를 대입해야 하므로 O(n²) 의 시간복잡도가 소요됩니다.
-  2. 무조건 2차원 배열이 필요하기에 필요 이상의 공간이 낭비됩니다.
-
+- Disadvantages
+  1. It takes O(n²) time complexity since it is necessary to substitute edge information for all vertices.
+  2. Since a two-dimensional array is unconditionally required, more space than necessary is wasted.
 
 #### Adjacency list
 
 ![Adjacency_list](/images/adjacency_list.png)
 
-인접리스트란 그래프의 노드들을 리스트로 표현한것입니다. 주로 정점의 리스트 배열을 만들어 관계를 설정해줌으로써 구현합니다. 
+An adjacency list is a list of nodes in a graph. It is mainly implemented by creating a list array of vertices and establishing the relationship.
 
-- 장점
-  1. 정점들의 연결 정보를 탐색할 때 O(n) 의 시간이면 가능합니다. (n: 간선의 갯수)
-  2. 필요한 만큼의 공간만 사용하기때문에 공간의 낭비가 적습니다.
+- Advantages
+  1. When searching for connection information of vertices, it is possible in O(n) time. (n: number of edges)
+  2. Less space is wasted because it only uses as much space as needed.
 
  
 
-- 단점
-  1. 특정 두 점이 연결되었는지 확인하려면 인접행렬에 비해 시간이 오래 걸립니다. (배열보다 search 속도느림)
-  2. 구현이 비교적 어렵습니다.
-
+- Disadvantages
+  1. It takes longer to check whether two specific points are connected compared to adjacent matrices. (Search speed slower than array)
+  2. It is relatively difficult to implement.
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
-#### 그래프순회
+#### Graph traversal
 
-그래프에의 임의의 한 정점에서 시작하여 모든 정점들을 한 번씩 방문하는 작업
+Starting at a random vertex in the graph and visiting all vertices once
 
 - Search vs Traversal
 
-  - 탐색(Search) : index나 해싱 등의 방법으로 원하는 데이터를 빠르게 찾는 방법
-  - 순회(Traversal) : 특정 순회 알고리즘을 사용하여 모든 노드를 방문하는 방법
+  - Search : How to quickly find the data you want by index or hashing
+  - Traversal : How to visit all nodes using a specific traversal algorithm
 
-  - 탐색(search)의 관심 대상은 그래프 안의 특정 값(노드)이다. 그 관심 대상을 빠르게 찾는 검이 탐색의 목적이다.
+  - The target of search is a specific value (node) in the graph. The purpose of the search is a sword that quickly finds the object of interest.
 
-  - 반면, 순회(traversal)는 특정 노드 뿐만이 아니라 모든 노드가 관심 대상이다. 즉, 그래프 자체가 순회의 관심 대상이다. 순회를 통해 특정 값을 찾는 것도 가능하고 그래프를 가공하는 것이 가능해진다. 
+  - On the other hand, in traversal, not only specific nodes but all nodes are of interest. In other words, the graph itself is the object of interest in the circuit. It is also possible to find a specific value through traversal and it becomes possible to manipulate the graph.
 
-- 그래프 탐색(순회)은 왜 중요할까?
+- Why is graph traversing important?
 
-  - 그래프 탐색은 모든 정점을 방문하기 때문에 탐색을 통해 그래프 특징을 알 수 있다. 
-  - 또한, 방문하면서 checking, update 등과 같은 처리가 가능하기 때문에 그래프를 가공할 수 있다. BFS, DFS와 같은 그래프 탐색 기법을 사용하면 스패닝 트리(Spanning Tree)를 구할 수 있다.
-  - 즉, 탐색을 통해 (그래프 -> Spanning Tree 또는 MST - Minimu Spanning Tree)로 만들수 있다. 
+  - Since graph search visits all vertices, the characteristics of the graph can be known through the search.
+  - Also, you can process graphs because you can check and update while visiting. A spanning tree can be obtained by using a graph search technique such as BFS and DFS.
+  - In other words, it can be created as (Graph -> Spanning Tree or MST-Minimu Spanning Tree) through search.
 
-##### 깊이우선탐색
+##### Depth-first search(DFS)
 
-- 자식 노드를 우선적으로 탐색하는 탐색 기법
+- A search technique that preferentially searches for child nodes
 
-- 아직 방문되지 않은 인접 노드(자식 노드)를 우선적으로 탐색
+- Priority search for adjacent nodes (child nodes) that have not yet been visited
 
-- 깊이 우선 탐색은 한쪽방향만 파다가 더이상 팔 곳이 없으면 다시 돌아와서 다른 한쪽을 죽어라 파는 형식이다.
+- Depth-first search is a form of digging in only one direction and then returning and digging the other side when there is no more place to sell.
 
-- 깊이 우선 탐색은 Stack을 통해 구현된다.
+- Depth-first search is implemented through Stack.
 
-- 그렇기 때문에 DFS를 구현할 떄 stack이나 재귀 함수를 사용할 수 있다.
+- Therefore, when implementing DFS, you can use stack or recursive functions.
 
-- 재귀 함수를 사용하면 call stack을 사용하기 때문에 stack overflow를 조심해야 한다
+- If you use a recursive function, you have to be careful of stack overflow because it uses the call stack.
 
-- Spanning Tree, Connected Component, Strongly Connected Component 등에 활용
+- Used for Spanning Tree, Connected Component, Strongly Connected Component, etc.
 
 ```py
 # Example Code
@@ -1606,17 +1617,17 @@ def dfs(graph, start_node):
 
 ```
 
-##### 너비우선탐색
+##### Breadth-first search(BFS)
 
-- 형제 노드를 우선적으로 탐색하는 탐색 기법. (레벨 순회(level-order traversal)라고도 한다)
+-A search technique to search for sibling nodes first. (Also called level-order traversal)
 
--  아직 방문되지 않은 이전 노드(부모 노드)의 인접 노드(현재 노드의 형제 노드)를 우선적으로 탐색
+-Priority search for neighboring nodes (sibling nodes of the current node) of previous nodes (parent nodes) that have not yet been visited
 
-- BFS를 사용하면 매 탐색마다 휴리스틱 값을 찾아서 가장 최선의 휴리스틱 값의 노드로 확장이 가능하기 때문에 DFS대신 BFS가 최단 경로 탐색에 사용된다.
+-If BFS is used, BFS is used for shortest path search instead of DFS because it is possible to expand to the node with the best heuristic value by finding the heuristic value at each search.
 
-- 보통 너비 우선 탐색은 Queue를 통해 구현된다.
+-Usually, breadth-first search is implemented through a queue.
 
-- 최단 경로 탐색, Spanning Tree, Connected Component, Strongly Connected Component 등에 활용
+-Use for shortest path search, Spanning Tree, Connected Component, Strongly Connected Component, etc.
 
 ```py
 
@@ -1642,17 +1653,16 @@ def bfs(graph, start_node):
 
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
-[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
 
 
-### 검색알고리즘
+## Search algorithm
 
-- 선형검색
+- Linear search
 
-* 직선으로 늘어선 배열에서 원하는 키값을 가진 원소를 찾을때까지 맨 앞부터 스캔하여 순서대로 검색하는 알고리즘
-* 배열 원소의 개수가 n개라면, 조건을 판단하는 횟수는 평균 n/2번이다
-* 값이 정렬되지 않은 배열에서 검색할때 사용하는 유일한 방법
+  * Algorithm to search sequentially by scanning from the front until an element with a desired key value is found in an array arranged in a straight line
+  * If the number of elements in the array is n, the number of times to judge the condition is on average n/2 times.
+  * The only way to use when searching in an unordered array of values
 
 ```
 Example
@@ -1666,8 +1676,8 @@ while True:
     i += 1
 ```
 
-- 보초법(Sentinel method) : 선형검색은 반복할때마다 2가지의 종료조건을 체크하므로, 이 비용을 반으로 줄이기 위한 방법
-- 검색할 키값을 배열의 끝에 추가한 후, 찾은 값이 배열의 길이와 같으면 실패 반환
+- Sentinel method: Linear search checks two termination conditions every iteration, so this is a method to reduce this cost in half.
+- After adding the key value to be searched to the end of the array, if the found value is the same as the length of the array, failure is returned.
 
 ```
 Example
@@ -1684,11 +1694,11 @@ return -1 if i == len(a) else i
 
 </br>
 
-- 이진검색
-
-* 사용하려면 배열의 데이터가 정렬되어있어야함
-* 선형검색보다 빠르게 검색 가능하고 오름차순이나 내림차순에서 효율적으로 검색할 수 있음
-* 찾아야 할 값과 검색범위의 중간지점값을 비교하여 검색범위를 반으로 줄여나감
+- Binary search
+ 
+  * To use, the data in the array must be sorted
+  * Faster search than linear search and efficient search in ascending or descending order
+  * The search range is reduced by half by comparing the value to be found and the intermediate point value of the search range.
 
 ```
 Example
@@ -1711,75 +1721,33 @@ def bin_search(a: Sequence, key: Any) -> int:
         return -1
 ```
 
-- 해시법
+- Hashing
 
-* 검색과 함께 데이터의 추가, 삭제도 효율적으로 할 수 있음
-* 데이터를 저장할 위치(인덱스)를 간단한 연산으로 구하는 방법
-* 각각 배열의 키(원소의 값)을 배열의 원소 개수로 나눈 나머지(해시값)을 기준으로 데이터에 접근
-* 해시테이블에서 만들어진 원소를 버킷이라고 함
+  * Data can be added and deleted efficiently while searching.
+  * How to find the location (index) to save the data with a simple operation
+  * Access data based on the remainder (hash value) of each array key (element value) divided by the number of elements in the array
+  * Elements created from the hash table are called buckets.
 
 ```
 Example
 
 a = [5, 6, 14, 20, 29, 34, 37, 51, 69, 75, -, -, -]
 
-원소의 개수 13으로 나눈 hash table에서 각 원소의 인덱스 번호 = 5, 6, 1, 7, 3, 8, 11, 12, 4, 10
+Index number of each element in the hash table divided by the number of elements by 13 = 5, 6, 1, 7, 3, 8, 11, 12, 4, 10
 
 hash_table_a = [-, 14, -, 29, 69, 5, 6, 20, 34, -, 75, 37, 51]
 
-# 새로운 원소 35를 추가 : 35 % 13 = 9번 인덱스에 원소를 추가함 (원소의 이동이 필요없음)
+# Add new element 35 : 35 % 13 = Add an element to index 9 (no need to move the element)
 
 ```
 
-- 해시법에서 저장할 곳에 이미 데이터가 들어있는 경우 2가지 방법으로 대체할 수 있다
-  1. Chaining(Open hashing) : 해시값이 같은 원소를 연결 리스트로 관리
-  2. Open addressing : 해시 충돌이 발생했을때 해시를 재실행 하여 빈 버킷을 찾음
+- In the hash method, if there is already data in the storage area, it can be replaced in two ways
+  1. Chaining(Open hashing) : Manage elements with the same hash value as a linked list
+  2. Open addressing : When a hash collision occurs, rerun the hash to find an empty bucket
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
 
 
-
-### 스택과 큐
-
-- 스택
-- 큐
-
-### 재귀알고리즘
-
-- 함수안에서 함수 자신을 호출함
-- 무한루프에 빠지기 쉽기때문에 종료조건을 꼭 지정해야함
-- 모든 반복문은 재귀함수로 표현 가능
-
-```
-def f(n):
-    if n > 1:
-        return n * f(n-1)
-    else:
-        return 1
-
-print(f(5))   >>> 120
-```
-
-### 정렬이론
-
-- 버블정렬
-- 단순선택정렬
-- 단순삽입정렬
-- 셀정렬
-- 퀵정렬
-- 병합정렬
-- 힙정렬
-- 도수정렬
-
-### 문자열 검색
-
-- 브루트 포스법
-- KMP법
-- 보이어-무어 법
-
-### 리스트
-
-### 트리와 그래프
-
-### 깊이우선탐색과 너비우선탐색
 
 ## Greedy Algorithm
 
@@ -1895,3 +1863,28 @@ print(result)
 ```
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+
+
+
+## Recursive algorithm
+
+- Calling the function itself inside the function
+- It is easy to fall into an infinite loop, so you must specify the termination condition.
+- All iterations can be expressed as recursive functions
+
+```
+def f(n):
+    if n > 1:
+        return n * f(n-1)
+    else:
+        return 1
+
+print(f(5))   >>> 120
+```
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#Algorithm)
+
+
+

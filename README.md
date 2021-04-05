@@ -17,10 +17,20 @@
 ---
 
 ## :memo: Table of Contents
-
+- [Part 0. Developer Roadmap](#Part-0.-Developer-Roadmap)
 - [Part 1. CS](#Part-1.-CS)
 - [Part 2. Languages](#Part-2.-Languages)
 - [Part 3. Workfield](#Part-3.-Workfield)
+
+
+[Go to Top](#Today_I_Learned)
+
+
+# Part 0. Developer Roadmap
+
+> [Frontend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Frontend-roadmap.md)
+> [Backend Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Backend-roadmap.md)
+> [DevOps Roadmap](https://github.com/jojo-tey/Today_I_Learned/blob/main/P0_Developer_Roadmap/Devopsend-roadmap.md)
 
 
 [Go to Top](#Today_I_Learned)
@@ -216,14 +226,22 @@
 
 ## :bulb: Algorithm [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P1_CS/algorithm/README.md)
 
-- Tips for Coding Interview
-- Interview Questions for Algorithms
-- Coding Exercises
-- Strategic Approach to Problem Solving
-- Theory
-  - 검색 알고리즘
+- Algorithm
+  - Tips for Coding Interview
+  - Interview Questions for Algorithms
+  - Coding exercises
+  - Strategic Approach to Problem Solving
+  - Theory
+    - Array
+    - Stack
+    - Queue
+    - Hash Table
+    - Sort
+    - Tree
+    - Graph
+  - Search algorithm
   - Greedy Algorithm
-  - Sorting Algorithm
+  - Recursive algorithm
 
 </br>
 
