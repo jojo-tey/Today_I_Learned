@@ -17,6 +17,7 @@
 ---
 
 ## :memo: Table of Contents
+
 - [Part 0. Developer Roadmap](#Part-0.-Developer-Roadmap)
 - [Part 1. CS](#Part-1.-CS)
 - [Part 2. Languages](#Part-2.-Languages)
