@@ -321,11 +321,20 @@
 
 ## :fire: DevOps [Link](https://github.com/jojo-tey/Today_I_Learned/blob/main/P3_Workfield/devops/README.md)
 
+- Terraform
+  - [🚀Link to terraform repository](https://www.github.com/jojo-tey/terraform)
 - Docker
   - Interview Questions for Docker
-- Jenkins
-- Terraform
+  - Why Docker?
+  - Container and Image
+  - Dockerfile
+  - Docker Hub & Docker Registry
 - Kubernetes
+  - What is Kubernetes?
+  - Kubernetes workflow
+  - Kubernetes components
+  - Kubernetes and Docker-compose
+- Jenkins
 
 </br>
 
@@ -361,6 +370,8 @@
 - https://github.com/DopplerHQ/awesome-interview-questions
 - https://www.youtube.com/watch?v=Xw2D9aJRBY4
 - https://www.daleseo.com/
+- https://khj93.tistory.com/
+- https://tech.osci.kr/
 
 </br>
 
