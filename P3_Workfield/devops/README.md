@@ -1,20 +1,20 @@
 # DevOps
 
-- [Terraform]
+- [Terraform](https://www.github.com/jojo-tey/terraform)
   - [🚀Link to terraform repository](https://www.github.com/jojo-tey/terraform)
 - [Docker](#Docker)
   - [Interview Questions for Docker](#Interview-Questions-for-Docker)
-  - [Why Docker?](#Why-Docker?)
+  - [Why Docker](#Why-Docker)
   - [Virtualize](#Virtualize)
   - [Container and Image](#Container-and-Image)
   - [Dockerfile](#Dockerfile)
-  - [Docker Hub & Docker Registry](#Docker-Hub-&-Docker-Registry)
+  - [Docker Hub and Docker Registry](#Docker-Hub-and-Docker-Registry)
   - [Docker and Docker-compose](#Docker-and-Docker-compose)
-- [Kubernetes]
+- [Kubernetes](#Kubernetes)
   - [What is Kubernetes?](#What-is-Kubernetes?)
   - [Kubernetes workflow](#Kubernetes-workflow)
   - [Kubernetes components](#Kubernetes-components)
-  - [Kubernetes and Docker-compose](#[Kubernetes-and-Docker-compose])
+  - [Kubernetes and Docker-compose](#Kubernetes-and-Docker-compose)
 - [Jenkins](#Jenkins)
 
 ## Interview Questions for Docker
@@ -29,7 +29,7 @@
 
 > Docker is an open source virtualization platform based on a Linux container written in Go language
 
-### Why Docker?
+### Why Docker
 
   1. To secure an unchanging execution environment
 
