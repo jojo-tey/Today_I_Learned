@@ -16,6 +16,10 @@
   - [Kubernetes components](#Kubernetes-components)
   - [Kubernetes and Docker-compose](#Kubernetes-and-Docker-compose)
 - [Jenkins](#Jenkins)
+  - [Why Jenkins?](#Why-Jenkins?)
+  - [Jenkins Advantages and Disadvantages](#Jenkins-Advantages-and-Disadvantages)
+  - [Jenkins automation](#Jenkins-automation)
+  - [How Jenkins works](#How-Jenkins-works)
 
 ## Interview Questions for Docker
 
@@ -273,5 +277,233 @@ Pods are groups of containers, a Kubernetes unit of work that contains one or mo
 
 
 ## Jenkins
+
+### Why Jenkins?
+
+A common problem with many devops teams is a fragmented workflow. Most of the time, they get angry at inefficient work. <br>
+Team members tend to work independently. With solo coding, engineers regularly generate large amounts of code outside of version control. When the developer is "done," he adds the task to the base code. Then another team manually runs tests to verify the build.<br>
+Over the years, many teams have found this division of labor to be cumbersome and problematic.<br>
+Larger version control changes by multiple developers individually leads to complex bugs, increases time-consuming fixes, and increases the time it takes to perform more manual tests. Everything slows down.<br>
+This shortens build cycles, shortens production time, and ultimately lowers your company's bottom line with tedious debugging.<br>
+
+#### What does continuous integration mean? 
+
+- CI (Continuous Integration) is a process aimed at reducing build cycle inefficiencies by allowing developers to compile their team's code from a shared version control repository. CI allows you to automate your tests, so you can set up your system to automatically run unit tests or integration tests, for example.<br>
+
+- CI automatically monitors each engineer's commit. This simplifies writing and validating your code so your tests don't get much attention. It is recognized as a best practice in the software development community.<br>
+
+- CI runs on a shared server that increases visibility, so every engineer in the project will be aware of changes to the underlying code on a daily basis. You can also configure the server to alert developers when submitting failed code so they can fix server errors.<br>
+
+- CI automation can shorten development release cycles and improve product quality. CI essentially empowers teams to use machines to do their best, so people can bring more value to your company. It can also be customized both to fit your project and needs.<br>
+
+- CI environments can provide different levels of test automation.<br>
+
+- A CI/CD server with Jenkins allows you to set up the tests your team needs to run.<br>
+
+- There are different levels of testing that can be implemented. The most basic test is whether the code actually compiles. Code can be "lint" or style checked. Teams can write more complex tests that cover different bases, including unit, integration, stress, regression tests, and more.<br>
+
+#### How is Continuous Integration different from Continuous Delivery?
+
+- The CI service compiles and tests the entire application. In addition, continuous delivery pushes this tested application to the repository so that, for example, alpha testers can use and provide early feedback. CD builds are automatically deployed into production environments and can also be used for extensive beta testing.<br>
+
+- CD aims at Lean Logistics. Automate the process from adding new code to acceptance testing. The CD is ready to deploy the build by automating every step.<br>
+
+- Continuous delivery: In addition to building applications and running tests, applications are also "delivered". This often means placing it on a server so that someone can perform manual tests, or emailing it to users in the test group.<br>
+
+- For production builds, delivery means deploying the application for end users. This allows products to be deployed faster and on a smaller scale, reducing the risk of deployment. Regular small and concise deliveries are less risky than large deliveries that occur only once or twice a year.<br>
+
+
+#### How does Continuous Integration / Delivery help your development team?
+
+- Many people talk about CI as it is considered best practice to automatically check all code on every commit for the reasons mentioned above, run tests regularly and deploy continuously.
+
+- The process makes sure that each developer's contribution works well together. The early detection of these issues makes it easier and faster to fix bugs.
+
+- As you can guess, implementing a CI/CD will bring about a cultural change to your team. It becomes more agile and integrated.
+
+- CI was created to ensure that teams don't waste time manually resolving conflicting new code segments, triggering builds, or running tests. Instead, I recommend adding small incremental changes to your code to avoid getting huge and complex bugs to fix. This can speed up build cycles, streamlining deployment and production.
+
+- Also, production is where the business really makes money.
+
+- Also interestingly, for a multi-developer remote team, CI is very useful to implement because it puts all the work together and continuously combines them, regardless of geographic location, to keep all the work the same.
+
+- When you run Jenkins, you can run a set of basic tests that you programmed to constantly check if your code compiles and check the base code after every commit.
+
+- The merged code can be automatically deployed to the integration environment and used for manual testing.
+
+- You also use it to create and deploy production builds. Deployment is complicated because you don't update a single system. You are updating the entire system cluster. Updates should be done in a way that does not interfere with the service. Deploying in such an environment can cause errors if humans do
+
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#DevOps)
+
+
+## Jenkins Advantages and Disadvantages
+
+##### Jenkins is an old tool with an unfamiliar user interface.
+
+- The good news is that the Jenkins project has just released Blue Ocean, a continuous delivery software designed to significantly improve the UI. It is 100% open source.
+
+- When your team considers the option of continuous integration, Jenkins needs to run on a server (cost) and sometimes needs the attention of someone with systems management skills (time). After setting up the system, you can't expect it to run on its own, you need to update and maintain the system frequently.
+
+- However, Jenkins is open source and is one of the most widely used and most used free tools to implement CI/CD for a team of developers.
+
+- The barrier to entry for most teams is initial setup, delay, or failure to attempt previous setup. People know this is the best way to do it, but many teams ignore it for more urgent coding work. Perhaps someone on the team tried to implement Jenkins at some point, but it wasn't successful. Maybe the wasted effort left your boss badly impressed.
+
+##### The reason people don't implement a CI server is usually very practical.
+
+- One main reason: CI system goes down regularly. When a project's settings change, it is often necessary to re-adjust the configuration of the CI system. If a CI system is not perceived as of high value by the team, it tends to put the CI system aside and thus stops providing value.
+
+- Another reason not to use CI is that you have to write tests. Unit testing is something most developers want to do (e.g. best practices), but they often don't find time to do it. Naturally, coding real software is a business priority over more administrative tasks.
+
+- In addition, the test is interrupted, so if the function being tested changes, it must be updated. If not updated, the value offering will cease as above. You need to prioritize infrastructure maintenance. Otherwise it won't work.
+
+- In short, it takes time to set up and requires a fair amount of work to keep it updated. However, teams can test to simplify system maintenance and increase efficiency.
+
+- Of course, the SaaS alternative to Jenkins is hosted, so it can help if someone else pays a little extra to maintain the software. Enterprises tend to choose this option when they need a better UI than Jenkins offers. However, the main advantage of self-hosting is that you have more control over the security of your own data.
+
+- Implementing CI requires a cultural change, especially from management. They should allow time for these "unproductive things" to be done, but other routine tasks are put on hold as well.
+
+- Nevertheless, a short time sacrifice translates into a long-term benefit for the company as a whole. With Jenkins, your code is easier to maintain and fewer bugs. Teams are more integrated and deployment times are reduced. Your business can deploy faster and respond to the changing needs of your customers.
+
+##### All of this requires a mindset shift
+
+- CI is an investment, not a cost. The ROI for implementation can be produced with high-quality products that are time-saving, error-proof, and more readily available to customers.
+
+## Jenkins automation
+
+Today Jenkins is a leading open source automation server with around 1,400 plugins to support all kinds of development tasks. The continuous integration and continuous delivery of Java code that Kawaguchi was originally trying to address: building projects, running tests, running static code analysis, and deploying are just one of the many processes people are using Jenkins to automate. These 1,400 plugins cover five areas (platform, UI, management, source code management, and the most used build management).
+
+[Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#DevOps)
+
+## How Jenkins Works
+
+Jenkins is available in the form of Java 8 WAR archives and installation packages, Homebrew packages, Docker images, and source code for major operating systems. The source code is mostly Java, and contains several Groovy, Ruby, and Another Tool For Language Recognition (ANTLR) files.<br>
+
+You can run the Jenkins WAR alone or as a Serverlet on a Java application server such as Tomcat. In either case, it creates a web user interface (UI) and accepts calls to REST APIs.
+
+
+### Jenkins plugin
+
+Once installed, Jenkins allows the user to accept a default list of plugins or select the plugins they want. The Jenkins main screen displays the current Build Queue and Executor status, creating a new item (Job), managing users, viewing build history, managing Jenkins, viewing customized views of users, and certificates of users. <br>
+Provides a link to manage New Jenkins items can be any of the six types of tasks + folders for item management. The Manage Jenkins page allows you to do 18 things, including the option to open a command line interface.
+
+### Jenkins pipeline
+
+Once you've configured Jenkins, it's time to create some projects that Jenkins can build. You can also use the web UI to write the script, but the best study right now is to create a pipeline script named Jenkinsfile and check it into the repository. <br>
+
+In the default Jenkins installation, the branch source for this kind of pipeline can be Git or Subversion, including GitHub. If you need a different kind of repository or another online repository, just add the appropriate plugin and reboot Jenkins. <br>
+
+Jenkins pipelines can be declarative or scripted. The simpler of the two, the declarative pipeline uses a Groovy-compatible syntax, and if desired, you can start the file with #!groovy to direct the code editor in the right direction. A declarative pipeline starts with a pipeline block, defines an agent, and defines stages that contain executable steps, as in the following three-stage example. <br>
+
+```
+pipeline {
+agent any
+
+stages {
+stage(‘Build’) {
+steps {
+echo ‘Building..’
+}
+}
+stage(‘Test’) {
+steps {
+echo ‘Testing..’
+}
+}
+stage(‘Deploy’) {
+steps {
+echo ‘Deploying....’
+}
+}
+}
+}
+```
+
+pipeline is an essential outer block for calling Jenkins pipeline plugins. The agent defines where you want to run the pipeline. any indicates that any available agent can be used to run the pipeline or stage. For example, if you are a more specific agent, you would declare a container to use as follows.
+
+```
+agent {
+docker {
+image ‘maven:3-alpine’
+label ‘my-defined-label’
+args ‘-v /tmp:/tmp’
+}
+}
+```
+
+stages contain one or more stage directives. In the previous example, the three stages are Build, Test, and Deploy.
+steps do the actual work. In the previous example, steps only displayed a message. A more useful build step would be:
+
+```
+pipeline {
+agent any
+
+stages {
+stage(‘Build’) {
+steps {
+sh ‘make’
+archiveArtifacts artifacts: ‘**/target/*.jar’, fingerprint: true
+}
+}
+}
+}
+
+```
+
+In this example, we are archiving the generated JAR file to the Jenkins archive after calling make from the shell.
+The post session defines an action to be executed at the end of the stage or pipeline execution. Multiple post-condition blocks can be used within a post session (always, changed, failure, success, unstable, and aborted).
+For example, the following Jenkins always runs Junit after the Test stage, but only sends an email if the pipeline fails.
+
+```
+pipeline {
+agent any
+stages {
+stage(‘Test’) {
+steps {
+sh ‘make check’
+}
+}
+}
+post {
+always {
+junit ‘**/target/*.xml’
+}
+failure {
+mail to: team@example.com, subject: ‘The Pipeline failed :(‘
+}
+}
+}
+```
+
+Directive pipelines can express most of what the user needs to define a pipeline, and are much easier to learn than the scripted pipeline syntax, which is a Groovy-based DSL. In fact, a scripted pipeline is a programming environment with all its characteristics.
+
+
+> Declarative pipeline
+
+```
+pipeline {
+agent { docker ‘node:6.3’ }
+stages {
+stage(‘build’) {
+steps {
+sh ‘npm ?version’
+}
+}
+}
+}
+```
+
+> Scripted pipeline
+
+```
+node(‘docker’) {
+checkout scm
+stage(‘Build’) {
+docker.image(‘node:6.3’).inside {
+sh ‘npm ?version’
+}
+}
+}
+```
 
 [Back](https://github.com/jojo-tey/Today_I_Learned) / [Top](#DevOps)
